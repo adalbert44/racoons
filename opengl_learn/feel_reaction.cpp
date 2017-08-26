@@ -6,7 +6,7 @@ void feel_mouse_pressed(int button, int state)
     {
         for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
-            if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)
+            if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==1.0)
             {
                 object[i][j].f.tex=taken;
                 object[i][j].f.x1=i*feel_seg_size-feel_seg_size/2.0;

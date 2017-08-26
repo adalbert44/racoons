@@ -28,7 +28,7 @@ void draw_feel()
         for (int j=1;j<feel_size;j++)
         {
             if (object[i][j].f.tex==empty_)
-                object[i][j].f.alpha=0.12;
+                object[i][j].f.alpha=0.3;
             if (object[i][j].f.dist()<mn)
             {
                 imn=i;
@@ -37,12 +37,12 @@ void draw_feel()
             }
         }
     if (can_put(imn,jmn) && mousex>left_menu_size)
-        object[imn][jmn].f.alpha=0.5;
+        object[imn][jmn].f.alpha=1.0;
 
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
         {
-            if (object[i][j].f.tex==empty_ && (!can_put(i,j) || !something_taken))
+            if (object[i][j].f.tex==empty_ && !can_put(i,j))
                 continue;
             object[i][j].draw();
         }
