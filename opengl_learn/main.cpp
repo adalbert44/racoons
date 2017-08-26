@@ -25,8 +25,16 @@ void keyboard(unsigned char c, int x, int y)
             exit(0);
             break;
         case '+':
-            scrol*=speed_scrol;
-            scrol=min(scrol,float(2.0));
+            if ((-startx)*min(float(2.0),scrol*speed_scrol)>left_menu_size)
+            {
+                startx=-left_menu_size/min(float(2.0),scrol*speed_scrol);
+                startx=min(startx,feel_seg_size*feel_size-WinWid/scrol);
+            }
+            if ((-startx)*scrol<left_menu_size)
+            {
+                scrol*=speed_scrol;
+                scrol=min(scrol,float(2.0));
+            }
             break;
         case '-':
             if ((feel_size*feel_seg_size-startx)*scrol/speed_scrol>WinWid && (feel_size*feel_seg_size-starty)*scrol/speed_scrol>WinHei)
