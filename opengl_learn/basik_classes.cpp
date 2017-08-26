@@ -159,8 +159,8 @@ void Circle_element :: draw()
         float x=(now.x1+now.x2)/2.0;
         float y=(now.y1+now.y2)/2.0;
         glBegin(GL_LINES);
-            glVertex2f(((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0,((f.y2-starty)*scrol+(f.y1-starty))/2.0);
-            glVertex2f(((x-startx)*scrol+((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0)/2.0,((y-starty)*scrol+((f.y2-starty)*scrol+(f.y1-starty))/2.0)/2.0);
+            glVertex2f(((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0,((f.y2-starty)*scrol+(f.y1-starty)*scrol)/2.0);
+            glVertex2f(((x-startx)*scrol+((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0)/2.0,((y-starty)*scrol+((f.y2-starty)*scrol+(f.y1-starty)*scrol)/2.0)/2.0);
 
         glEnd();
     }
