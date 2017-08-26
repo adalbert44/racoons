@@ -110,6 +110,9 @@ void creat_feel()
 
     for (int i=0;i<7;i++)
         left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,put,1.0);
+
+    line_mode=Button(Figure(50,left_menu_size,50,100,put,1.0),{&line_mode_used});
+    point_mode=Button(Figure(0,50,50,100,put,1.0),{&point_mode_used});
 }
 
 void Initialize(int w, int h)

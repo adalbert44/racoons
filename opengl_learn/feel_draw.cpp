@@ -65,4 +65,6 @@ void draw_left_menu()
         left_menu_horizontal[i].draw_state();
         left_menu_vertical[i].draw_state();
     }
+    point_mode.draw_state();
+    line_mode.draw_state();
 }

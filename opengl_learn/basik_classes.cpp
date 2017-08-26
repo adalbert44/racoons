@@ -27,6 +27,11 @@ Circle_element object[30][30];
 Figure left_menu_vertical[9];
 Figure left_menu_horizontal[9];
 
+Button line_mode;
+bool line_mode_used=0;
+Button point_mode;
+bool point_mode_used=0;
+
 float sqr(float a)
 {
     return(a*a);
@@ -166,4 +171,51 @@ void Circle_element :: draw()
     }
     f.draw();
 
+}
+
+Button :: Button()
+{
+
+}
+
+Button :: Button(Figure f_, vector<bool*> change_)
+{
+    f=f_;
+    change=change_;
+}
+
+void Button :: draw_state()
+{
+    f.draw_state();
+        glPushMatrix();
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glColor4f(0, 0, 0, shade);
+
+    glBegin(GL_QUADS);
+        glVertex2f(f.x1, f.y1);
+        glVertex2f(f.x2, f.y1);
+        glVertex2f(f.x2, f.y2);
+        glVertex2f(f.x1, f.y2);
+    glEnd();
+
+    glDisable(GL_BLEND);
+
+    glPopMatrix();
+}
+
+void Button :: press_down()
+{
+    shade=0.3;
+}
+
+void Button :: press_up()
+{
+    if (used)
+        shade=0.0; else
+        shade=0.16;
+    used=!used;
+    for (int i=0;i<change.size();i++)
+        (*change[i])=!(*change[i]);
 }
