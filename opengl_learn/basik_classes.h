@@ -2,7 +2,7 @@
 #define BASIK_CLASSES_H_INCLUDED
 
     #include "includes.h"
-
+    using namespace std;
     struct Figure
     {
     public:
@@ -15,18 +15,35 @@
         bool in();
         void draw();
         void draw_state();
+        void resize_(float siz);
 
+    };
+
+    struct Point
+    {
+    public:
+        float x,y;
+        Point()
+        {
+        }
+        Point (float x_, float y_)
+        {
+            x=x_;
+            y=y_;
+        }
     };
 
     struct Circle_element
     {
     public:
         Figure f;
+        vector<pair<int,int> > reb;
         float R;
         float U;
         Circle_element();
         Circle_element(float x, float y);
         Circle_element(Figure f_, float R_, float U_);
+        void draw();
     };
     extern Circle_element object[30][30];
     extern std::vector<Figure> feel_background;

@@ -5,13 +5,13 @@ bool can_put(int i, int j)
     if ((object[i][j].f.x2-startx)*scrol<=left_menu_size) return(0);
     if (object[i][j].f.tex!=empty_) return(0);
     if (i-1!=0)
-        if (object[i-1][j].f.tex!=empty_) return(0);
+        if (object[i-1][j].f.tex!=empty_ && object[i-1][j].f.tex!=connection_point) return(0);
     if (i+1!=feel_size)
-        if (object[i+1][j].f.tex!=empty_) return(0);
+        if (object[i+1][j].f.tex!=empty_ && object[i+1][j].f.tex!=connection_point) return(0);
     if (j-1!=0)
-        if (object[i][j-1].f.tex!=empty_) return(0);
+        if (object[i][j-1].f.tex!=empty_ && object[i][j-1].f.tex!=connection_point) return(0);
     if (j+1!=feel_size)
-        if (object[i][j+1].f.tex!=empty_) return(0);
+        if (object[i][j+1].f.tex!=empty_ && object[i][j+1].f.tex!=connection_point) return(0);
     return(1);
 }
 
@@ -41,7 +41,12 @@ void draw_feel()
 
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
-            object[i][j].f.draw();
+        {
+            if (object[i][j].f.tex==empty_ && !can_put(i,j))
+                continue;
+            object[i][j].draw();
+        }
+
 
     if (something_taken)
     {

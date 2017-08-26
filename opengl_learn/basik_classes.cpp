@@ -5,19 +5,21 @@ float WinHei=0.0;
 
 float speed_scrol=1.05;
 float speed_move=20.0;
-float startx=0,starty=0;
+
 float feel_seg_size=100;
 int feel_size=30;
 float scrol=1.0;
 float mousex=0.0, mousey=0.0;
 bool in_feel=1;
 bool something_taken=0;
+bool direction=0;
 GLuint taken;
 GLuint put;
 float left_menu_size=350;
-
+float startx=-left_menu_size,starty=0;
 GLuint feel_background_texture[2];
 GLuint empty_;
+GLuint connection_point;
 vector<Figure> feel_background;
 Figure left_menu_background;
 Circle_element object[30][30];
@@ -117,6 +119,17 @@ bool Figure :: in()
     return(x1<=mousex && mousex<=x2 && y1<=mousey && mousey<=y2);
 }
 
+void Figure :: resize_(float len)
+{
+    float sx=(x1+x2)/2.0;
+    float sy=(y1+y2)/2.0;
+
+    x1=sx-len/2.0;
+    x2=sx+len/2.0;
+    y1=sy-len/2.0;
+    y2=sy+len/2.0;
+}
+
 Circle_element :: Circle_element()
 {
 
@@ -134,4 +147,23 @@ Circle_element :: Circle_element(Figure f_, float R_, float U_)
     f=f_;
     R=R_;
     U=U_;
+}
+
+void Circle_element :: draw()
+{
+    glLineWidth(5);
+    glColor4f(0, 0, 0, 1);
+    for (int i=0;i<reb.size();i++)
+    {
+        Figure now=object[reb[i].first][reb[i].second].f;
+        float x=(now.x1+now.x2)/2.0;
+        float y=(now.y1+now.y2)/2.0;
+        glBegin(GL_LINES);
+            glVertex2f(((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0,((f.y2-starty)*scrol+(f.y1-starty))/2.0);
+            glVertex2f(((x-startx)*scrol+((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0)/2.0,((y-starty)*scrol+((f.y2-starty)*scrol+(f.y1-starty))/2.0)/2.0);
+
+        glEnd();
+    }
+    f.draw();
+
 }

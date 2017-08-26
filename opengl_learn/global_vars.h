@@ -26,4 +26,6 @@
     extern bool in_feel;
     extern bool something_taken;
     extern GLuint put;
+    extern bool direction;
+    extern GLuint connection_point;
 #endif // GLOBAL_VARS_H_INCLUDED
