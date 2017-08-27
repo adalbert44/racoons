@@ -139,10 +139,10 @@
 1503313913 source:c:\users\Виктория\desktop\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1503742274 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.cpp
+1503735567 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.cpp
 	"basik_classes.h"
 
-1503742167 c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
+1503735567 c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
 1503735569 c:\users\admin\desktop\racoons\opengl_learn\includes.h
@@ -154,14 +154,14 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1503740774 c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
+1503735568 c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
-1503742167 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
+1503735567 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
-1503743626 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.cpp
+1503735567 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.cpp
 	"feel_draw.h"
 	"basik_classes.h"
 
@@ -171,7 +171,7 @@
 1503735567 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1503743587 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.cpp
+1503735568 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.cpp
 	"feel_reaction.h"
 
 1503735568 c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.h
@@ -180,7 +180,7 @@
 1503735568 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.h
 	"includes.h"
 
-1503740774 source:c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
+1503735568 source:c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
@@ -193,7 +193,7 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1503740738 source:c:\users\admin\desktop\racoons\opengl_learn\load_textures.cpp
+1503735569 source:c:\users\admin\desktop\racoons\opengl_learn\load_textures.cpp
 	"load_textures.h"
 
 1503735569 c:\users\admin\desktop\racoons\opengl_learn\load_textures.h
