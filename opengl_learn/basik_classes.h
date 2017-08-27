@@ -45,30 +45,10 @@
         Circle_element(Figure f_, float R_, float U_);
         void draw();
     };
-
-    class Button
-    {
-    public:
-        Figure f;
-        vector<bool*> change;
-        float shade=0;
-        bool used=0;
-        Button();
-        Button(Figure f_, vector<bool*> change);
-        void draw_state();
-        void press_down();
-        void press_up();
-    };
-
     extern Circle_element object[30][30];
     extern std::vector<Figure> feel_background;
     extern Figure left_menu_background;
     extern Figure left_menu_vertical[9];
     extern Figure left_menu_horizontal[9];
     extern GLuint taken;
-    extern Button line_mode;
-    extern bool line_mode_used;
-    extern Button point_mode;
-    extern bool point_mode_used;
-
 #endif // BASIK_CLASSES_H_INCLUDED

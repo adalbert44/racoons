@@ -63,54 +63,25 @@ void feel_mouse_pressed(int button, int state)
 
 void left_menu_mouse_pressed(int button, int state)
 {
-    if (!line_mode_used && !point_mode_used)
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
-        if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
-        {
-            for (int i=0;i<7;i++)
-                if (left_menu_horizontal[i].in())
-                {
-                    something_taken=1;
-                    taken=left_menu_horizontal[i].tex;
-                    direction=1;
-                }
-            for (int i=0;i<7;i++)
-                if (left_menu_vertical[i].in())
-                {
-                    something_taken=1;
-                    taken=left_menu_vertical[i].tex;
-                    direction=0;
-                }
-        } else
-        if (state==GLUT_UP)
-        {
-            something_taken=0;
-        }
-    }
-
-    if (state==GLUT_DOWN)
-    {
-        if (line_mode.f.in() && !point_mode_used)
-            line_mode.press_down();
-        if (point_mode.f.in() && !line_mode_used)
-            point_mode.press_down();
+        for (int i=0;i<7;i++)
+            if (left_menu_horizontal[i].in())
+            {
+                something_taken=1;
+                taken=left_menu_horizontal[i].tex;
+                direction=1;
+            }
+        for (int i=0;i<7;i++)
+            if (left_menu_vertical[i].in())
+            {
+                something_taken=1;
+                taken=left_menu_vertical[i].tex;
+                direction=0;
+            }
     } else
     if (state==GLUT_UP)
     {
-        if (line_mode.f.in() && line_mode.shade>0.3-(1e-7))
-            line_mode.press_up();
-        if (point_mode.f.in() && point_mode.shade>0.3-(1e-7))
-            point_mode.press_up();
-
-        if (line_mode.shade>0.3-(1e-7) && line_mode.used)
-            line_mode.shade=0.16; else
-        if (line_mode.shade>0.3-(1e-7) && !line_mode.used)
-            line_mode.shade=0.0;
-
-        if (point_mode.shade>0.3-(1e-7) && point_mode.used)
-            point_mode.shade=0.16; else
-        if (point_mode.shade>0.3-(1e-7) && !point_mode.used)
-            point_mode.shade=0.0;
-
+        something_taken=0;
     }
 }

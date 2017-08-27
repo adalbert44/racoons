@@ -25,16 +25,8 @@ void keyboard(unsigned char c, int x, int y)
             exit(0);
             break;
         case '+':
-            if ((-startx)*min(float(2.0),scrol*speed_scrol)>left_menu_size)
-            {
-                startx=-left_menu_size/min(float(2.0),scrol*speed_scrol);
-                startx=min(startx,feel_seg_size*feel_size-WinWid/scrol);
-            }
-            if ((-startx)*scrol<left_menu_size)
-            {
-                scrol*=speed_scrol;
-                scrol=min(scrol,float(2.0));
-            }
+            scrol*=speed_scrol;
+            scrol=min(scrol,float(2.0));
             break;
         case '-':
             if ((feel_size*feel_seg_size-startx)*scrol/speed_scrol>WinWid && (feel_size*feel_seg_size-starty)*scrol/speed_scrol>WinHei)
@@ -110,9 +102,6 @@ void creat_feel()
 
     for (int i=0;i<7;i++)
         left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,put,1.0);
-
-    line_mode=Button(Figure(50,left_menu_size,50,100,put,1.0),{&line_mode_used});
-    point_mode=Button(Figure(0,50,50,100,put,1.0),{&point_mode_used});
 }
 
 void Initialize(int w, int h)
