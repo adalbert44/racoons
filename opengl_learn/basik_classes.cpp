@@ -7,6 +7,7 @@ float speed_scrol=1.05;
 float speed_move=20.0;
 
 
+
 float feel_seg_size=100;
 int feel_size=30;
 float scrol=1.0;
@@ -31,6 +32,8 @@ Figure left_menu_horizontal[9];
 
 vector<pair<int,int> > choosen_point;
 GLuint choosen_point_tex;
+vector<vector<Event> > events;
+int last_event=-1;
 
 Button line_mode;
 bool line_mode_used=0;
@@ -236,4 +239,24 @@ void Button :: press_up()
     for (int i=0;i<change.size();i++)
         (*change[i])=!(*change[i]);
 
+}
+
+
+Event :: Event()
+{
+
+}
+
+Event :: Event(pair<int,int> p1_, pair<int,int> p2_)
+{
+    type=1;
+    p1=p1_;
+    p2=p2_;
+}
+
+Event :: Event(Circle_element was_, Circle_element become_)
+{
+    type=2;
+    was=was_;
+    become=become_;
 }

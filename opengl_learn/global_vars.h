@@ -21,6 +21,7 @@
     extern float mousex;
     extern float mousey;
 
+    extern int last_event;
     extern GLuint feel_background_texture[2];
     extern GLuint empty_;
     extern float left_menu_size;

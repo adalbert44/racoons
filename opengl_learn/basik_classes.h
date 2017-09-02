@@ -20,6 +20,7 @@
         void resize_(float siz);
 
 
+
     };
 
     struct Point
@@ -63,6 +64,20 @@
         void press_up();
     };
 
+    class Event
+    {
+    public:
+        int type;
+        pair<int,int> p1;
+        pair<int,int> p2;
+        Circle_element was;
+        Circle_element become;
+        Event();
+        Event(pair<int,int> p1_, pair<int,int> p2_);
+        Event(Circle_element was_, Circle_element become_);
+
+    };
+
     extern Circle_element object[30][30];
     extern std::vector<Figure> feel_background;
     extern Figure left_menu_background;
@@ -74,5 +89,7 @@
     extern Button point_mode;
     extern bool point_mode_used;
     extern Button* pressed;
+
+    extern vector<vector<Event> > events;
 
 #endif // BASIK_CLASSES_H_INCLUDED

@@ -18,6 +18,7 @@ bool can_put(int i, int j)
 
 void draw_feel()
 {
+
     for (int i=0;i<int(feel_background.size());i++)
         feel_background[i].draw();
 

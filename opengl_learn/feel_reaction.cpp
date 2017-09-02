@@ -1,7 +1,15 @@
 #include "feel_reaction.h"
 
+void del_events()
+{
+    while (events.size()!=last_event+1)
+        events.pop_back();
+}
+
 void add_reb()
 {
+
+    vector<Event> vec;
 
     for (int i=0;i<int(choosen_point.size())-1;i++)
     {
@@ -14,11 +22,10 @@ void add_reb()
             if (object[x1][y1].reb[j].first==x2 && object[x1][y1].reb[j].first==y2)
                 ch=1;
         if (ch) continue;
+        vec.push_back(Event(mp(x1,y1),mp(x2,y2)));
         object[x1][y1].reb.push_back({x2,y2});
         object[x2][y2].reb.push_back({x1,y1});
     }
-
-
 
     for (int i=0;i<choosen_point.size();i++)
     {
@@ -28,76 +35,148 @@ void add_reb()
     }
 
     choosen_point.clear();
+
+    if (vec.empty()) return;
+
+    del_events();
+
+    events.pb(vec);
+    last_event++;
+
 }
 
 void add_element()
 {
+    vector <Event> vec;
+
     for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
             if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)
             {
+
+
+                Circle_element fir=object[i][j];
                 object[i][j].f.tex=taken;
                 object[i][j].f.x1=i*feel_seg_size-feel_seg_size/2.0;
                 object[i][j].f.x2=i*feel_seg_size+feel_seg_size/2.0;
                 object[i][j].f.y1=j*feel_seg_size-feel_seg_size/2.0;
                 object[i][j].f.y2=j*feel_seg_size+feel_seg_size/2.0;
                 object[i][j].f.alpha=1.0;
+                Circle_element sec=object[i][j];
+
+                vec.pb(Event(fir,sec));
 
                 if (direction)
                 {
                     if (i+1<feel_size)
                     {
+                        vec.pb(Event(mp(i+1,j),mp(i,j)));
                         object[i][j].reb.push_back({i+1,j});
                         object[i+1][j].reb.push_back({i,j});
+
+                        if (object[i+1][j].f.tex==connection_point) continue;
+
+                        Circle_element fir=object[i+1][j];
+
                         object[i+1][j].f.tex=connection_point;
                         object[i+1][j].f.alpha=1.0;
                         object[i+1][j].f.resize_(20);
+
+                        Circle_element sec=object[i+1][j];
+                        vec.pb(Event(fir,sec));
                     }
 
                     if (i-1>=1)
                     {
+                        vec.pb(Event(mp(i-1,j),mp(i,j)));
                         object[i][j].reb.push_back({i-1,j});
                         object[i-1][j].reb.push_back({i,j});
+
+                        if (object[i-1][j].f.tex==connection_point) continue;
+
+                        Circle_element fir=object[i-1][j];
+
                         object[i-1][j].f.tex=connection_point;
                         object[i-1][j].f.alpha=1.0;
                         object[i-1][j].f.resize_(20);
+
+                        Circle_element sec=object[i-1][j];
+                        vec.pb(Event(fir,sec));
                     }
 
                 } else
                 {
                     if (j+1<feel_size)
                     {
+                        vec.pb(Event(mp(i,j+1),mp(i,j)));
                         object[i][j].reb.push_back({i,j+1});
                         object[i][j+1].reb.push_back({i,j});
+
+                        if (object[i][j+1].f.tex==connection_point) continue;
+
+                        Circle_element fir=object[i][j+1];
+
                         object[i][j+1].f.tex=connection_point;
                         object[i][j+1].f.alpha=1.0;
                         object[i][j+1].f.resize_(20);
+
+                        Circle_element sec=object[i][j+1];
+                        vec.pb(Event(fir,sec));
                     }
 
                     if (j-1>=1)
                     {
+                    vec.pb(Event(mp(i,j-1),mp(i,j)));
                         object[i][j].reb.push_back({i,j-1});
                         object[i][j-1].reb.push_back({i,j});
+
+                        if (object[i][j-1].f.tex==connection_point) continue;
+
+                        Circle_element fir=object[i][j-1];
+
                         object[i][j-1].f.tex=connection_point;
                         object[i][j-1].f.alpha=1.0;
                         object[i][j-1].f.resize_(20);
+
+                        Circle_element sec=object[i][j-1];
+                        vec.pb(Event(fir,sec));
                     }
                 }
             }
 
     something_taken=0;
+
+    if (vec.empty()) return;
+
+    del_events();
+
+    events.pb(vec);
+    last_event++;
 }
 
 void add_point()
 {
+    vector<Event> vec;
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
         if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)
         {
+            Circle_element fir=object[i][j];
+
             object[i][j].f.tex=connection_point;
             object[i][j].f.alpha=1.0;
             object[i][j].f.resize_(20);
+
+            Circle_element sec=object[i][j];
+
+            vec.pb(Event(fir,sec));
         }
+    if (vec.empty()) return;
+
+    del_events();
+
+    events.pb(vec);
+    last_event++;
 
 }
 

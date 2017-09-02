@@ -9,7 +9,11 @@
     #include "global_vars.h"
     #include "basik_classes.h"
 
+    #define mp make_pair
+    #define pb push_back
+
     using namespace std;
+
 
 
 
