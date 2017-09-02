@@ -31,4 +31,5 @@
     extern GLuint connection_point;
     extern vector<pair<int,int> > choosen_point;
     extern GLuint choosen_point_tex;
+    extern GLuint left_menu_background_tex;
 #endif // GLOBAL_VARS_H_INCLUDED

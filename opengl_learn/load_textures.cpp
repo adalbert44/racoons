@@ -21,4 +21,5 @@ void load_all()
     connection_point=Load("black_circle.png");
     put=Load("button_form.png");
     choosen_point_tex=Load("blue_circle.png");
+    left_menu_background_tex=Load("left_menu_background.png");
 }

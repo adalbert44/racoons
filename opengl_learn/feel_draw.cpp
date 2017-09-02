@@ -74,5 +74,4 @@ void draw_left_menu()
     }
     point_mode.draw_state();
     line_mode.draw_state();
-    cout<<'!';
 }

@@ -44,17 +44,17 @@ void keyboard(unsigned char c, int x, int y)
             {
                 if ((feel_size*feel_seg_size-startx)*scrol/speed_scrol<=WinWid)
                 {
-                    startx-=speed_move;
+                    startx=feel_size*feel_seg_size-(WinWid/(scrol/speed_scrol))-0.0001;
                     startx=max(float(-left_menu_size)/scrol,startx);
                 }
 
                 if ((feel_size*feel_seg_size-starty)*scrol/speed_scrol<=WinHei)
                 {
-                    starty-=speed_move;
+                    starty=feel_size*feel_seg_size-(WinHei/(scrol/speed_scrol))-0.0001;
                     starty=max(float(0.0),starty);
                 }
 
-                if ((feel_size*feel_seg_size-startx)*scrol/speed_scrol>WinWid && (feel_size*feel_seg_size-starty)*scrol/speed_scrol>WinHei)
+                if ((feel_size*feel_seg_size-startx)*scrol/speed_scrol>=WinWid && (feel_size*feel_seg_size-starty)*scrol/speed_scrol>=WinHei)
                 {
                     scrol/=speed_scrol;
                 }
@@ -103,7 +103,7 @@ void creat_feel()
         for (int j=1;j<feel_size;j++)
             object[i][j]=Circle_element(i*feel_seg_size,j*feel_seg_size);
 
-    left_menu_background=Figure(0,left_menu_size,0,WinHei,empty_,1.0);
+    left_menu_background=Figure(0,left_menu_size,0,WinHei,left_menu_background_tex,1.0);
 
     for (int i=0;i<7;i++)
         left_menu_vertical[i]=Figure(0,left_menu_size/2.0,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,put,1.0);
