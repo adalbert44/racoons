@@ -2,6 +2,7 @@
 
 void add_reb()
 {
+
     for (int i=0;i<int(choosen_point.size())-1;i++)
     {
         int x1=choosen_point[i].first;
@@ -16,6 +17,7 @@ void add_reb()
         object[x1][y1].reb.push_back({x2,y2});
         object[x2][y2].reb.push_back({x1,y1});
     }
+
 
 
     for (int i=0;i<choosen_point.size();i++)
@@ -86,15 +88,34 @@ void add_element()
     something_taken=0;
 }
 
+void add_point()
+{
+    for (int i=1;i<feel_size;i++)
+        for (int j=1;j<feel_size;j++)
+        if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)
+        {
+            object[i][j].f.tex=connection_point;
+            object[i][j].f.alpha=1.0;
+            object[i][j].f.resize_(20);
+        }
+
+}
+
 void feel_mouse_pressed(int button, int state)
 {
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used)
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
     {
         add_reb();
         return;
     }
 
-    if (something_taken && state==GLUT_UP && button==GLUT_LEFT_BUTTON)
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && point_mode_used)
+    {
+        add_point();
+        return;
+    }
+
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && something_taken)
     {
         add_element();
         return;
@@ -120,7 +141,7 @@ void feel_mouse_pressed(int button, int state)
 
 void left_menu_mouse_pressed(int button, int state)
 {
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used)
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
     {
         add_reb();
         return;
@@ -172,6 +193,7 @@ void left_menu_mouse_pressed(int button, int state)
             if ((*pressed).f.in())
             {
                 (*pressed).press_up();
+                pressed=NULL;
             } else
             {
 
@@ -185,6 +207,7 @@ void left_menu_mouse_pressed(int button, int state)
 
 void add_point_to_choosen()
 {
+    if (pressed!=NULL) return;
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
         if (object[i][j].f.tex==connection_point && object[i][j].f.in_circle())

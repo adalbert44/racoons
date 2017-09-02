@@ -4,6 +4,7 @@
     #include "includes.h"
     using namespace std;
     struct Figure
+
     {
     public:
         float x1,x2,y1,y2,alpha;

@@ -6,6 +6,7 @@ float WinHei=0.0;
 float speed_scrol=1.05;
 float speed_move=20.0;
 
+
 float feel_seg_size=100;
 int feel_size=30;
 float scrol=1.0;
@@ -136,7 +137,7 @@ bool Figure :: in_circle()
     float y1_=(y1-starty)*scrol;
     float y2_=(y2-starty)*scrol;
 
-    return(dist_((x2_+x1_)/float(2.0),(y2_+y1_)/float(2.0),float(mousex),float(mousey))<=(x2_-x1_)/2.0);
+    return(dist_((x2_+x1_)/float(2.0),(y2_+y1_)/float(2.0),float(mousex),float(mousey))<=(x2_-x1_)/2.0+10.0);
 }
 
 void Figure :: resize_(float len)

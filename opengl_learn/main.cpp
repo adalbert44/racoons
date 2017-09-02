@@ -131,12 +131,15 @@ void Initialize(int w, int h)
 
 }
 
+
 void mouse_pressed(int button, int state, int x, int y)
 {
     mousex=x;
     mousey=y;
     if (in_feel)
     {
+        if (line_mode_used && mousex>left_menu_size)
+            add_point_to_choosen();
         if (mousex<=left_menu_size)
             left_menu_mouse_pressed(button,state); else
             feel_mouse_pressed(button,state);

@@ -7,4 +7,5 @@
     void feel_mouse_pressed(int button, int state);
     void add_point_to_choosen();
 
+
 #endif // FEEL_REACTION_H_INCLUDED

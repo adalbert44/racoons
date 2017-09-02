@@ -1,5 +1,6 @@
 #include "feel_draw.h"
 #include "basik_classes.h"
+
 bool can_put(int i, int j)
 {
     if ((object[i][j].f.x2-startx)*scrol<=left_menu_size) return(0);
@@ -42,7 +43,7 @@ void draw_feel()
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
         {
-            if (object[i][j].f.tex==empty_ && (!can_put(i,j) || !something_taken) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
+            if (object[i][j].f.tex==empty_ && (!can_put(i,j) || !(something_taken || point_mode_used)) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
                 continue;
             object[i][j].draw();
         }
@@ -73,4 +74,5 @@ void draw_left_menu()
     }
     point_mode.draw_state();
     line_mode.draw_state();
+    cout<<'!';
 }

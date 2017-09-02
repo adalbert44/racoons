@@ -12,6 +12,7 @@ GLuint Load(std::string b)
     return temp;
 }
 
+
 void load_all()
 {
     feel_background_texture[0]=Load("e1.jpg");
