@@ -27,10 +27,15 @@ Circle_element object[30][30];
 Figure left_menu_vertical[9];
 Figure left_menu_horizontal[9];
 
+vector<pair<int,int> > choosen_point;
+GLuint choosen_point_tex;
+
 Button line_mode;
 bool line_mode_used=0;
 Button point_mode;
 bool point_mode_used=0;
+
+Button* pressed=NULL;
 
 float sqr(float a)
 {
@@ -122,6 +127,16 @@ float Figure :: dist()
 bool Figure :: in()
 {
     return(x1<=mousex && mousex<=x2 && y1<=mousey && mousey<=y2);
+}
+
+bool Figure :: in_circle()
+{
+    float x1_=(x1-startx)*scrol;
+    float x2_=(x2-startx)*scrol;
+    float y1_=(y1-starty)*scrol;
+    float y2_=(y2-starty)*scrol;
+
+    return(dist_((x2_+x1_)/float(2.0),(y2_+y1_)/float(2.0),float(mousex),float(mousey))<=(x2_-x1_)/2.0);
 }
 
 void Figure :: resize_(float len)
@@ -218,4 +233,5 @@ void Button :: press_up()
     used=!used;
     for (int i=0;i<change.size();i++)
         (*change[i])=!(*change[i]);
+
 }

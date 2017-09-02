@@ -147,6 +147,12 @@ void mouse_pressed_motion(int x, int y)
 {
     mousex=x;
     mousey=y;
+    if (in_feel)
+    {
+        if (line_mode_used && mousex>left_menu_size)
+            add_point_to_choosen();
+    }
+
 }
 
 void mouse_motion(int x, int y)

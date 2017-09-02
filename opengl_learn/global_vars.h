@@ -28,4 +28,6 @@
     extern GLuint put;
     extern bool direction;
     extern GLuint connection_point;
+    extern vector<pair<int,int> > choosen_point;
+    extern GLuint choosen_point_tex;
 #endif // GLOBAL_VARS_H_INCLUDED

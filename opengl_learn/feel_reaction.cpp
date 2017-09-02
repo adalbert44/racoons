@@ -1,10 +1,36 @@
 #include "feel_reaction.h"
 
-void feel_mouse_pressed(int button, int state)
+void add_reb()
 {
-    if (something_taken && state==GLUT_UP && button==GLUT_LEFT_BUTTON)
+    for (int i=0;i<int(choosen_point.size())-1;i++)
     {
-        for (int i=1;i<feel_size;i++)
+        int x1=choosen_point[i].first;
+        int y1=choosen_point[i].second;
+        int x2=choosen_point[i+1].first;
+        int y2=choosen_point[i+1].second;
+        bool ch=0;
+        for (int j=0;j<object[x1][y1].reb.size();j++)
+            if (object[x1][y1].reb[j].first==x2 && object[x1][y1].reb[j].first==y2)
+                ch=1;
+        if (ch) continue;
+        object[x1][y1].reb.push_back({x2,y2});
+        object[x2][y2].reb.push_back({x1,y1});
+    }
+
+
+    for (int i=0;i<choosen_point.size();i++)
+    {
+        int x1=choosen_point[i].first;
+        int y1=choosen_point[i].second;
+        object[x1][y1].f.tex=connection_point;
+    }
+
+    choosen_point.clear();
+}
+
+void add_element()
+{
+    for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
             if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)
             {
@@ -57,12 +83,49 @@ void feel_mouse_pressed(int button, int state)
                 }
             }
 
-        something_taken=0;
+    something_taken=0;
+}
+
+void feel_mouse_pressed(int button, int state)
+{
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used)
+    {
+        add_reb();
+        return;
+    }
+
+    if (something_taken && state==GLUT_UP && button==GLUT_LEFT_BUTTON)
+    {
+        add_element();
+        return;
+    }
+
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP)
+    {
+        if (pressed!=NULL)
+        {
+            if ((*pressed).f.in())
+            {
+                (*pressed).press_up();
+            } else
+            {
+
+                if ((*pressed).used) (*pressed).shade=0.16; else
+                    (*pressed).shade=0.0;
+                pressed=NULL;
+            }
+        }
     }
 }
 
 void left_menu_mouse_pressed(int button, int state)
 {
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used)
+    {
+        add_reb();
+        return;
+    }
+
     if (!line_mode_used && !point_mode_used)
     {
         if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
@@ -82,35 +145,51 @@ void left_menu_mouse_pressed(int button, int state)
                     direction=0;
                 }
         } else
-        if (state==GLUT_UP)
+        if (button==GLUT_LEFT_BUTTON && state==GLUT_UP)
         {
             something_taken=0;
         }
     }
 
-    if (state==GLUT_DOWN)
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
         if (line_mode.f.in() && !point_mode_used)
+        {
             line_mode.press_down();
+            pressed=&line_mode;
+        }
         if (point_mode.f.in() && !line_mode_used)
+        {
             point_mode.press_down();
+            pressed=&point_mode;
+        }
+
     } else
-    if (state==GLUT_UP)
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP)
     {
-        if (line_mode.f.in() && line_mode.shade>0.3-(1e-7))
-            line_mode.press_up();
-        if (point_mode.f.in() && point_mode.shade>0.3-(1e-7))
-            point_mode.press_up();
+        if (pressed!=NULL)
+        {
+            if ((*pressed).f.in())
+            {
+                (*pressed).press_up();
+            } else
+            {
 
-        if (line_mode.shade>0.3-(1e-7) && line_mode.used)
-            line_mode.shade=0.16; else
-        if (line_mode.shade>0.3-(1e-7) && !line_mode.used)
-            line_mode.shade=0.0;
-
-        if (point_mode.shade>0.3-(1e-7) && point_mode.used)
-            point_mode.shade=0.16; else
-        if (point_mode.shade>0.3-(1e-7) && !point_mode.used)
-            point_mode.shade=0.0;
-
+                if ((*pressed).used) (*pressed).shade=0.16; else
+                    (*pressed).shade=0.0;
+                pressed=NULL;
+            }
+        }
     }
+}
+
+void add_point_to_choosen()
+{
+    for (int i=1;i<feel_size;i++)
+        for (int j=1;j<feel_size;j++)
+        if (object[i][j].f.tex==connection_point && object[i][j].f.in_circle())
+        {
+            object[i][j].f.tex=choosen_point_tex;
+            choosen_point.push_back({i,j});
+        }
 }

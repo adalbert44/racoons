@@ -13,9 +13,11 @@
         Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float alpha);
         float dist();
         bool in();
+        bool in_circle();
         void draw();
         void draw_state();
         void resize_(float siz);
+
 
     };
 
@@ -70,5 +72,6 @@
     extern bool line_mode_used;
     extern Button point_mode;
     extern bool point_mode_used;
+    extern Button* pressed;
 
 #endif // BASIK_CLASSES_H_INCLUDED

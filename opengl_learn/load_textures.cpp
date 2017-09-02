@@ -18,5 +18,6 @@ void load_all()
     feel_background_texture[1]=Load("e2.jpg");
     empty_=Load("white_circle.png");
     connection_point=Load("black_circle.png");
-    put=Load("qqq.png");
+    put=Load("button_form.png");
+    choosen_point_tex=Load("blue_circle.png");
 }
