@@ -68,22 +68,26 @@ void add_element()
 
                 if (direction)
                 {
+                    cout<<'!';
                     if (i+1<feel_size)
                     {
                         vec.pb(Event(mp(i+1,j),mp(i,j)));
                         object[i][j].reb.push_back({i+1,j});
                         object[i+1][j].reb.push_back({i,j});
 
-                        if (object[i+1][j].f.tex==connection_point) continue;
+                        if (object[i+1][j].f.tex!=connection_point)
+                        {
+                            Circle_element fir=object[i+1][j];
 
-                        Circle_element fir=object[i+1][j];
+                            object[i+1][j].f.tex=connection_point;
+                            object[i+1][j].f.alpha=1.0;
+                            object[i+1][j].f.resize_(20);
 
-                        object[i+1][j].f.tex=connection_point;
-                        object[i+1][j].f.alpha=1.0;
-                        object[i+1][j].f.resize_(20);
+                            Circle_element sec=object[i+1][j];
+                            vec.pb(Event(fir,sec));
+                        }
 
-                        Circle_element sec=object[i+1][j];
-                        vec.pb(Event(fir,sec));
+
                     }
 
                     if (i-1>=1)
@@ -92,16 +96,19 @@ void add_element()
                         object[i][j].reb.push_back({i-1,j});
                         object[i-1][j].reb.push_back({i,j});
 
-                        if (object[i-1][j].f.tex==connection_point) continue;
+                        if (object[i-1][j].f.tex!=connection_point)
+                        {
+                            Circle_element fir=object[i-1][j];
 
-                        Circle_element fir=object[i-1][j];
+                            object[i-1][j].f.tex=connection_point;
+                            object[i-1][j].f.alpha=1.0;
+                            object[i-1][j].f.resize_(20);
 
-                        object[i-1][j].f.tex=connection_point;
-                        object[i-1][j].f.alpha=1.0;
-                        object[i-1][j].f.resize_(20);
+                            Circle_element sec=object[i-1][j];
+                            vec.pb(Event(fir,sec));
+                        }
 
-                        Circle_element sec=object[i-1][j];
-                        vec.pb(Event(fir,sec));
+
                     }
 
                 } else
@@ -112,34 +119,36 @@ void add_element()
                         object[i][j].reb.push_back({i,j+1});
                         object[i][j+1].reb.push_back({i,j});
 
-                        if (object[i][j+1].f.tex==connection_point) continue;
+                        if (object[i][j+1].f.tex!=connection_point)
+                        {
+                            Circle_element fir=object[i][j+1];
 
-                        Circle_element fir=object[i][j+1];
+                            object[i][j+1].f.tex=connection_point;
+                            object[i][j+1].f.alpha=1.0;
+                            object[i][j+1].f.resize_(20);
 
-                        object[i][j+1].f.tex=connection_point;
-                        object[i][j+1].f.alpha=1.0;
-                        object[i][j+1].f.resize_(20);
-
-                        Circle_element sec=object[i][j+1];
-                        vec.pb(Event(fir,sec));
+                            Circle_element sec=object[i][j+1];
+                            vec.pb(Event(fir,sec));
+                        }
                     }
-
                     if (j-1>=1)
                     {
-                    vec.pb(Event(mp(i,j-1),mp(i,j)));
+
+                        vec.pb(Event(mp(i,j-1),mp(i,j)));
                         object[i][j].reb.push_back({i,j-1});
                         object[i][j-1].reb.push_back({i,j});
 
-                        if (object[i][j-1].f.tex==connection_point) continue;
+                        if (object[i][j-1].f.tex!=connection_point)
+                        {
+                            Circle_element fir=object[i][j-1];
 
-                        Circle_element fir=object[i][j-1];
+                            object[i][j-1].f.tex=connection_point;
+                            object[i][j-1].f.alpha=1.0;
+                            object[i][j-1].f.resize_(20);
 
-                        object[i][j-1].f.tex=connection_point;
-                        object[i][j-1].f.alpha=1.0;
-                        object[i][j-1].f.resize_(20);
-
-                        Circle_element sec=object[i][j-1];
-                        vec.pb(Event(fir,sec));
+                            Circle_element sec=object[i][j-1];
+                            vec.pb(Event(fir,sec));
+                        }
                     }
                 }
             }
