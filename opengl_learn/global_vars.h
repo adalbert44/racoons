@@ -11,6 +11,7 @@
     extern float WinHei;
 
 
+
     extern float speed_scrol;
     extern float speed_move;
     extern float startx;
@@ -33,4 +34,7 @@
     extern vector<pair<int,int> > choosen_point;
     extern GLuint choosen_point_tex;
     extern GLuint left_menu_background_tex;
+    extern GLuint line_mode_tex;
+    extern GLuint point_mode_tex;
+
 #endif // GLOBAL_VARS_H_INCLUDED

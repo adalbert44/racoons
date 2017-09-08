@@ -47,6 +47,7 @@ void draw_feel()
             if (object[i][j].f.tex==empty_ && (!can_put(i,j) || !(something_taken || point_mode_used)) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
                 continue;
             object[i][j].draw();
+
         }
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
@@ -72,6 +73,7 @@ void draw_left_menu()
     {
         left_menu_horizontal[i].draw_state();
         left_menu_vertical[i].draw_state();
+        //cout<<left_menu_vertical[i].tex<<'\n';
     }
     point_mode.draw_state();
     line_mode.draw_state();

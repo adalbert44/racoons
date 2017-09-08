@@ -12,6 +12,7 @@
 
         Figure();
         Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float alpha);
+        Figure(float x1_, float x2_, float y1_, float y2_, float alpha);
         float dist();
         bool in();
         bool in_circle();
@@ -63,6 +64,7 @@
         void press_down();
         void press_up();
     };
+
 
     class Event
     {

@@ -26,6 +26,9 @@ vector<Figure> feel_background;
 Figure left_menu_background;
 Circle_element object[30][30];
 GLuint left_menu_background_tex;
+GLuint line_mode_tex;
+GLuint point_mode_tex;
+
 
 Figure left_menu_vertical[9];
 Figure left_menu_horizontal[9];
@@ -232,6 +235,7 @@ void Button :: press_down()
 
 void Button :: press_up()
 {
+
     if (used)
         shade=0.0; else
         shade=0.16;

@@ -16,11 +16,31 @@ GLuint Load(std::string b)
 
 void load_all()
 {
-    feel_background_texture[0]=Load("e1.jpg");
-    feel_background_texture[1]=Load("e2.jpg");
-    empty_=Load("white_circle.png");
-    connection_point=Load("black_circle.png");
-    put=Load("button_form.png");
-    choosen_point_tex=Load("blue_circle.png");
-    left_menu_background_tex=Load("left_menu_background.png");
+    feel_background_texture[0]=Load("textures/e1.jpg");
+    feel_background_texture[1]=Load("textures/e2.jpg");
+    empty_=Load("textures/white_circle.png");
+    connection_point=Load("textures/black_circle.png");
+    line_mode_tex=Load("textures/line_mode_tex.png");
+    point_mode_tex=Load("textures/point_mode_tex.png");
+    choosen_point_tex=Load("textures/blue_circle.png");
+    left_menu_background_tex=Load("textures/left_menu_background.png");
+
+    left_menu_vertical[0].tex=Load("textures/left_menu_vertical_0.png");
+    left_menu_vertical[1].tex=Load("textures/left_menu_vertical_1.png");
+    left_menu_vertical[2].tex=Load("textures/left_menu_vertical_2.png");
+    left_menu_vertical[3].tex=Load("textures/left_menu_vertical_3.png");
+    left_menu_vertical[4].tex=Load("textures/left_menu_vertical_4.png");
+    left_menu_vertical[5].tex=Load("textures/left_menu_vertical_5.png");
+    left_menu_vertical[6].tex=Load("textures/left_menu_vertical_6.png");
+
+    left_menu_horizontal[0].tex=Load("textures/left_menu_horizontal_0.png");
+    left_menu_horizontal[1].tex=Load("textures/left_menu_horizontal_1.png");
+    left_menu_horizontal[2].tex=Load("textures/left_menu_horizontal_2.png");
+    left_menu_horizontal[3].tex=Load("textures/left_menu_horizontal_3.png");
+    left_menu_horizontal[4].tex=Load("textures/left_menu_horizontal_4.png");
+    left_menu_horizontal[5].tex=Load("textures/left_menu_horizontal_5.png");
+    left_menu_horizontal[6].tex=Load("textures/left_menu_horizontal_6.png");
+
+    cout<<left_menu_horizontal[0].tex<<"@"<<'\n';
+
 }
