@@ -65,13 +65,14 @@ void add_element()
                 object[i][j].f.alpha=1.0;
                 Circle_element sec=object[i][j];
 
-                vec.pb(Event(fir,sec));
+                vec.pb(Event(fir,sec,{i,j}));
 
                 if (direction)
                 {
-                    cout<<'!';
+
                     if (i+1<feel_size)
                     {
+
                         vec.pb(Event(mp(i+1,j),mp(i,j)));
                         object[i][j].reb.push_back({i+1,j});
                         object[i+1][j].reb.push_back({i,j});
@@ -85,7 +86,7 @@ void add_element()
                             object[i+1][j].f.resize_(20);
 
                             Circle_element sec=object[i+1][j];
-                            vec.pb(Event(fir,sec));
+                            vec.pb(Event(fir,sec,{i+1,j}));
                         }
 
 
@@ -106,7 +107,7 @@ void add_element()
                             object[i-1][j].f.resize_(20);
 
                             Circle_element sec=object[i-1][j];
-                            vec.pb(Event(fir,sec));
+                            vec.pb(Event(fir,sec,{i-1,j}));
                         }
 
 
@@ -114,6 +115,7 @@ void add_element()
 
                 } else
                 {
+
                     if (j+1<feel_size)
                     {
                         vec.pb(Event(mp(i,j+1),mp(i,j)));
@@ -129,7 +131,7 @@ void add_element()
                             object[i][j+1].f.resize_(20);
 
                             Circle_element sec=object[i][j+1];
-                            vec.pb(Event(fir,sec));
+                            vec.pb(Event(fir,sec,{i,j+1}));
                         }
                     }
                     if (j-1>=1)
@@ -148,7 +150,7 @@ void add_element()
                             object[i][j-1].f.resize_(20);
 
                             Circle_element sec=object[i][j-1];
-                            vec.pb(Event(fir,sec));
+                            vec.pb(Event(fir,sec,{i,j-1}));
                         }
                     }
                 }
@@ -179,7 +181,7 @@ void add_point()
 
             Circle_element sec=object[i][j];
 
-            vec.pb(Event(fir,sec));
+            vec.pb(Event(fir,sec,{i,j}));
         }
     if (vec.empty()) return;
 

@@ -8,6 +8,7 @@ float speed_move=20.0;
 
 
 
+
 float feel_seg_size=100;
 int feel_size=30;
 float scrol=1.0;
@@ -245,6 +246,50 @@ void Button :: press_up()
 
 }
 
+Button_do :: Button_do()
+{
+
+}
+
+Button_do :: Button_do(Figure f_, int (*to_do_)())
+{
+    f=f_;
+    to_do=to_do_;
+}
+
+void Button_do :: draw_state()
+{
+    f.draw_state();
+        glPushMatrix();
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glColor4f(0, 0, 0, shade);
+
+    glBegin(GL_QUADS);
+        glVertex2f(f.x1, f.y1);
+        glVertex2f(f.x2, f.y1);
+        glVertex2f(f.x2, f.y2);
+        glVertex2f(f.x1, f.y2);
+    glEnd();
+
+    glDisable(GL_BLEND);
+
+    glPopMatrix();
+}
+
+void Button_do :: press_down()
+{
+    shade=0.3;
+}
+
+void Button_do :: press_up()
+{
+    shade=0.0;
+    if (f.in())
+        (*to_do)();
+}
+
 
 Event :: Event()
 {
@@ -258,9 +303,10 @@ Event :: Event(pair<int,int> p1_, pair<int,int> p2_)
     p2=p2_;
 }
 
-Event :: Event(Circle_element was_, Circle_element become_)
+Event :: Event(Circle_element was_, Circle_element become_, pair<int,int> p_)
 {
     type=2;
     was=was_;
     become=become_;
+    p1=p_;
 }

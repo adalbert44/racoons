@@ -1,6 +1,7 @@
 #ifndef BASIK_CLASSES_H_INCLUDED
 #define BASIK_CLASSES_H_INCLUDED
 
+
     #include "includes.h"
     using namespace std;
     struct Figure
@@ -65,6 +66,19 @@
         void press_up();
     };
 
+    class Button_do
+    {
+    public:
+        Figure f;
+        int (*to_do)();
+        float shade=0;
+        Button_do();
+        Button_do(Figure f_, int (*to_do_)());
+        void draw_state();
+        void press_down();
+        void press_up();
+    };
+
 
     class Event
     {
@@ -76,7 +90,7 @@
         Circle_element become;
         Event();
         Event(pair<int,int> p1_, pair<int,int> p2_);
-        Event(Circle_element was_, Circle_element become_);
+        Event(Circle_element was_, Circle_element become_, pair<int,int> p1);
 
     };
 

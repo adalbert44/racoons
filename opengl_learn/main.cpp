@@ -3,6 +3,7 @@
 #include "basik_classes.h"
 #include "feel_draw.h"
 #include "feel_reaction.h"
+#include "undo_redo.h"
 
 void Draw()
 {
@@ -21,6 +22,12 @@ void keyboard(unsigned char c, int x, int y)
 {
     switch (c)
     {
+        case 'r':
+            undo();
+            break;
+        case 't':
+            redo();
+            break;
         case 'q':
             exit(0);
             break;
@@ -89,6 +96,7 @@ void skeyboard(int c, int x, int y)
             break;
     }
 }
+
 
 
 void creat_feel()

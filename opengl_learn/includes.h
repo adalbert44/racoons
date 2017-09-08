@@ -11,8 +11,11 @@
 
     #define mp make_pair
     #define pb push_back
+    #define fir first
+    #define sec second
 
     using namespace std;
+
 
 
 

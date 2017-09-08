@@ -42,9 +42,10 @@ void draw_feel()
         object[imn][jmn].f.alpha=0.5;
 
     for (int i=1;i<feel_size;i++)
+
         for (int j=1;j<feel_size;j++)
         {
-            if (object[i][j].f.tex==empty_ && (!can_put(i,j) || !(something_taken || point_mode_used)) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
+            if ((object[i][j].f.tex==empty_ && (!can_put(i,j) || !(something_taken || point_mode_used))) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
                 continue;
             object[i][j].draw();
 
