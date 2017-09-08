@@ -3,7 +3,8 @@
 
     #include "includes.h"
 
-    void undo();
-    void redo();
+
+    int undo();
+    int redo();
 
 #endif // UNDO_REDO_H_INCLUDED

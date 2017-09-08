@@ -19,6 +19,7 @@ bool can_put(int i, int j)
 void draw_feel()
 {
 
+
     for (int i=0;i<int(feel_background.size());i++)
         feel_background[i].draw();
 
@@ -78,4 +79,6 @@ void draw_left_menu()
     }
     point_mode.draw_state();
     line_mode.draw_state();
+    undo_button.draw_state();
+    redo_button.draw_state();
 }

@@ -40,7 +40,7 @@ void del_changes(Event u)
     }
 }
 
-void undo()
+int undo()
 {
     if (last_event!=-1)
     {
@@ -49,7 +49,7 @@ void undo()
         last_event--;
     }
 }
-void redo()
+int redo()
 {
     if (last_event+1<events.size())
     {

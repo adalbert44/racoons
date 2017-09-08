@@ -2,6 +2,7 @@
 
 void del_events()
 {
+
     while (events.size()!=last_event+1)
         events.pop_back();
 }
@@ -194,6 +195,7 @@ void add_point()
 
 void feel_mouse_pressed(int button, int state)
 {
+
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
     {
         add_reb();
@@ -276,6 +278,18 @@ void left_menu_mouse_pressed(int button, int state)
             pressed=&point_mode;
         }
 
+        if (undo_button.f.in())
+        {
+            undo_button.press_down();
+            pressed_do=&undo_button;
+        }
+
+        if (redo_button.f.in())
+        {
+            redo_button.press_down();
+            pressed_do=&redo_button;
+        }
+
     } else
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP)
     {
@@ -292,6 +306,12 @@ void left_menu_mouse_pressed(int button, int state)
                     (*pressed).shade=0.0;
                 pressed=NULL;
             }
+        }
+
+        if (pressed_do!=NULL)
+        {
+            (*pressed_do).press_up();
+            pressed_do=NULL;
         }
     }
 }

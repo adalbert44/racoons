@@ -9,6 +9,7 @@ float speed_move=20.0;
 
 
 
+
 float feel_seg_size=100;
 int feel_size=30;
 float scrol=1.0;
@@ -29,7 +30,7 @@ Circle_element object[30][30];
 GLuint left_menu_background_tex;
 GLuint line_mode_tex;
 GLuint point_mode_tex;
-
+Button_do *pressed_do=NULL;
 
 Figure left_menu_vertical[9];
 Figure left_menu_horizontal[9];
@@ -43,7 +44,8 @@ Button line_mode;
 bool line_mode_used=0;
 Button point_mode;
 bool point_mode_used=0;
-
+Button_do undo_button;
+Button_do redo_button;
 Button* pressed=NULL;
 
 float sqr(float a)

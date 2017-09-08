@@ -23,6 +23,7 @@
 
 
 
+
     };
 
     struct Point
@@ -105,6 +106,9 @@
     extern Button point_mode;
     extern bool point_mode_used;
     extern Button* pressed;
+    extern Button_do undo_button;
+    extern Button_do redo_button;
+    extern Button_do *pressed_do;
 
     extern vector<vector<Event> > events;
 
