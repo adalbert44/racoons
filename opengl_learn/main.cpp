@@ -4,6 +4,8 @@
 #include "feel_draw.h"
 #include "feel_reaction.h"
 #include "undo_redo.h"
+#include "object_menu_draw.h"
+#include "object_menu_reaction.h"
 
 void Draw()
 {
@@ -13,13 +15,18 @@ void Draw()
     {
         draw_feel();
         draw_left_menu();
+        if (object_menu_used)
+            object_menu_draw();
     }
 
     glutSwapBuffers();
 }
 
+
 void keyboard(unsigned char c, int x, int y)
 {
+    if (c=='q') exit(0);
+    if (object_menu_used) return;
     switch (c)
     {
         case 'r':
@@ -75,6 +82,7 @@ void keyboard(unsigned char c, int x, int y)
 
 void skeyboard(int c, int x, int y)
 {
+    if (object_menu_used) return;
     switch (c)
     {
         case GLUT_KEY_RIGHT:
@@ -125,6 +133,8 @@ void creat_feel()
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
     undo_button=Button_do(Figure(0,50,0,50,point_mode_tex,1.0),&undo);
     redo_button=Button_do(Figure(50,100,0,50,point_mode_tex,1.0),&redo);
+
+    window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 }
 
 void Initialize(int w, int h)
@@ -150,11 +160,18 @@ void mouse_pressed(int button, int state, int x, int y)
     mousey=y;
     if (in_feel)
     {
+        if (object_menu_used)
+        {
+            object_menu_mouse_pressed(button,state);
+            return;
+        }
         if (line_mode_used && mousex>left_menu_size)
             add_point_to_choosen();
+
         if (mousex<=left_menu_size)
             left_menu_mouse_pressed(button,state); else
             feel_mouse_pressed(button,state);
+
     }
 }
 

@@ -8,7 +8,10 @@ float speed_move=20.0;
 
 
 
-
+Figure window_shade;
+Figure object_info;
+Button_do object_delete;
+Button_do object_rotate;
 
 float feel_seg_size=100;
 int feel_size=30;
@@ -47,6 +50,8 @@ bool point_mode_used=0;
 Button_do undo_button;
 Button_do redo_button;
 Button* pressed=NULL;
+pair<int,int> choosen_object={-1,-1};
+bool object_menu_used=0;
 
 float sqr(float a)
 {
@@ -140,6 +145,14 @@ bool Figure :: in()
     return(x1<=mousex && mousex<=x2 && y1<=mousey && mousey<=y2);
 }
 
+bool Figure :: in_dinamic()
+{
+    return((x1-startx)*scrol<=mousex && mousex<=(x2-startx)*scrol && (y1-starty)*scrol<=mousey && mousey<=(y2-starty)*scrol);
+
+}
+
+
+
 bool Figure :: in_circle()
 {
     float x1_=(x1-startx)*scrol;
@@ -163,7 +176,7 @@ void Figure :: resize_(float len)
 
 Circle_element :: Circle_element()
 {
-
+    shade=0.0;
 }
 
 Circle_element :: Circle_element(float x, float y)
@@ -171,6 +184,7 @@ Circle_element :: Circle_element(float x, float y)
     f=Figure(x-20.0,x+20.0,y-20.0, y+20.0, empty_, 0.3);
     R=0.0;
     U=0.0;
+    shade=0.0;
 }
 
 Circle_element :: Circle_element(Figure f_, float R_, float U_)
@@ -178,6 +192,7 @@ Circle_element :: Circle_element(Figure f_, float R_, float U_)
     f=f_;
     R=R_;
     U=U_;
+    shade=0.0;
 }
 
 void Circle_element :: draw()
@@ -197,6 +212,23 @@ void Circle_element :: draw()
     }
     f.draw();
 
+    glPushMatrix();
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glColor4f(0, 0, 0, shade);
+
+    glBegin(GL_QUADS);
+        glVertex2f((f.x1-startx)*scrol, (f.y1-starty)*scrol);
+        glVertex2f((f.x2-startx)*scrol, (f.y1-starty)*scrol);
+        glVertex2f((f.x2-startx)*scrol, (f.y2-starty)*scrol);
+        glVertex2f((f.x1-startx)*scrol, (f.y2-starty)*scrol);
+    glEnd();
+
+    glDisable(GL_BLEND);
+
+    glPopMatrix();
+
 }
 
 Button :: Button()
@@ -213,7 +245,8 @@ Button :: Button(Figure f_, vector<bool*> change_)
 void Button :: draw_state()
 {
     f.draw_state();
-        glPushMatrix();
+
+    glPushMatrix();
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -301,6 +334,13 @@ Event :: Event()
 Event :: Event(pair<int,int> p1_, pair<int,int> p2_)
 {
     type=1;
+    p1=p1_;
+    p2=p2_;
+}
+
+Event :: Event(pair<int,int> p1_, pair<int,int> p2_, int type_)
+{
+    type=type_;
     p1=p1_;
     p2=p2_;
 }

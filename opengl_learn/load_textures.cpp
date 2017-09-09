@@ -16,6 +16,7 @@ GLuint Load(std::string b)
 
 
 
+
 void load_all()
 {
     feel_background_texture[0]=Load("textures/e1.jpg");
@@ -43,5 +44,5 @@ void load_all()
     left_menu_horizontal[5].tex=Load("textures/left_menu_horizontal_5.png");
     left_menu_horizontal[6].tex=Load("textures/left_menu_horizontal_6.png");
 
-
+    window_shade.tex=Load("textures/black_square.png");
 }

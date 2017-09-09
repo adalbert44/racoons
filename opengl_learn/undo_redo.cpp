@@ -22,6 +22,11 @@ void change_back(Event u)
         object[u.p2.fir][u.p2.sec].reb=new_;
 
         new_.clear();
+    } else
+    if (u.type==3)
+    {
+        object[u.p1.fir][u.p1.sec].reb.pb({u.p2});
+        object[u.p2.fir][u.p2.sec].reb.pb({u.p1});
     }
 }
 
@@ -37,6 +42,19 @@ void del_changes(Event u)
     {
         object[u.p1.fir][u.p1.sec].reb.pb(u.p2);
         object[u.p2.fir][u.p2.sec].reb.pb(u.p1);
+    } else
+    if (u.type==3)
+    {
+        vector<pair<int,int> > new_;
+        for (auto i: object[u.p1.fir][u.p1.sec].reb)
+            if (i!=u.p2) new_.pb(i);
+        object[u.p1.fir][u.p1.sec].reb=new_;
+
+        new_.clear();
+
+        for (auto i: object[u.p2.fir][u.p2.sec].reb)
+            if (i!=u.p1) new_.pb(i);
+        object[u.p2.fir][u.p2.sec].reb=new_;
     }
 }
 

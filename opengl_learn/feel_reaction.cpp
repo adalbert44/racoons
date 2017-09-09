@@ -1,4 +1,5 @@
 #include "feel_reaction.h"
+#include "object_menu_reaction.h"
 
 void del_events()
 {
@@ -6,6 +7,7 @@ void del_events()
     while (events.size()!=last_event+1)
         events.pop_back();
 }
+
 
 
 void add_reb()
@@ -195,16 +197,48 @@ void add_point()
 
 void feel_mouse_pressed(int button, int state)
 {
-
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
-    {
-        add_reb();
-        return;
-    }
+    ///------------------------------------DOWN----------------------------------///
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && point_mode_used)
     {
         add_point();
+        return;
+    }
+
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && !point_mode_used && !line_mode_used)
+    {
+        for (int i=1;i<feel_size;i++)
+            for (int j=1;j<feel_size;j++)
+            {
+                if (object[i][j].f.in_dinamic() && object[i][j].f.tex!=empty_ && object[i][j].f.tex!=connection_point && object[i][j].f.tex!=choosen_point_tex)
+                {
+                    object[i][j].shade=0.16;
+
+                    float x1=(object[i][j].f.x1-startx)*scrol;
+                    float x2=(object[i][j].f.x2-startx)*scrol;
+                    float y1=(object[i][j].f.y1-starty)*scrol;
+                    float y2=(object[i][j].f.y2-starty)*scrol;
+                    float x=(x1+x2)/2.0;
+                    float y=(y1+y2)/2.0;
+
+                    x=min(x,WinWid-300);
+                    y=min(y,WinHei-75);
+
+                    object_info=Figure(x,x+150,y,y+75,left_menu_vertical[0].tex,1.0);
+                    object_delete=Button_do(Figure(x+150,x+225,y,y+75,left_menu_vertical[0].tex,1.0),&object_delete_func);
+                    object_rotate=Button_do(Figure(x+225,x+300,y,y+75,left_menu_vertical[0].tex,1.0),&object_rotate_func);
+
+
+                    choosen_object={i,j};
+                }
+            }
+    }
+
+    ///------------------------------------UP----------------------------------///
+
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
+    {
+        add_reb();
         return;
     }
 
@@ -218,16 +252,28 @@ void feel_mouse_pressed(int button, int state)
     {
         if (pressed!=NULL)
         {
-            if ((*pressed).f.in())
+            if ((*pressed).used) (*pressed).shade=0.16; else
+                (*pressed).shade=0.0;
+            pressed=NULL;
+        }
+
+        if (pressed_do!=NULL)
+        {
+            (*pressed_do).press_up();
+            pressed_do=NULL;
+        }
+
+        if (choosen_object!=make_pair(-1,-1))
+        {
+            object[choosen_object.fir][choosen_object.sec].shade=0.0;
+            if (object[choosen_object.fir][choosen_object.sec].f.in_dinamic())
             {
-                (*pressed).press_up();
+                object_menu_used=1;
             } else
             {
-
-                if ((*pressed).used) (*pressed).shade=0.16; else
-                    (*pressed).shade=0.0;
-                pressed=NULL;
+                choosen_object={-1,-1};
             }
+
         }
     }
 }
@@ -278,13 +324,13 @@ void left_menu_mouse_pressed(int button, int state)
             pressed=&point_mode;
         }
 
-        if (undo_button.f.in())
+        if (undo_button.f.in() && !line_mode_used && !point_mode_used)
         {
             undo_button.press_down();
             pressed_do=&undo_button;
         }
 
-        if (redo_button.f.in())
+        if (redo_button.f.in() && !line_mode_used && !point_mode_used)
         {
             redo_button.press_down();
             pressed_do=&redo_button;
@@ -312,6 +358,12 @@ void left_menu_mouse_pressed(int button, int state)
         {
             (*pressed_do).press_up();
             pressed_do=NULL;
+        }
+
+        if (choosen_object!=make_pair(-1,-1))
+        {
+            object[choosen_object.fir][choosen_object.sec].shade=0.0;
+            choosen_object={-1,-1};
         }
     }
 }

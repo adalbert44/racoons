@@ -17,9 +17,11 @@
         float dist();
         bool in();
         bool in_circle();
+        bool in_dinamic();
         void draw();
         void draw_state();
         void resize_(float siz);
+
 
 
 
@@ -45,6 +47,7 @@
     public:
         Figure f;
         vector<pair<int,int> > reb;
+        float shade;
         float R;
         float U;
         Circle_element();
@@ -91,6 +94,7 @@
         Circle_element become;
         Event();
         Event(pair<int,int> p1_, pair<int,int> p2_);
+        Event(pair<int,int> p1_, pair<int,int> p2_, int type_);
         Event(Circle_element was_, Circle_element become_, pair<int,int> p1);
 
     };
@@ -109,6 +113,10 @@
     extern Button_do undo_button;
     extern Button_do redo_button;
     extern Button_do *pressed_do;
+    extern Figure object_info;
+    extern Button_do object_delete;
+    extern Button_do object_rotate;
+    extern Figure window_shade;
 
     extern vector<vector<Event> > events;
 
