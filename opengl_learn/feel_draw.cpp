@@ -33,7 +33,7 @@ void draw_feel()
         {
             if (object[i][j].f.tex==empty_)
                 object[i][j].f.alpha=0.12;
-            if (object[i][j].f.dist()<mn)
+            if (object[i][j].f.centre_dist()<mn)
             {
                 imn=i;
                 jmn=j;
@@ -48,11 +48,12 @@ void draw_feel()
 
         for (int j=1;j<feel_size;j++)
         {
-            if ((object[i][j].f.tex==empty_ && (!can_put(i,j) || !(something_taken || point_mode_used))) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
+            if ((object[i][j].f.tex==empty_ && (!can_put(i,j) || !(something_taken || point_mode_used || taken_point))) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
                 continue;
             object[i][j].draw();
 
         }
+
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
         {
@@ -66,6 +67,14 @@ void draw_feel()
         Figure now=Figure(mousex-feel_seg_size*scrol/2.0,mousex+feel_seg_size*scrol/2.0,
                           mousey-feel_seg_size*scrol/2.0,mousey+feel_seg_size*scrol/2.0,taken,0.2);
         now.draw_state();
+    }
+
+    if (taken_point)
+    {
+            Figure now=Figure(mousex-10*scrol,mousex+10*scrol,
+                          mousey-10*scrol,mousey+10*scrol,connection_point,0.2);
+        now.draw_state();
+
     }
 }
 

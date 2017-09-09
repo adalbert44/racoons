@@ -12,6 +12,7 @@ Figure window_shade;
 Figure object_info;
 Button_do object_delete;
 Button_do object_rotate;
+pair<int,int> pred_pos={-1,-1};
 
 float feel_seg_size=100;
 int feel_size=30;
@@ -34,6 +35,8 @@ GLuint left_menu_background_tex;
 GLuint line_mode_tex;
 GLuint point_mode_tex;
 Button_do *pressed_do=NULL;
+bool taken_point=0;
+vector<pair<int,int> > taken_reb;
 
 Figure left_menu_vertical[9];
 Figure left_menu_horizontal[9];
@@ -140,6 +143,19 @@ float Figure :: dist()
     res=min(res,dist_(x2_,y1_,mousex,mousey));
     res=min(res,dist_(x2_,y2_,mousex,mousey));
     return(res);
+}
+
+float Figure :: centre_dist()
+{
+    float x1_=(x1-startx)*scrol;
+    float x2_=(x2-startx)*scrol;
+    float y1_=(y1-starty)*scrol;
+    float y2_=(y2-starty)*scrol;
+
+    float x=(x1_+x2_)/2.0;
+    float y=(y1_+y2_)/2.0;
+
+    return(dist_(x,y,mousex,mousey));
 }
 
 bool Figure :: in()

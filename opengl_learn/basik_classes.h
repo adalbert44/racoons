@@ -15,6 +15,7 @@
         Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float alpha);
         Figure(float x1_, float x2_, float y1_, float y2_, float alpha);
         float dist();
+        float centre_dist();
         bool in();
         bool in_circle();
         bool in_dinamic();
@@ -85,6 +86,7 @@
     };
 
 
+
     class Event
     {
     public:
@@ -120,6 +122,8 @@
     extern Button_do object_delete;
     extern Button_do object_rotate;
     extern Figure window_shade;
+    extern bool taken_point;
+    extern vector<pair<int,int> > taken_reb;
 
     extern vector<vector<Event> > events;
 
