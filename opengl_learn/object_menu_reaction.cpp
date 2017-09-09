@@ -205,6 +205,7 @@ void object_menu_mouse_pressed(int button, int state)
 {
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
+
         if (object_delete.f.in())
         {
             object_delete.press_down();

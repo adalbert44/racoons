@@ -133,6 +133,7 @@ void add_element()
                             object[i][j+1].f.alpha=1.0;
                             object[i][j+1].f.resize_(20);
 
+
                             Circle_element sec=object[i][j+1];
                             vec.pb(Event(fir,sec,{i,j+1}));
                         }
@@ -205,7 +206,7 @@ void feel_mouse_pressed(int button, int state)
         return;
     }
 
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && !point_mode_used && !line_mode_used)
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && !point_mode_used && !line_mode_used && !move_mode_used)
     {
         for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
@@ -230,6 +231,24 @@ void feel_mouse_pressed(int button, int state)
 
 
                     choosen_object={i,j};
+                }
+            }
+    }
+
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && move_mode_used)
+    {
+        for (int i=1;i<feel_size;i++)
+            for (int j=1;j<feel_size;j++)
+            {
+                if (object[i][j].f.in_dinamic() && object[i][j].f.tex!=empty_ && object[i][j].f.tex!=connection_point && object[i][j].f.tex!=choosen_point_tex)
+                {
+                    GLuint tex=object[i][j].f.tex;
+                    direction=get_dir(tex);
+                    choosen_object={i,j};
+                    object_delete_func();
+                    choosen_object={-1,-1};
+                    taken=tex;
+                    something_taken=1;
                 }
             }
     }
@@ -313,24 +332,29 @@ void left_menu_mouse_pressed(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
-        if (line_mode.f.in() && !point_mode_used)
+        if (line_mode.f.in() && !point_mode_used && !move_mode_used)
         {
             line_mode.press_down();
             pressed=&line_mode;
         }
-        if (point_mode.f.in() && !line_mode_used)
+        if (point_mode.f.in() && !line_mode_used && !move_mode_used)
         {
             point_mode.press_down();
             pressed=&point_mode;
         }
+        if (move_mode.f.in() && !line_mode_used && !point_mode_used)
+        {
+            move_mode.press_down();
+            pressed=&move_mode;
+        }
 
-        if (undo_button.f.in() && !line_mode_used && !point_mode_used)
+        if (undo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
         {
             undo_button.press_down();
             pressed_do=&undo_button;
         }
 
-        if (redo_button.f.in() && !line_mode_used && !point_mode_used)
+        if (redo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
         {
             redo_button.press_down();
             pressed_do=&redo_button;

@@ -76,6 +76,7 @@
         Figure f;
         int (*to_do)();
         float shade=0;
+
         Button_do();
         Button_do(Figure f_, int (*to_do_)());
         void draw_state();
@@ -109,6 +110,8 @@
     extern bool line_mode_used;
     extern Button point_mode;
     extern bool point_mode_used;
+    extern Button move_mode;
+    extern bool move_mode_used;
     extern Button* pressed;
     extern Button_do undo_button;
     extern Button_do redo_button;

@@ -6,3 +6,4 @@
     void object_menu_draw();
 
 #endif // OBJECT_MENU_DRAW_H_INCLUDED
+

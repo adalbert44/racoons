@@ -110,7 +110,8 @@ void skeyboard(int c, int x, int y)
 
 void creat_feel()
 {
-    cout<<WinHei<<'\n';
+
+    cout<<WinWid<<' '<<WinHei<<'\n';
     for (int i=0;i<feel_size;i++)
         for (int j=0;j<feel_size;j++)
         if (rand()%3)
@@ -131,6 +132,7 @@ void creat_feel()
 
     line_mode=Button(Figure(50,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
+    move_mode=Button(Figure(100,150,0,50,point_mode_tex,1.0),{&move_mode_used});
     undo_button=Button_do(Figure(0,50,0,50,point_mode_tex,1.0),&undo);
     redo_button=Button_do(Figure(50,100,0,50,point_mode_tex,1.0),&redo);
 

@@ -6,6 +6,7 @@ void change_back(Event u)
     {
         vector<pair<int,int> > reb=object[u.p1.fir][u.p1.sec].reb;
         object[u.p1.fir][u.p1.sec]=u.was;
+
         object[u.p1.fir][u.p1.sec].reb=reb;
     } else
     if (u.type==1)

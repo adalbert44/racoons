@@ -38,6 +38,7 @@ void draw_feel()
                 imn=i;
                 jmn=j;
                 mn=object[i][j].f.dist();
+
             }
         }
     if (can_put(imn,jmn) && mousex>left_menu_size)
@@ -80,6 +81,7 @@ void draw_left_menu()
     }
     point_mode.draw_state();
     line_mode.draw_state();
+    move_mode.draw_state();
     undo_button.draw_state();
     redo_button.draw_state();
 }
