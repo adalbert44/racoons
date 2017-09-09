@@ -40,6 +40,7 @@ int object_delete_func()
     }
 
 
+
     object[i][j].reb.clear();
     object[i][j].f.resize_(40);
 

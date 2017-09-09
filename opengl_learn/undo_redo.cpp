@@ -11,6 +11,7 @@ void change_back(Event u)
     } else
     if (u.type==1)
     {
+
         vector<pair<int,int> > new_;
         for (auto i: object[u.p1.fir][u.p1.sec].reb)
             if (i!=u.p2) new_.pb(i);

@@ -178,6 +178,7 @@ void put_element(int i, int j)
 void add_element()
 {
 
+
     for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
             if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)

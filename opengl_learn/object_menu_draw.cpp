@@ -9,3 +9,4 @@ void object_menu_draw()
     object_delete.draw_state();
     object_rotate.draw_state();
 }
+

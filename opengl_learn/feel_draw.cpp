@@ -16,6 +16,7 @@ bool can_put(int i, int j)
     return(1);
 }
 
+
 void draw_feel()
 {
 

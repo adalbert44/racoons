@@ -10,6 +10,7 @@
 void Draw()
 {
 
+
     glClear(GL_COLOR_BUFFER_BIT);
     if (in_feel)
     {
@@ -144,7 +145,8 @@ void Initialize(int w, int h)
     glViewport(0,0,w,h);
     WinWid=w;
     WinHei=h;
-
+    left_menu_size=(WinHei-100)/7.0*2.0;
+    startx=-left_menu_size;
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0.0, WinWid, WinHei, 0.0, 0.f, -1.f);

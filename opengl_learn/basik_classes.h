@@ -11,6 +11,7 @@
         float x1,x2,y1,y2,alpha;
         GLuint tex;
 
+
         Figure();
         Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float alpha);
         Figure(float x1_, float x2_, float y1_, float y2_, float alpha);
