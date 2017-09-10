@@ -95,6 +95,7 @@ void draw_left_menu()
     point_mode.draw_state();
     line_mode.draw_state();
     move_mode.draw_state();
+    delete_mode.draw_state();
     undo_button.draw_state();
     redo_button.draw_state();
 }

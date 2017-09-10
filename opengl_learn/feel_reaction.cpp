@@ -478,9 +478,16 @@ void left_menu_mouse_pressed(int button, int state)
             pressed=&move_mode;
         }
 
+        if (delete_mode.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
+        {
+            delete_mode.press_down();
+            pressed=&delete_mode;
+        }
+
         if (undo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
         {
             undo_button.press_down();
+            cout<<'!'<<'\n';
             pressed_do=&undo_button;
         }
 

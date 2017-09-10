@@ -132,6 +132,8 @@
     extern vector<pair<int,int> > taken_reb;
     extern Figure shade_button1,shade_button2;
     extern GLuint move_tex;
+    extern Button delete_mode;
+    extern bool delete_mode_used;
 
     extern vector<vector<Event> > events;
 

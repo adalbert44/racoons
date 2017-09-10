@@ -6,6 +6,7 @@
 #include "undo_redo.h"
 #include "object_menu_draw.h"
 #include "object_menu_reaction.h"
+#include "delete_mode_reaction.h"
 
 void Draw()
 {
@@ -134,6 +135,7 @@ void creat_feel()
     line_mode=Button(Figure(50,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
     move_mode=Button(Figure(100,150,0,50,move_tex,1.0),{&move_mode_used});
+    delete_mode=Button(Figure(150,200,0,50,move_tex,1.0),{&delete_mode_used});
     undo_button=Button_do(Figure(0,50,0,50,undo_tex,1.0),&undo);
     redo_button=Button_do(Figure(50,100,0,50,redo_tex,1.0),&redo);
     shade_button1.tex=shade_button_tex1;
@@ -171,6 +173,13 @@ void mouse_pressed(int button, int state, int x, int y)
             object_menu_mouse_pressed(button,state);
             return;
         }
+
+        if (delete_mode_used)
+        {
+            delete_mode_mouse_pressed(button,state);
+            return;
+        }
+
         if (line_mode_used && mousex>left_menu_size)
             add_point_to_choosen();
 
@@ -183,6 +192,11 @@ void mouse_pressed(int button, int state, int x, int y)
 
 void mouse_pressed_motion(int x, int y)
 {
+    if (in_feel && delete_mode_used)
+    {
+        delete_mode_mouse_pressed_motion(mousex,mousey,x,y);
+    }
+
     mousex=x;
     mousey=y;
     if (in_feel)

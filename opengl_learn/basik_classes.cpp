@@ -54,11 +54,13 @@ vector<vector<Event> > events;
 int last_event=-1;
 
 Button line_mode;
+Button delete_mode;
 Button move_mode;
 Button point_mode;
 bool line_mode_used=0;
 bool point_mode_used=0;
 bool move_mode_used=0;
+bool delete_mode_used=0;
 Button_do undo_button;
 Button_do redo_button;
 Button* pressed=NULL;
