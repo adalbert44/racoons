@@ -23,12 +23,17 @@
         void draw();
         void draw_state();
         void resize_(float siz);
-
-
-
-
-
     };
+
+    struct Reb
+    {
+    public:
+        int first,second;
+        float c1,c2,c3,c4;
+        Reb(int f, int s);
+    };
+
+
 
     struct Point
     {
@@ -125,6 +130,8 @@
     extern Figure window_shade;
     extern bool taken_point;
     extern vector<pair<int,int> > taken_reb;
+    extern Figure shade_button1,shade_button2;
+    extern GLuint move_tex;
 
     extern vector<vector<Event> > events;
 

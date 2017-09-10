@@ -1,5 +1,5 @@
 #include "basik_classes.h"
-
+#include "object_menu_reaction.h"
 
 float WinWid=0.0;
 float WinHei=0.0;
@@ -9,12 +9,17 @@ float speed_move=20.0;
 
 
 
+GLuint undo_tex;
+GLuint redo_tex;
 Figure window_shade;
 Figure object_info;
 Button_do object_delete;
 Button_do object_rotate;
 pair<int,int> pred_pos={-1,-1};
 
+GLuint move_tex;
+Figure shade_button1,shade_button2;
+GLuint shade_button_tex1,shade_button_tex2;
 float feel_seg_size=100;
 int feel_size=30;
 float scrol=1.0;
@@ -38,6 +43,7 @@ GLuint point_mode_tex;
 Button_do *pressed_do=NULL;
 bool taken_point=0;
 vector<pair<int,int> > taken_reb;
+bool choosen_reb[31][31][31][31];
 
 Figure left_menu_vertical[9];
 Figure left_menu_horizontal[9];
@@ -217,9 +223,15 @@ Circle_element :: Circle_element(Figure f_, float R_, float U_)
 void Circle_element :: draw()
 {
     glLineWidth(5);
-    glColor4f(0, 0, 0, 1);
+
     for (int i=0;i<reb.size();i++)
     {
+        int pi=((f.x1+f.x2)/2.0)/feel_seg_size+0.00001;
+        int pj=((f.y1+f.y2)/2.0)/feel_seg_size+0.00001;
+        float green=0.0;
+        if (choosen_reb[pi][pj][reb[i].first][reb[i].second] || choosen_reb[reb[i].first][reb[i].second][pi][pj])
+            green=1.0;
+        glColor4f(0, green, 0, 1);
         Figure now=object[reb[i].first][reb[i].second].f;
         float x=(now.x1+now.x2)/2.0;
         float y=(now.y1+now.y2)/2.0;
@@ -235,18 +247,28 @@ void Circle_element :: draw()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glColor4f(0, 0, 0, shade);
+    if (get_dir(f.tex))
+    {
+        shade_button1.x1=f.x1;
+        shade_button1.x2=f.x2;
+        shade_button1.y1=f.y1;
+        shade_button1.y2=f.y2;
 
-    glBegin(GL_QUADS);
-        glVertex2f((f.x1-startx)*scrol, (f.y1-starty)*scrol);
-        glVertex2f((f.x2-startx)*scrol, (f.y1-starty)*scrol);
-        glVertex2f((f.x2-startx)*scrol, (f.y2-starty)*scrol);
-        glVertex2f((f.x1-startx)*scrol, (f.y2-starty)*scrol);
-    glEnd();
+        shade_button1.alpha=shade*2.0;
 
-    glDisable(GL_BLEND);
+        shade_button1.draw();
+    } else
+    {
+        shade_button2.x1=f.x1;
+        shade_button2.x2=f.x2;
+        shade_button2.y1=f.y1;
+        shade_button2.y2=f.y2;
 
-    glPopMatrix();
+        shade_button2.alpha=shade*2.0;
+        shade_button2.draw();
+    }
+
+
 
 }
 

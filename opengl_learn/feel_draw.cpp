@@ -22,6 +22,7 @@ void draw_feel()
 
 
 
+
     for (int i=0;i<int(feel_background.size());i++)
         feel_background[i].draw();
 
@@ -59,7 +60,9 @@ void draw_feel()
         for (int j=1;j<feel_size;j++)
         {
             if (object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
+            {
                 object[i][j].draw();
+            }
         }
 
 

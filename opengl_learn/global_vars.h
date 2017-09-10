@@ -18,6 +18,7 @@
 
 
 
+
     extern float speed_scrol;
     extern float speed_move;
     extern float startx;
@@ -45,5 +46,9 @@
     extern pair<int,int> choosen_object;
     extern bool object_menu_used;
     extern pair<int,int> pred_pos;
+    extern GLuint undo_tex;
+    extern GLuint redo_tex;
+    extern bool choosen_reb[31][31][31][31];
+    extern GLuint shade_button_tex1,shade_button_tex2;
 
 #endif // GLOBAL_VARS_H_INCLUDED

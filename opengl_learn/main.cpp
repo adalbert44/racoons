@@ -105,6 +105,7 @@ void skeyboard(int c, int x, int y)
         default:
             break;
     }
+
 }
 
 
@@ -130,12 +131,13 @@ void creat_feel()
 
     for (int i=0;i<7;i++)
         left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
-
     line_mode=Button(Figure(50,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
-    move_mode=Button(Figure(100,150,0,50,point_mode_tex,1.0),{&move_mode_used});
-    undo_button=Button_do(Figure(0,50,0,50,point_mode_tex,1.0),&undo);
-    redo_button=Button_do(Figure(50,100,0,50,point_mode_tex,1.0),&redo);
+    move_mode=Button(Figure(100,150,0,50,move_tex,1.0),{&move_mode_used});
+    undo_button=Button_do(Figure(0,50,0,50,undo_tex,1.0),&undo);
+    redo_button=Button_do(Figure(50,100,0,50,redo_tex,1.0),&redo);
+    shade_button1.tex=shade_button_tex1;
+    shade_button2.tex=shade_button_tex2;
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 }

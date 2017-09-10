@@ -4,6 +4,7 @@ GLuint Load(std::string b)
 {
 
 
+
     GLuint temp = ilLoadImage(b.data());
     glGenTextures(1, &temp);
     glBindTexture (GL_TEXTURE_2D, temp);
@@ -46,6 +47,10 @@ void load_all()
     left_menu_horizontal[4].tex=Load("textures/left_menu_horizontal_4.png");
     left_menu_horizontal[5].tex=Load("textures/left_menu_horizontal_5.png");
     left_menu_horizontal[6].tex=Load("textures/left_menu_horizontal_6.png");
-
+    shade_button_tex1=Load("textures/black_button1.png");
+    shade_button_tex2=Load("textures/black_button2.png");
     window_shade.tex=Load("textures/black_square.png");
+    undo_tex=Load("textures/undo.png");
+    redo_tex=Load("textures/redo.png");
+    move_tex=Load("textures/move_tex.png");
 }

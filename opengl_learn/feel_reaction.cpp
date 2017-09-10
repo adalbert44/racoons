@@ -4,6 +4,7 @@
 void del_events()
 {
 
+
     while (events.size()!=last_event+1)
         events.pop_back();
 }
@@ -37,8 +38,9 @@ void add_reb()
         int y2=choosen_point[i+1].second;
         bool ch=0;
         for (int j=0;j<object[x1][y1].reb.size();j++)
-            if (object[x1][y1].reb[j].first==x2 && object[x1][y1].reb[j].first==y2)
+            if (object[x1][y1].reb[j].first==x2 && object[x1][y1].reb[j].second==y2)
                 ch=1;
+
         if (ch) continue;
         vec.push_back(Event(mp(x1,y1),mp(x2,y2)));
         object[x1][y1].reb.push_back({x2,y2});
@@ -284,7 +286,7 @@ void feel_mouse_pressed(int button, int state)
                     x=min(x,WinWid-300);
                     y=min(y,WinHei-75);
 
-                    object_info=Figure(x,x+150,y,y+75,left_menu_vertical[0].tex,1.0);
+                    object_info=Figure(x,x+150,y,y+75,left_menu_background_tex,1.0);
 
                     object_delete=Button_do(Figure(x+150,x+225,y,y+75,left_menu_vertical[0].tex,1.0),&object_delete_func);
                     object_rotate=Button_do(Figure(x+225,x+300,y,y+75,left_menu_vertical[0].tex,1.0),&object_rotate_func);
