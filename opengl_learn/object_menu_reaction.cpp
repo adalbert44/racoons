@@ -9,6 +9,7 @@ void try_del(int i, int j, pair<int,int> p, vector<Event> &vec)
         if (l!=p)
         new_.pb(l);
 
+
     if (new_.empty())
     {
 

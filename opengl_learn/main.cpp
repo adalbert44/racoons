@@ -163,6 +163,7 @@ void Initialize(int w, int h)
 }
 
 
+
 void mouse_pressed(int button, int state, int x, int y)
 {
     if (in_feel && delete_mode_used)

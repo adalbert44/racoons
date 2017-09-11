@@ -6,6 +6,7 @@ GLuint Load(std::string b)
 
 
 
+
     GLuint temp = ilLoadImage(b.data());
     glGenTextures(1, &temp);
     glBindTexture (GL_TEXTURE_2D, temp);

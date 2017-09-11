@@ -96,6 +96,7 @@ int area(pair<int,int> p1, pair<int,int> p2, pair<int,int> p3)
     return((p2.fir-p1.fir)*(p3.sec-p1.sec)-(p3.fir-p1.fir)*(p2.sec-p1.sec));
 }
 
+
 bool intersect(pair<int,int> p1, pair<int,int> p2, pair<int,int> p3, pair<int,int> p4)
 {
     if (!intersect(p1.fir,p2.fir,p3.fir,p4.fir)) return(0);
@@ -136,7 +137,9 @@ void delete_mode_mouse_pressed_motion(float x1, float y1, float x2, float y2)
                 float yy1=((object[i][j].f.y1-starty)*scrol+(object[i][j].f.y2-starty)*scrol)/2.0;
                 float xx2=((object[l.fir][l.sec].f.x1-startx)*scrol+(object[l.fir][l.sec].f.x2-startx)*scrol)/2.0;
                 float yy2=((object[l.fir][l.sec].f.y1-starty)*scrol+(object[l.fir][l.sec].f.y2-starty)*scrol)/2.0;
-                if (intersect({xx1,yy1},{xx2,yy2},{x1,y1},{x2,y2}))
+                if (intersect({xx1,yy1},{xx2,yy2},{x1,y1},{x2,y2}) &&
+                    (object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex) &&
+                    (object[l.fir][l.sec].f.tex==connection_point || object[l.fir][l.sec].f.tex==choosen_point_tex))
                     {
                         choosen_reb[i][j][l.fir][l.sec]=1;
                         choosen_reb[l.fir][l.sec][i][j]=1;

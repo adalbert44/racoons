@@ -9,6 +9,7 @@ void change_back(Event u)
         object[u.p1.fir][u.p1.sec]=u.was;
 
 
+
         object[u.p1.fir][u.p1.sec].reb=reb;
     } else
     if (u.type==1)
