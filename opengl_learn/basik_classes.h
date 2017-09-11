@@ -5,12 +5,13 @@
     #include "includes.h"
     using namespace std;
     struct Figure
-
     {
     public:
         float x1,x2,y1,y2,alpha;
         GLuint tex;
 
+
+ //       Figure a=Figure();
 
         Figure();
         Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float alpha);
@@ -23,14 +24,14 @@
         void draw();
         void draw_state();
         void resize_(float siz);
+
     };
 
     struct Reb
     {
     public:
-        int first,second;
-        float c1,c2,c3,c4;
-        Reb(int f, int s);
+        int x1,y1,x2,y2;
+        Reb(int x1_, int y1_, int x2_, int y2_);
     };
 
 
@@ -134,6 +135,8 @@
     extern GLuint move_tex;
     extern Button delete_mode;
     extern bool delete_mode_used;
+    extern vector<Reb> to_del_reb;
+    extern vector<pair<int,int> > to_del_point;
 
     extern vector<vector<Event> > events;
 

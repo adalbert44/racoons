@@ -1,10 +1,9 @@
 #include "feel_reaction.h"
 #include "object_menu_reaction.h"
 
+
 void del_events()
 {
-
-
     while (events.size()!=last_event+1)
         events.pop_back();
 }
@@ -487,7 +486,6 @@ void left_menu_mouse_pressed(int button, int state)
         if (undo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
         {
             undo_button.press_down();
-            cout<<'!'<<'\n';
             pressed_do=&undo_button;
         }
 

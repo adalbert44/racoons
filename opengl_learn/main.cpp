@@ -239,7 +239,9 @@ int main(int argc, char** argv)
 
 
     glutCreateWindow("q");
+
     load_all();
+
     glutReshapeFunc(Initialize);
     glutDisplayFunc(Draw);
     glutKeyboardFunc(keyboard);

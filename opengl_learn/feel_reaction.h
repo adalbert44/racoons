@@ -7,6 +7,7 @@
     void feel_mouse_pressed(int button, int state);
     void add_point_to_choosen();
     void del_events();
+    void del_reb(pair<int,int> p1, pair<int,int> p2);
 
 
 

@@ -41,6 +41,7 @@ void draw_feel()
                 jmn=j;
                 mn=object[i][j].f.dist();
 
+
             }
         }
     if (can_put(imn,jmn) && mousex>left_menu_size)

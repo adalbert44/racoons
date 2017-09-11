@@ -16,6 +16,9 @@ Figure object_info;
 Button_do object_delete;
 Button_do object_rotate;
 pair<int,int> pred_pos={-1,-1};
+vector<Reb> to_del_reb;
+vector<pair<int,int> > to_del_point;
+
 
 GLuint move_tex;
 Figure shade_button1,shade_button2;
@@ -71,6 +74,7 @@ float sqr(float a)
 {
     return(a*a);
 }
+
 
 float dist_(float x1, float y1, float x2, float y2)
 {
@@ -395,4 +399,12 @@ Event :: Event(Circle_element was_, Circle_element become_, pair<int,int> p_)
     was=was_;
     become=become_;
     p1=p_;
+}
+
+Reb :: Reb (int x1_, int y1_, int x2_, int y2_)
+{
+    x1=x1_;
+    y1=y1_;
+    x2=x2_;
+    y2=y2_;
 }
