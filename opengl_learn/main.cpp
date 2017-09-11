@@ -91,6 +91,7 @@ void skeyboard(int c, int x, int y)
             startx+=speed_move;
             startx=min(startx,feel_seg_size*feel_size-WinWid/scrol);
             break;
+
         case GLUT_KEY_LEFT:
             startx-=speed_move;
             startx=max(float(-left_menu_size)/scrol,startx);
@@ -164,6 +165,10 @@ void Initialize(int w, int h)
 
 void mouse_pressed(int button, int state, int x, int y)
 {
+    if (in_feel && delete_mode_used)
+    {
+        delete_mode_mouse_pressed_motion(mousex,mousey,x,y);
+    }
     mousex=x;
     mousey=y;
     if (in_feel)

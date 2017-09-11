@@ -9,6 +9,7 @@ float speed_move=20.0;
 
 
 
+
 GLuint undo_tex;
 GLuint redo_tex;
 Figure window_shade;

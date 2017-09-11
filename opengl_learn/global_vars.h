@@ -19,6 +19,7 @@
 
 
 
+
     extern float speed_scrol;
     extern float speed_move;
     extern float startx;

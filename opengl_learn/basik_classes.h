@@ -21,6 +21,7 @@
         bool in();
         bool in_circle();
         bool in_dinamic();
+
         void draw();
         void draw_state();
         void resize_(float siz);

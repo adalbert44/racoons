@@ -11,6 +11,7 @@ void try_del(int i, int j, pair<int,int> p, vector<Event> &vec)
 
     if (new_.empty())
     {
+
         Circle_element fir=object[i][j];
         object[i][j].reb.clear();
         object[i][j].f.tex=empty_;

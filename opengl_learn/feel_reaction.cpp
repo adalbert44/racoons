@@ -352,6 +352,7 @@ void feel_mouse_pressed(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
     {
+
         add_reb();
         return;
     }
