@@ -129,6 +129,8 @@ void delete_mode_mouse_pressed_motion(float x1, float y1, float x2, float y2)
                 to_del_point.pb({i,j});
             }
 
+    if (x1==x2 && y1==y2) return;
+
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
             for (auto l:object[i][j].reb)
