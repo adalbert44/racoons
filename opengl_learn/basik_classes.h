@@ -4,6 +4,10 @@
 
     #include "includes.h"
     using namespace std;
+
+    void setFont(void* font);
+    void drawstring(float x, float y, float z, char* string);
+
     struct Figure
     {
     public:

@@ -3,6 +3,7 @@
 
 float WinWid=0.0;
 float WinHei=0.0;
+void *currentfont;
 
 float speed_scrol=1.05;
 float speed_move=20.0;
@@ -81,6 +82,29 @@ float sqr(float a)
 float dist_(float x1, float y1, float x2, float y2)
 {
     return(sqrt(sqr(x1-x2)+sqr(y1-y2)));
+}
+
+
+void setFont(void *font)
+{
+    currentfont=font;                      // Set the currentfont to the font
+}
+
+void drawstring(float x,float y,float z,char *string)
+{
+
+
+    setFont(GLUT_BITMAP_TIMES_ROMAN_24);
+    glColor3f(1.0,1.0,1.0);
+
+    char *c;
+    glRasterPos3f(x,y,z);
+    for(c=string;*c!='\0';c++)
+    {
+        glColor3f(0.0,0.0,0.0);
+        glutBitmapCharacter(currentfont,*c);
+    }
+    glPopMatrix();
 }
 
 Figure :: Figure()
