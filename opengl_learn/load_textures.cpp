@@ -33,6 +33,7 @@ void load_all()
     point_mode_tex=Load("textures/point_mode_tex.png");
     choosen_point_tex=Load("textures/blue_circle.png");
     left_menu_background_tex=Load("textures/left_menu_background.png");
+    delete_mode_tex=Load("textures/delete_mode.png");
 
     left_menu_vertical[0].tex=Load("textures/left_menu_vertical_0.png");
     left_menu_vertical[1].tex=Load("textures/left_menu_vertical_1.png");
@@ -55,4 +56,5 @@ void load_all()
     undo_tex=Load("textures/undo.png");
     redo_tex=Load("textures/redo.png");
     move_tex=Load("textures/move_tex.png");
+    rotate_tex=Load("textures/rotate.png");
 }

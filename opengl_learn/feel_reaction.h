@@ -8,8 +8,8 @@
     void add_point_to_choosen();
     void del_events();
     void del_reb(pair<int,int> p1, pair<int,int> p2);
-
-
+    void add_element();
+    void put_element(int i, int j);
 
 
 

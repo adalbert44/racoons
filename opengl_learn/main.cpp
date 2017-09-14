@@ -7,6 +7,7 @@
 #include "object_menu_draw.h"
 #include "object_menu_reaction.h"
 #include "delete_mode_reaction.h"
+#include "input_info.h"
 
 void Draw()
 {
@@ -19,6 +20,8 @@ void Draw()
         draw_left_menu();
         if (object_menu_used)
             object_menu_draw();
+        if (input_info_mode)
+            input_info_draw();
     }
 
     glutSwapBuffers();
@@ -28,6 +31,12 @@ void Draw()
 void keyboard(unsigned char c, int x, int y)
 {
     if (c=='q') exit(0);
+    if (input_info_mode)
+    {
+        input_keyboard(c);
+    }
+
+
     if (object_menu_used) return;
     switch (c)
     {
@@ -84,6 +93,12 @@ void keyboard(unsigned char c, int x, int y)
 
 void skeyboard(int c, int x, int y)
 {
+
+    if (input_info_mode)
+    {
+        input_skeyboard(c);
+    }
+    if (input_info_mode) return;
     if (object_menu_used) return;
     switch (c)
     {
@@ -136,11 +151,22 @@ void creat_feel()
     line_mode=Button(Figure(50,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
     move_mode=Button(Figure(100,150,0,50,move_tex,1.0),{&move_mode_used});
-    delete_mode=Button(Figure(150,200,0,50,move_tex,1.0),{&delete_mode_used});
+    delete_mode=Button(Figure(150,200,0,50,delete_mode_tex,1.0),{&delete_mode_used});
     undo_button=Button_do(Figure(0,50,0,50,undo_tex,1.0),&undo);
     redo_button=Button_do(Figure(50,100,0,50,redo_tex,1.0),&redo);
     shade_button1.tex=shade_button_tex1;
     shade_button2.tex=shade_button_tex2;
+
+    float w1=WinWid/2.3;
+    float h1=WinHei/2.3;
+    float w2=WinWid/2.5+100;
+    float h2=WinHei/2.5+100;
+    float l=(WinWid-w1*2)/2.0;
+
+    input_info_background=Figure(w1,WinWid-w1,h1,WinHei-h1,feel_background_texture[0],1.0);
+    input_feel=Figure(w2,WinWid-w2,h2,h2+25,left_menu_background_tex,1.0);
+    input_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,left_menu_horizontal[1].tex,1.0),&input_ok_do);
+    input_bad=Button_do(Figure(w1+l,w1+2*l,WinHei-h1,WinHei-h1+100,left_menu_horizontal[1].tex,1.0),&input_bad_do);
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 }
@@ -174,6 +200,12 @@ void mouse_pressed(int button, int state, int x, int y)
     mousey=y;
     if (in_feel)
     {
+        if (input_info_mode)
+        {
+            input_info_mouse_pressed(button,state);
+            return;
+        }
+
         if (object_menu_used)
         {
             object_menu_mouse_pressed(button,state);

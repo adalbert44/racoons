@@ -6,7 +6,7 @@
     using namespace std;
 
     void setFont(void* font);
-    void drawstring(float x, float y, float z, char* string);
+    void drawstring(float x, float y, float z, string s);
 
     struct Figure
     {
@@ -142,6 +142,11 @@
     extern bool delete_mode_used;
     extern vector<Reb> to_del_reb;
     extern vector<pair<int,int> > to_del_point;
+    extern Figure input_info_background;
+    extern Figure input_feel;
+    extern Button_do input_ok;
+    extern Button_do input_bad;
+
 
     extern vector<vector<Event> > events;
 

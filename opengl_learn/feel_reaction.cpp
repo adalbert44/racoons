@@ -178,8 +178,6 @@ void put_element(int i, int j)
 
 void add_element()
 {
-
-
     for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
             if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)
@@ -287,8 +285,8 @@ void feel_mouse_pressed(int button, int state)
 
                     object_info=Figure(x,x+150,y,y+75,left_menu_background_tex,1.0);
 
-                    object_delete=Button_do(Figure(x+150,x+225,y,y+75,left_menu_vertical[0].tex,1.0),&object_delete_func);
-                    object_rotate=Button_do(Figure(x+225,x+300,y,y+75,left_menu_vertical[0].tex,1.0),&object_rotate_func);
+                    object_delete=Button_do(Figure(x+150,x+225,y,y+75,delete_mode_tex,1.0),&object_delete_func);
+                    object_rotate=Button_do(Figure(x+225,x+300,y,y+75,rotate_tex,1.0),&object_rotate_func);
 
 
                     choosen_object={i,j};
@@ -360,13 +358,32 @@ void feel_mouse_pressed(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && something_taken)
     {
-        add_element();
+        if (pred_pos!=make_pair(-1,-1))
+        {
+            add_element();
+            pred_pos={-1,-1};
+        }
+
+        input_info_mode=1;
+        something_taken=0;
+
+        info_i=-1;
+        info_j=-1;
+        for (int i=1;i<feel_size;i++)
+            for (int j=1;j<feel_size;j++)
+            if (object[i][j].f.tex==empty_ && object[i][j].f.alpha==0.5)
+            {
+                info_i=i;
+                info_j=j;
+            }
+        if (info_i==-1)
+            input_info_mode=0;
+
         return;
     }
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && taken_point)
     {
-        float mn=10000;
         pair<int,int> imn={-1,-1};
         for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)

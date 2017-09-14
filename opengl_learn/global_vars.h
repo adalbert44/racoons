@@ -51,5 +51,11 @@
     extern GLuint redo_tex;
     extern bool choosen_reb[31][31][31][31];
     extern GLuint shade_button_tex1,shade_button_tex2;
+    extern void* currentfont;
+    extern bool input_info_mode;
+    extern int info_i,info_j;
+    extern string info_zn;
+    extern GLuint delete_mode_tex;
+    extern GLuint rotate_tex;
 
 #endif // GLOBAL_VARS_H_INCLUDED

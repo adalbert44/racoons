@@ -9,21 +9,27 @@ float speed_scrol=1.05;
 float speed_move=20.0;
 
 
+GLuint rotate_tex;
 
-
-
+int info_i,info_j;
 GLuint undo_tex;
 GLuint redo_tex;
 Figure window_shade;
 Figure object_info;
+Figure input_info_background;
+Figure input_feel;
 Button_do object_delete;
 Button_do object_rotate;
+Button_do input_ok;
+Button_do input_bad;
+
 pair<int,int> pred_pos={-1,-1};
 vector<Reb> to_del_reb;
 vector<pair<int,int> > to_del_point;
-
+string info_zn="";
 
 GLuint move_tex;
+GLuint delete_mode_tex;
 Figure shade_button1,shade_button2;
 GLuint shade_button_tex1,shade_button_tex2;
 float feel_seg_size=100;
@@ -67,6 +73,7 @@ bool line_mode_used=0;
 bool point_mode_used=0;
 bool move_mode_used=0;
 bool delete_mode_used=0;
+bool input_info_mode=0;
 Button_do undo_button;
 Button_do redo_button;
 Button* pressed=NULL;
@@ -90,7 +97,7 @@ void setFont(void *font)
     currentfont=font;                      // Set the currentfont to the font
 }
 
-void drawstring(float x,float y,float z,char *string)
+void drawstring(float x,float y,float z,string s)
 {
 
 
@@ -99,10 +106,10 @@ void drawstring(float x,float y,float z,char *string)
 
     char *c;
     glRasterPos3f(x,y,z);
-    for(c=string;*c!='\0';c++)
+    for (int i=0;i<s.size();i++)
     {
         glColor3f(0.0,0.0,0.0);
-        glutBitmapCharacter(currentfont,*c);
+        glutBitmapCharacter(currentfont,s[i]);
     }
     glPopMatrix();
 }

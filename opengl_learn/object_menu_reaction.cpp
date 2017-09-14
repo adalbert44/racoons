@@ -234,6 +234,9 @@ void object_menu_mouse_pressed(int button, int state)
             {
                 (*pressed_do).shade=0.0;
                 (*pressed_do).to_do();
+            } else
+            {
+                (*pressed_do).shade=0.0;
             }
         }
         pressed_do=NULL;
