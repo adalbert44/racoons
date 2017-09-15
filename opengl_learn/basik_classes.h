@@ -146,6 +146,7 @@
     extern Figure input_feel;
     extern Button_do input_ok;
     extern Button_do input_bad;
+    extern float taken_R;
 
 
     extern vector<vector<Event> > events;

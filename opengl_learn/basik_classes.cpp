@@ -7,6 +7,7 @@ void *currentfont;
 
 float speed_scrol=1.05;
 float speed_move=20.0;
+float taken_R;
 
 
 GLuint rotate_tex;

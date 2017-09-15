@@ -12,8 +12,30 @@ void input_info_draw()
     drawstring(input_feel.x1,input_feel.y2,1.0,info_zn);
 }
 
+float parse_to_float(string st)
+{
+    float u=0;
+    bool ch=0;
+    float add=1;
+    for (int i=0;i<st.size();i++)
+        if (st[i]=='.') ch=1; else
+        {
+            if (!ch)
+            {
+                u*=10.0;
+                u+=st[i]-'0';
+            } else
+            {
+                add/=10.0;
+                u+=add*(st[i]-'0');
+            }
+        }
+    return(u);
+}
+
 int input_ok_do()
 {
+    taken_R=parse_to_float(info_zn);
     info_zn="";
     put_element(info_i,info_j);
     input_info_mode=0;
