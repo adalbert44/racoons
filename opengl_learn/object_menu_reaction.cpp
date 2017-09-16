@@ -17,6 +17,7 @@ void try_del(int i, int j, pair<int,int> p, vector<Event> &vec)
         object[i][j].reb.clear();
         object[i][j].f.tex=empty_;
         object[i][j].f.resize_(40);
+        object[i][j].R=0;
         Circle_element sec=object[i][j];
         vec.pb(Event(fir,sec,{i,j}));
     } else
@@ -35,6 +36,7 @@ int object_delete_func()
     Circle_element fir=object[i][j];
 
     object[i][j].f.tex=empty_;
+    object[i][j].R=0;
     for (int l=0;l<object[i][j].reb.size();l++)
     {
         try_del(object[i][j].reb[l].fir,object[i][j].reb[l].sec,{i,j},vec);
@@ -86,7 +88,7 @@ int object_rotate_func()
 
     Circle_element f=object[i][j];
 
-    object[i][j].f.tex=empty_;
+
     Circle_element fir=object[i][j];
     for (int l=0;l<object[i][j].reb.size();l++)
     {

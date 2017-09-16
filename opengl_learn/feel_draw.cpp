@@ -20,11 +20,6 @@ bool can_put(int i, int j)
 void draw_feel()
 {
 
-
-
-
-
-
     for (int i=0;i<int(feel_background.size());i++)
         feel_background[i].draw();
 
@@ -42,8 +37,6 @@ void draw_feel()
                 imn=i;
                 jmn=j;
                 mn=object[i][j].f.dist();
-
-
             }
         }
     if (can_put(imn,jmn) && mousex>left_menu_size)
@@ -66,6 +59,7 @@ void draw_feel()
             {
                 object[i][j].draw();
             }
+            //drawstring((object[i][j].f.x1-startx)*scrol,(object[i][j].f.y1-starty)*scrol,1,parse_to_string(object[i][j].R));
         }
 
 

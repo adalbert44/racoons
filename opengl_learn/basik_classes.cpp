@@ -81,6 +81,28 @@ Button* pressed=NULL;
 pair<int,int> choosen_object={-1,-1};
 bool object_menu_used=0;
 
+string parse_to_string(float u)
+{
+    string res="";
+    int uu=int(u);
+    while (uu!=0)
+    {
+        res+=uu%10+'0';
+        uu/=10;
+    }
+    u-=uu;
+    if (res.empty()) res+='0';
+    reverse(res.begin(),res.end());
+    res+='.';
+    while (res.size()<5)
+    {
+        u*=10;
+        res+=int(u)+'0';
+        u-=int(u);
+    }
+    return(res);
+}
+
 float sqr(float a)
 {
     return(a*a);
@@ -242,6 +264,8 @@ void Figure :: resize_(float len)
 Circle_element :: Circle_element()
 {
     shade=0.0;
+    R=0;
+    U=0;
 }
 
 Circle_element :: Circle_element(float x, float y)

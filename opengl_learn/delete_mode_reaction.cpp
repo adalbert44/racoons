@@ -55,6 +55,7 @@ void delete_mode_mouse_pressed(int button, int state)
             Circle_element fir=object[i][j];
             object[i][j].f.tex=empty_;
             object[i][j].f.resize_(40);
+            object[i][j].R=0.0;
 
             vector<pair<int,int> > r=object[i][j].reb;
 

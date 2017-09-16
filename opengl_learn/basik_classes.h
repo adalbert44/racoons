@@ -6,6 +6,7 @@
     using namespace std;
 
     void setFont(void* font);
+    string parse_to_string(float u);
     void drawstring(float x, float y, float z, string s);
 
     struct Figure
@@ -83,6 +84,7 @@
         void press_up();
     };
 
+
     class Button_do
     {
     public:
@@ -111,7 +113,6 @@
         Event(pair<int,int> p1_, pair<int,int> p2_);
         Event(pair<int,int> p1_, pair<int,int> p2_, int type_);
         Event(Circle_element was_, Circle_element become_, pair<int,int> p1);
-
     };
 
     extern Circle_element object[30][30];
@@ -147,8 +148,6 @@
     extern Button_do input_ok;
     extern Button_do input_bad;
     extern float taken_R;
-
-
     extern vector<vector<Event> > events;
 
 #endif // BASIK_CLASSES_H_INCLUDED

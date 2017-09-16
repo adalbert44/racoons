@@ -75,6 +75,7 @@ void put_element(int i, int j)
     object[i][j].f.y1=j*feel_seg_size-feel_seg_size/2.0;
     object[i][j].f.y2=j*feel_seg_size+feel_seg_size/2.0;
     object[i][j].f.alpha=1.0;
+    object[i][j].R=taken_R;
     Circle_element sec=object[i][j];
 
     vec.pb(Event(fir,sec,{i,j}));
@@ -230,6 +231,7 @@ void put_point(int i, int j)
     Circle_element f=object[i][j];
 
     object[i][j].f.tex=connection_point;
+    object[i][j].R=0.0;
     object[i][j].f.resize_(20);
     object[i][j].reb=taken_reb;
     object[i][j].f.alpha=1.0;
@@ -302,6 +304,7 @@ void feel_mouse_pressed(int button, int state)
                 if (object[i][j].f.in_dinamic() && object[i][j].f.tex!=empty_ && object[i][j].f.tex!=connection_point && object[i][j].f.tex!=choosen_point_tex)
                 {
                     GLuint tex=object[i][j].f.tex;
+                    taken_R=object[i][j].R;
                     pred_pos={i,j};
                     direction=get_dir(tex);
                     choosen_object={i,j};
@@ -325,6 +328,7 @@ void feel_mouse_pressed(int button, int state)
                     Circle_element f=object[i][j];
 
                     object[i][j].f.tex=empty_;
+                    object[i][j].R=0.0;
                     object[i][j].f.resize_(40);
                     Circle_element s=object[i][j];
                     vec.pb(Event(f,s,{i,j}));
@@ -554,6 +558,7 @@ void add_point_to_choosen()
         if (object[i][j].f.tex==connection_point && object[i][j].f.in_circle())
         {
             object[i][j].f.tex=choosen_point_tex;
+            object[i][j].R=0.0;
             choosen_point.push_back({i,j});
         }
 }
