@@ -14,6 +14,8 @@
     #define fir first
     #define sec second
 
+    typedef long double ld;
+
     using namespace std;
 
 

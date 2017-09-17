@@ -28,6 +28,7 @@ pair<int,int> pred_pos={-1,-1};
 vector<Reb> to_del_reb;
 vector<pair<int,int> > to_del_point;
 string info_zn="";
+ld power[30][30][30][30];
 
 GLuint move_tex;
 GLuint delete_mode_tex;

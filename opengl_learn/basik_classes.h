@@ -149,5 +149,6 @@
     extern Button_do input_bad;
     extern float taken_R;
     extern vector<vector<Event> > events;
+    extern long double power[30][30][30][30];
 
 #endif // BASIK_CLASSES_H_INCLUDED
