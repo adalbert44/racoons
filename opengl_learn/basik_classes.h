@@ -8,6 +8,9 @@
     void setFont(void* font);
     string parse_to_string(float u);
     void drawstring(float x, float y, float z, string s);
+    float dist_(float x1, float y1, float x2, float y2);
+    float dist_(pair<float,float> p1,pair<float,float> p2);
+    float sqr(float a);
 
     struct Figure
     {

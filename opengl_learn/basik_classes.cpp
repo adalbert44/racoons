@@ -84,6 +84,7 @@ bool object_menu_used=0;
 
 string parse_to_string(float u)
 {
+    u+=0.0001;
     string res="";
     int uu=int(u);
     while (uu!=0)
@@ -91,7 +92,7 @@ string parse_to_string(float u)
         res+=uu%10+'0';
         uu/=10;
     }
-    u-=uu;
+    u-=int(u);
     if (res.empty()) res+='0';
     reverse(res.begin(),res.end());
     res+='.';
@@ -115,6 +116,10 @@ float dist_(float x1, float y1, float x2, float y2)
     return(sqrt(sqr(x1-x2)+sqr(y1-y2)));
 }
 
+float dist_(pair<float,float> p1, pair<float,float> p2)
+{
+    return(sqrt(sqr(p1.fir-p2.fir)+sqr(p1.sec-p2.sec)));
+}
 
 void setFont(void *font)
 {

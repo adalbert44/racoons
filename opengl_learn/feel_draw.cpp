@@ -1,6 +1,33 @@
 #include "feel_draw.h"
 #include "basik_classes.h"
 
+const float pi=acos(-1);
+
+float angle (pair<float,float> p1, pair<float,float> p2, pair<float,float> p3)
+{
+    ld c=dist_(p1,p2);
+    ld b=dist_(p2,p3);
+    ld a=dist_(p1,p3);
+    return(acos((sqr(b)+sqr(c)-sqr(a))/(2.0*b*c)));
+}
+
+float dist_to_seg(float x1, float y1, int i1, int j1, int i2, int j2)
+{
+    float x2=((object[i1][j1].f.x1+object[i1][j1].f.x2)/2.0-startx)*scrol;
+    float y2=((object[i1][j1].f.y1+object[i1][j1].f.y2)/2.0-starty)*scrol;
+    float x3=((object[i2][j2].f.x1+object[i2][j2].f.x2)/2.0-startx)*scrol;
+    float y3=((object[i2][j2].f.y1+object[i2][j2].f.y2)/2.0-starty)*scrol;
+
+    if (angle({x1,y1},{x2,y2},{x3,y3})>pi/2.0) return(dist_(x1,y1,x2,y2));
+    if (angle({x1,y1},{x3,y3},{x2,y2})>pi/2.0) return(dist_(x1,y1,x3,y3));
+
+    ld a=y2-y3;
+    ld b=x3-x2;
+    ld c=-a*x2-b*y2;
+
+    return(abs(a*x1+b*y1+c)/sqrt(sqr(a)+sqr(b)));
+}
+
 bool can_put(int i, int j)
 {
     if ((object[i][j].f.x2-startx)*scrol<=left_menu_size) return(0);
@@ -77,6 +104,21 @@ void draw_feel()
         now.draw_state();
 
     }
+
+    if (mousex>left_menu_size && !something_taken && !taken_point && !line_mode_used && !delete_mode_used &&
+        !point_mode_used && !object_menu_used)
+        {
+            pair<pair<int,int>,pair<int,int> > r={mp(0,0),mp(0,0)};
+            for (int i=1;i<feel_size;i++)
+                for (int j=1;j<feel_size;j++)
+                    for (auto to:object[i][j].reb)
+                    {
+                        if (dist_to_seg(mousex,mousey,i,j,to.fir,to.sec)<5)
+                            r={mp(i,j),to};
+                    }
+            if (r.fir.fir!=0)
+            drawstring(mousex,mousey,1.0,parse_to_string(abs(power[r.fir.fir][r.fir.sec][r.sec.fir][r.sec.sec])));
+        }
 }
 
 void draw_left_menu()
