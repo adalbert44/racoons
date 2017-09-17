@@ -13,6 +13,7 @@ void delete_mode_mouse_pressed(int button, int state)
         }
     }
 
+
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && pressed!=NULL)
     {
         if ((*pressed).f.in())

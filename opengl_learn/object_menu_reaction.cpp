@@ -208,15 +208,19 @@ int object_rotate_func()
 
 void object_menu_mouse_pressed(int button, int state)
 {
+    int i=choosen_object.fir;
+    int j=choosen_object.sec;
+
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
 
-        if (object_delete.f.in())
+        if (object_delete.f.in() &&
+        (!(object[i][j].f.tex==choosen_point_tex || object[i][j].f.tex==connection_point && !can_delete(i,j))))
         {
             object_delete.press_down();
             pressed_do=&object_delete;
         } else
-        if (object_rotate.f.in())
+        if (object_rotate.f.in() && object[i][j].f.tex!=connection_point && object[i][j].f.tex!=choosen_point_tex)
         {
             object_rotate.press_down();
             pressed_do=&object_rotate;

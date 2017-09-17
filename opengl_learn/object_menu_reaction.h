@@ -2,6 +2,8 @@
 #define OBJECT_MENU_REACTION_H_INCLUDED
 
     #include "includes.h"
+    #include "delete_mode_reaction.h"
+
     int object_delete_func();
     int object_rotate_func();
     bool get_dir(GLuint tex);

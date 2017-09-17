@@ -1,11 +1,12 @@
 #include "feel_reaction.h"
 #include "object_menu_reaction.h"
-
+#include "get_power.h"
 
 void del_events()
 {
     while (events.size()!=last_event+1)
         events.pop_back();
+    solve();
 }
 
 void del_reb(pair<int,int> p1, pair<int,int> p2)
@@ -61,7 +62,6 @@ void add_reb()
 
     events.pb(vec);
     last_event++;
-
 }
 
 void put_element(int i, int j)
@@ -271,7 +271,7 @@ void feel_mouse_pressed(int button, int state)
         for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
             {
-                if (object[i][j].f.in_dinamic() && object[i][j].f.tex!=empty_ && object[i][j].f.tex!=connection_point && object[i][j].f.tex!=choosen_point_tex)
+                if (object[i][j].f.in_dinamic() && object[i][j].f.tex!=empty_ )//&& object[i][j].f.tex!=connection_point && object[i][j].f.tex!=choosen_point_tex)
                 {
                     object[i][j].shade=0.16;
 
@@ -293,6 +293,7 @@ void feel_mouse_pressed(int button, int state)
 
                     choosen_object={i,j};
                 }
+
             }
     }
 
