@@ -33,6 +33,7 @@ ld power[30][30][30][30];
 GLuint move_tex;
 GLuint delete_mode_tex;
 Figure shade_button1,shade_button2;
+Figure text_back_ground;
 GLuint shade_button_tex1,shade_button_tex2;
 float feel_seg_size=100;
 int feel_size=30;

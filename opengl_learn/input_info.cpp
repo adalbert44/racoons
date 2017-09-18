@@ -60,10 +60,12 @@ void input_keyboard(unsigned char c)
 
     if (c=='.')
     {
-        if (info_zn.size()!=0)
+        bool ch=0;
+        for (auto i:info_zn)
+            if (i=='.') ch=1;
+        if (info_zn.size()!=0 && !ch)
         {
-            if (info_zn.back()!='.')
-                info_zn+='.';
+            info_zn+='.';
         }
     }
 

@@ -113,11 +113,16 @@ void draw_feel()
                 for (int j=1;j<feel_size;j++)
                     for (auto to:object[i][j].reb)
                     {
-                        if (dist_to_seg(mousex,mousey,i,j,to.fir,to.sec)<5)
+                        if (dist_to_seg(mousex,mousey,i,j,to.fir,to.sec)<10)
                             r={mp(i,j),to};
                     }
             if (r.fir.fir!=0)
-            drawstring(mousex,mousey,1.0,parse_to_string(abs(power[r.fir.fir][r.fir.sec][r.sec.fir][r.sec.sec])));
+            {
+                text_back_ground=Figure(mousex,mousex+60,mousey-20,mousey,left_menu_background_tex,1.0);
+                text_back_ground.draw_state();
+                drawstring(mousex,mousey,1.0,parse_to_string(abs(power[r.fir.fir][r.fir.sec][r.sec.fir][r.sec.sec])));
+            }
+
         }
 }
 

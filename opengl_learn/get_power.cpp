@@ -119,7 +119,6 @@ vector<ld> get(pair<int,int> left, pair<int,int> right, int cnt)
 
         if (!check(object[fir.fir][fir.sec].f.tex) && !check(object[sec.fir][sec.sec].f.tex))
         vec[nomb[fir.fir][fir.sec][sec.fir][sec.sec]]+=(object[fir.fir][fir.sec].R+object[sec.fir][sec.sec].R)/2.0;
-        vec[nomb[fir.fir][fir.sec][sec.fir][sec.sec]]+=0.00001;
         vec[vec.size()-1]+=get_U(fir,sec);
     }
 

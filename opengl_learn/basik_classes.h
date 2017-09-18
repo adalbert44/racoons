@@ -153,5 +153,6 @@
     extern float taken_R;
     extern vector<vector<Event> > events;
     extern long double power[30][30][30][30];
+    extern Figure text_back_ground;
 
 #endif // BASIK_CLASSES_H_INCLUDED
