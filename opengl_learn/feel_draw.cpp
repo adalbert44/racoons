@@ -106,7 +106,7 @@ void draw_feel()
     }
 
     if (mousex>left_menu_size && !something_taken && !taken_point && !line_mode_used && !delete_mode_used &&
-        !point_mode_used && !object_menu_used)
+        !point_mode_used && !object_menu_used && !input_info_mode)
         {
             pair<pair<int,int>,pair<int,int> > r={mp(0,0),mp(0,0)};
             for (int i=1;i<feel_size;i++)

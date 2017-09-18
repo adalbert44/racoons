@@ -8,6 +8,7 @@
 #include "object_menu_reaction.h"
 #include "delete_mode_reaction.h"
 #include "input_info.h"
+#include "read_write.h"
 
 void Draw()
 {
@@ -262,7 +263,6 @@ void redraw(int)
 
 int main(int argc, char** argv)
 {
-
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 

@@ -2,10 +2,16 @@
 
 vector<pair<int,int> > visited;
 
-bool used[30][30];
-pair<int,int> pred[30][30];
+bool used[30][30],use[30][30],good[30][30];
+pair<int,int> pred_[30][30];
 
 int nomb[30][30][30][30];
+
+bool to_start[30][30];
+
+pair<int,int> pred[30][30];
+
+
 
 int gauss (vector < vector<ld> > a, vector<ld> & ans) {
 	int n = (int) a.size();
@@ -125,6 +131,34 @@ vector<ld> get(pair<int,int> left, pair<int,int> right, int cnt)
     return(vec);
 }
 
+void get_inf(int i, int j, int pi, int pj)
+{
+    pred_[i][j]={pi,pj};
+
+
+    use[i][j]=1;
+
+    if (pi!=0)
+        good[i][j]=1;
+    for (auto to:object[i][j].reb)
+    if (!(!check(object[to.fir][to.sec].f.tex) && object[to.fir][to.sec].R>1e-7))
+    {
+        if (use[to.fir][to.sec] && (!good[to.fir][to.sec]) && !(to.fir==pi && to.sec==pj))
+        {
+            to_start[i][j]=1;
+            to_start[to.fir][to.sec]=1;
+            power[i][j][to.fir][to.sec]=1e9;
+            power[to.fir][to.sec][i][j]=1e9;
+        }
+
+        if (!use[to.fir][to.sec])
+            get_inf(to.fir,to.sec,i,j);
+    }
+
+    good[i][j]=0;
+
+}
+
 void solve(vector<pair<int,int> > vec)
 {
     if (vec.size()==1) return;
@@ -191,8 +225,36 @@ void solve(vector<pair<int,int> > vec)
     vector<ld> res;
     int r=gauss(all,res);
 
-    if (r!=1) exit(1);
+    if (r==0)
+    {
 
+        for (auto i:vec)
+            if (check(object[i.fir][i.sec].f.tex) && object[i.fir][i.sec].R>1e-7)
+            {
+                for (auto j:vec)
+                {
+                    use[j.fir][j.sec]=0;
+                    good[j.fir][j.sec]=0;
+                    to_start[j.fir][j.sec]=0;
+                    pred_[j.fir][j.sec]={0,0};
+                }
+                get_inf(i.fir,i.sec,0,0);
+                for (auto j:vec)
+                    if (to_start[j.fir][j.sec])
+                    {
+                        pair<int,int> now=j;
+                        while (now!=mp(0,0))
+                        {
+                            pair<int,int> p=pred_[now.fir][now.sec];
+                            power[now.fir][now.sec][p.fir][p.sec]=1e9;
+                            power[p.fir][p.sec][now.fir][now.sec]=1e9;
+                            now=p;
+                        }
+                    }
+            }
+
+
+    } else
     for (auto u:vec)
     {
         for (auto v:object[u.fir][u.sec].reb)
