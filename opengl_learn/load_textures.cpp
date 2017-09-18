@@ -57,4 +57,9 @@ void load_all()
     redo_tex=Load("textures/redo.png");
     move_tex=Load("textures/move_tex.png");
     rotate_tex=Load("textures/rotate.png");
+    ok_tex=Load("textures/ok_button_tex.png");
+    bad_tex=Load("textures/bad_button_tex.png");
+    info_background=Load("textures/info_background.png");
+    text_line=Load("textures/text_line.png");
+
 }

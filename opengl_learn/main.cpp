@@ -164,10 +164,10 @@ void creat_feel()
     float h2=WinHei/2.5+100;
     float l=(WinWid-w1*2)/2.0;
 
-    input_info_background=Figure(w1,WinWid-w1,h1,WinHei-h1,feel_background_texture[0],1.0);
-    input_feel=Figure(w2,WinWid-w2,h2,h2+25,left_menu_background_tex,1.0);
-    input_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,left_menu_horizontal[1].tex,1.0),&input_ok_do);
-    input_bad=Button_do(Figure(w1+l,w1+2*l,WinHei-h1,WinHei-h1+100,left_menu_horizontal[1].tex,1.0),&input_bad_do);
+    input_info_background=Figure(w1,WinWid-w1,h1,WinHei-h1,info_background,1.0);
+    input_feel=Figure(w2,WinWid-w2,h2,h2+25,text_line,1.0);
+    input_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,ok_tex,1.0),&input_ok_do);
+    input_bad=Button_do(Figure(w1+l,w1+2*l,WinHei-h1,WinHei-h1+100,bad_tex,1.0),&input_bad_do);
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 }

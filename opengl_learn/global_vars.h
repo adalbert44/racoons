@@ -29,6 +29,8 @@
     extern float scrol;
     extern float mousex;
     extern float mousey;
+    extern GLuint ok_tex;
+    extern GLuint bad_tex;
 
     extern int last_event;
     extern GLuint feel_background_texture[2];

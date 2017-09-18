@@ -11,9 +11,12 @@ float taken_R;
 
 
 GLuint rotate_tex;
-
+GLuint ok_tex;
+GLuint bad_tex;
+GLuint info_background;
 int info_i,info_j;
 GLuint undo_tex;
+GLuint text_line;
 GLuint redo_tex;
 Figure window_shade;
 Figure object_info;

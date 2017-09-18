@@ -118,9 +118,16 @@ void draw_feel()
                     }
             if (r.fir.fir!=0)
             {
-                text_back_ground=Figure(mousex,mousex+60,mousey-20,mousey,left_menu_background_tex,1.0);
+                text_back_ground=Figure(mousex,mousex+60,mousey-20,mousey,text_line,1.0);
                 text_back_ground.draw_state();
-                drawstring(mousex,mousey,1.0,parse_to_string(abs(power[r.fir.fir][r.fir.sec][r.sec.fir][r.sec.sec])));
+
+                string to_draw;
+
+                if (abs(power[r.fir.fir][r.fir.sec][r.sec.fir][r.sec.sec])!=1e9)
+                    to_draw=parse_to_string(abs(power[r.fir.fir][r.fir.sec][r.sec.fir][r.sec.sec])); else
+                    to_draw="inf";
+
+                drawstring(mousex,mousey,1.0,to_draw);
             }
 
         }
