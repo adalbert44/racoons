@@ -36,9 +36,9 @@
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="glut32" />
-			<Add library="../../../../../Program Files (x86)/CodeBlocks/MinGW/lib/DevIL.lib" />
-			<Add library="../../../../../Program Files (x86)/CodeBlocks/MinGW/lib/ILU.lib" />
-			<Add library="../../../../../Program Files (x86)/CodeBlocks/MinGW/lib/ILUT.lib" />
+			<Add library="libs/DevIL.lib" />
+			<Add library="libs/ILU.lib" />
+			<Add library="libs/ILUT.lib" />
 		</Linker>
 		<Unit filename="basik_classes.cpp" />
 		<Unit filename="basik_classes.h">
