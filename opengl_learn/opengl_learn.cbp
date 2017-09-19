@@ -44,6 +44,8 @@
 		<Unit filename="basik_classes.h">
 			<Option compile="1" />
 		</Unit>
+		<Unit filename="delete_mode_reaction.cpp" />
+		<Unit filename="delete_mode_reaction.h" />
 		<Unit filename="feel_draw.cpp" />
 		<Unit filename="feel_draw.h">
 			<Option compile="1" />
@@ -52,17 +54,29 @@
 		<Unit filename="feel_reaction.h">
 			<Option compile="1" />
 		</Unit>
+		<Unit filename="get_power.cpp" />
+		<Unit filename="get_power.h" />
 		<Unit filename="global_vars.h">
 			<Option compile="1" />
 		</Unit>
 		<Unit filename="includes.h">
 			<Option compile="1" />
 		</Unit>
+		<Unit filename="input_info.cpp" />
+		<Unit filename="input_info.h" />
 		<Unit filename="load_textures.cpp" />
 		<Unit filename="load_textures.h">
 			<Option compile="1" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="object_menu_draw.cpp" />
+		<Unit filename="object_menu_draw.h" />
+		<Unit filename="object_menu_reaction.cpp" />
+		<Unit filename="object_menu_reaction.h" />
+		<Unit filename="read_write.cpp" />
+		<Unit filename="read_write.h" />
+		<Unit filename="undo_redo.cpp" />
+		<Unit filename="undo_redo.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
