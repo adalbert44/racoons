@@ -19,6 +19,8 @@
 
 
 
+    extern float ky;
+    extern float kx;
 
     extern float speed_scrol;
     extern float speed_move;

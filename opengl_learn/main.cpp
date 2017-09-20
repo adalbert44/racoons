@@ -175,12 +175,15 @@ void creat_feel()
 void Initialize(int w, int h)
 {
     glViewport(0,0,w,h);
-    real_WinWid=w ;
+    real_WinWid=w;
     real_WinHei=h;
     WinWid=1920;
     WinHei=1080;
+    kx=real_WinWid/WinWid;
+    ky=real_WinHei/WinHei;
+    //cout<<WinWid<<' '<<WinHei<<' '<<real_WinWid<<' '<<real_WinHei<<'\n';
     left_menu_size=(WinHei-100)/7.0*2.0;
-    startx=-left_menu_size/WinWid*real_WinWid;
+    startx=-left_menu_size;
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0.0, WinWid, WinHei, 0.0, 0.f, -1.f);
@@ -195,6 +198,8 @@ void Initialize(int w, int h)
 
 void mouse_pressed(int button, int state, int x, int y)
 {
+    x/=kx;
+    y/=ky;
     if (in_feel && delete_mode_used)
     {
         delete_mode_mouse_pressed_motion(mousex,mousey,x,y);
@@ -233,6 +238,9 @@ void mouse_pressed(int button, int state, int x, int y)
 
 void mouse_pressed_motion(int x, int y)
 {
+
+    x/=kx;
+    y/=ky;
     if (in_feel && delete_mode_used)
     {
         delete_mode_mouse_pressed_motion(mousex,mousey,x,y);
@@ -250,6 +258,9 @@ void mouse_pressed_motion(int x, int y)
 
 void mouse_motion(int x, int y)
 {
+
+    x/=kx;
+    y/=ky;
     mousex=x;
     mousey=y;
 }
@@ -258,6 +269,8 @@ void mouse_motion(int x, int y)
 
 void redraw(int)
 {
+
+    //cout<<WinWid<<' '<<WinHei<<' '<<real_WinWid<<' '<<real_WinHei<<' '<<left_menu_horizontal[6].y2*ky<<'\n';
     glutPostRedisplay();
     glutTimerFunc(30,redraw,0);
 }

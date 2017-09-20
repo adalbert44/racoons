@@ -9,6 +9,10 @@ float speed_scrol=1.05;
 float speed_move=20.0;
 float taken_R;
 
+float ky;
+float kx;
+
+
 
 GLuint rotate_tex;
 GLuint ok_tex;
@@ -140,6 +144,7 @@ void drawstring(float x,float y,float z,string s)
 
     char *c;
     glRasterPos3f(x,y,z);
+
     for (int i=0;i<s.size();i++)
     {
         glColor3f(0.0,0.0,0.0);
@@ -165,6 +170,7 @@ Figure :: Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float 
 
 void Figure :: draw()
 {
+
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, tex);
         glPushMatrix();
@@ -188,8 +194,6 @@ void Figure :: draw()
 
 void Figure :: draw_state()
 {
-    float ky=real_WinHei/WinHei;
-    float kx=real_WinWid/WinWid;
 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, tex);
@@ -200,10 +204,10 @@ void Figure :: draw_state()
         glColor4f(1, 1, 1, alpha);
 
         glBegin(GL_QUADS);
-            glTexCoord2f(0, 0); glVertex2f(x1*kx, y1*ky);
-            glTexCoord2f(1, 0); glVertex2f(x2*kx, y1*ky);
-            glTexCoord2f(1, 1); glVertex2f(x2*kx, y2*ky);
-            glTexCoord2f(0, 1); glVertex2f(x1*kx, y2*ky);
+            glTexCoord2f(0, 0); glVertex2f(x1, y1);
+            glTexCoord2f(1, 0); glVertex2f(x2, y1);
+            glTexCoord2f(1, 1); glVertex2f(x2, y2);
+            glTexCoord2f(0, 1); glVertex2f(x1, y2);
         glEnd();
 
         glDisable(GL_BLEND);
@@ -304,6 +308,7 @@ void Circle_element :: draw()
 
     for (int i=0;i<reb.size();i++)
     {
+
         int pi=((f.x1+f.x2)/2.0)/feel_seg_size+0.00001;
         int pj=((f.y1+f.y2)/2.0)/feel_seg_size+0.00001;
         float green=0.0;
@@ -371,6 +376,8 @@ void Button :: draw_state()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glColor4f(0, 0, 0, shade);
 
+
+
     glBegin(GL_QUADS);
         glVertex2f(f.x1, f.y1);
         glVertex2f(f.x2, f.y1);
@@ -419,6 +426,11 @@ void Button_do :: draw_state()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glColor4f(0, 0, 0, shade);
+
+
+    float ky=WinHei/real_WinHei;
+    float kx=WinWid/real_WinWid;
+
 
     glBegin(GL_QUADS);
         glVertex2f(f.x1, f.y1);
