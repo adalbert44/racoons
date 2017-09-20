@@ -175,10 +175,12 @@ void creat_feel()
 void Initialize(int w, int h)
 {
     glViewport(0,0,w,h);
-    WinWid=w;
-    WinHei=h;
+    real_WinWid=w ;
+    real_WinHei=h;
+    WinWid=1920;
+    WinHei=1080;
     left_menu_size=(WinHei-100)/7.0*2.0;
-    startx=-left_menu_size;
+    startx=-left_menu_size/WinWid*real_WinWid;
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0.0, WinWid, WinHei, 0.0, 0.f, -1.f);

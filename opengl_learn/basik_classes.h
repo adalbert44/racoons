@@ -156,5 +156,6 @@
     extern Figure text_back_ground;
     extern GLuint info_background;
     extern GLuint text_line;
+    extern float real_WinWid,real_WinHei;
 
 #endif // BASIK_CLASSES_H_INCLUDED

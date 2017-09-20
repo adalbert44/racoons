@@ -40,6 +40,7 @@ Figure text_back_ground;
 GLuint shade_button_tex1,shade_button_tex2;
 float feel_seg_size=100;
 int feel_size=30;
+float real_WinWid,real_WinHei;
 float scrol=1.0;
 float mousex=0.0, mousey=0.0;
 bool in_feel=1;
@@ -187,6 +188,9 @@ void Figure :: draw()
 
 void Figure :: draw_state()
 {
+    float ky=real_WinHei/WinHei;
+    float kx=real_WinWid/WinWid;
+
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, tex);
         glPushMatrix();
@@ -196,10 +200,10 @@ void Figure :: draw_state()
         glColor4f(1, 1, 1, alpha);
 
         glBegin(GL_QUADS);
-            glTexCoord2f(0, 0); glVertex2f(x1, y1);
-            glTexCoord2f(1, 0); glVertex2f(x2, y1);
-            glTexCoord2f(1, 1); glVertex2f(x2, y2);
-            glTexCoord2f(0, 1); glVertex2f(x1, y2);
+            glTexCoord2f(0, 0); glVertex2f(x1*kx, y1*ky);
+            glTexCoord2f(1, 0); glVertex2f(x2*kx, y1*ky);
+            glTexCoord2f(1, 1); glVertex2f(x2*kx, y2*ky);
+            glTexCoord2f(0, 1); glVertex2f(x1*kx, y2*ky);
         glEnd();
 
         glDisable(GL_BLEND);
