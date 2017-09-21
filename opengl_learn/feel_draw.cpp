@@ -1,9 +1,9 @@
 #include "feel_draw.h"
 #include "basik_classes.h"
 
-const float pi=acos(-1);
+const double pi=acos(-1);
 
-float angle (pair<float,float> p1, pair<float,float> p2, pair<float,float> p3)
+double angle (pair<double,double> p1, pair<double,double> p2, pair<double,double> p3)
 {
     ld c=dist_(p1,p2);
     ld b=dist_(p2,p3);
@@ -11,12 +11,12 @@ float angle (pair<float,float> p1, pair<float,float> p2, pair<float,float> p3)
     return(acos((sqr(b)+sqr(c)-sqr(a))/(2.0*b*c)));
 }
 
-float dist_to_seg(float x1, float y1, int i1, int j1, int i2, int j2)
+double dist_to_seg(double x1, double y1, int i1, int j1, int i2, int j2)
 {
-    float x2=((object[i1][j1].f.x1+object[i1][j1].f.x2)/2.0-startx)*scrol;
-    float y2=((object[i1][j1].f.y1+object[i1][j1].f.y2)/2.0-starty)*scrol;
-    float x3=((object[i2][j2].f.x1+object[i2][j2].f.x2)/2.0-startx)*scrol;
-    float y3=((object[i2][j2].f.y1+object[i2][j2].f.y2)/2.0-starty)*scrol;
+    double x2=((object[i1][j1].f.x1+object[i1][j1].f.x2)/2.0-startx)*scrol;
+    double y2=((object[i1][j1].f.y1+object[i1][j1].f.y2)/2.0-starty)*scrol;
+    double x3=((object[i2][j2].f.x1+object[i2][j2].f.x2)/2.0-startx)*scrol;
+    double y3=((object[i2][j2].f.y1+object[i2][j2].f.y2)/2.0-starty)*scrol;
 
     if (angle({x1,y1},{x2,y2},{x3,y3})>pi/2.0) return(dist_(x1,y1,x2,y2));
     if (angle({x1,y1},{x3,y3},{x2,y2})>pi/2.0) return(dist_(x1,y1,x3,y3));
@@ -50,7 +50,7 @@ void draw_feel()
     for (int i=0;i<int(feel_background.size());i++)
         feel_background[i].draw();
 
-    float mn=100000;
+    double mn=100000;
     int imn=0;
     int jmn=0;
 

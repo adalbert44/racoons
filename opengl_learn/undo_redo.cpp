@@ -71,6 +71,7 @@ int undo()
             change_back(events[last_event][i]);
         last_event--;
     }
+    solve();
 }
 int redo()
 {
@@ -80,5 +81,5 @@ int redo()
         for (int i=0;i<events[last_event].size();i++)
             del_changes(events[last_event][i]);
     }
-
+    solve();
 }

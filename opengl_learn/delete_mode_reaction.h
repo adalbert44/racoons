@@ -5,7 +5,7 @@
     #include "feel_reaction.h"
 
     void delete_mode_mouse_pressed(int button, int state);
-    void delete_mode_mouse_pressed_motion(float x1, float y1, float x2, float y2);
+    void delete_mode_mouse_pressed_motion(double x1, double y1, double x2, double y2);
     bool can_delete(int i, int j);
 
 

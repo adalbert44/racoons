@@ -1,6 +1,7 @@
 #include "feel_reaction.h"
 #include "object_menu_reaction.h"
 #include "get_power.h"
+#include "element_type.h"
 
 void del_events()
 {
@@ -275,12 +276,12 @@ void feel_mouse_pressed(int button, int state)
                 {
                     object[i][j].shade=0.16;
 
-                    float x1=(object[i][j].f.x1-startx)*scrol;
-                    float x2=(object[i][j].f.x2-startx)*scrol;
-                    float y1=(object[i][j].f.y1-starty)*scrol;
-                    float y2=(object[i][j].f.y2-starty)*scrol;
-                    float x=(x1+x2)/2.0;
-                    float y=(y1+y2)/2.0;
+                    double x1=(object[i][j].f.x1-startx)*scrol;
+                    double x2=(object[i][j].f.x2-startx)*scrol;
+                    double y1=(object[i][j].f.y1-starty)*scrol;
+                    double y2=(object[i][j].f.y2-starty)*scrol;
+                    double x=(x1+x2)/2.0;
+                    double y=(y1+y2)/2.0;
 
                     x=min(x,WinWid-300);
                     y=min(y,WinHei-75);
@@ -383,6 +384,16 @@ void feel_mouse_pressed(int button, int state)
             }
         if (info_i==-1)
             input_info_mode=0;
+
+        if (input_info_mode)
+        {
+            if (rezistor(taken))
+            {
+                input_info_mode=0;
+                taken_R=10000;
+                put_element(info_i,info_j);
+            }
+        }
 
         return;
     }

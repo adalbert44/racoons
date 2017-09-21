@@ -6,33 +6,33 @@
     using namespace std;
 
     void setFont(void* font);
-    string parse_to_string(float u);
-    void drawstring(float x, float y, float z, string s);
-    float dist_(float x1, float y1, float x2, float y2);
-    float dist_(pair<float,float> p1,pair<float,float> p2);
-    float sqr(float a);
+    string parse_to_string(double u);
+    void drawstring(double x, double y, double z, string s);
+    double dist_(double x1, double y1, double x2, double y2);
+    double dist_(pair<double,double> p1,pair<double,double> p2);
+    double sqr(double a);
 
     struct Figure
     {
     public:
-        float x1,x2,y1,y2,alpha;
+        double x1,x2,y1,y2,alpha;
         GLuint tex;
 
 
  //       Figure a=Figure();
 
         Figure();
-        Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float alpha);
-        Figure(float x1_, float x2_, float y1_, float y2_, float alpha);
-        float dist();
-        float centre_dist();
+        Figure(double x1_, double x2_, double y1_, double y2_, GLuint tex_, double alpha);
+        Figure(double x1_, double x2_, double y1_, double y2_, double alpha);
+        double dist();
+        double centre_dist();
         bool in();
         bool in_circle();
         bool in_dinamic();
 
         void draw();
         void draw_state();
-        void resize_(float siz);
+        void resize_(double siz);
 
     };
 
@@ -48,11 +48,11 @@
     struct Point
     {
     public:
-        float x,y;
+        double x,y;
         Point()
         {
         }
-        Point (float x_, float y_)
+        Point (double x_, double y_)
         {
             x=x_;
             y=y_;
@@ -64,12 +64,12 @@
     public:
         Figure f;
         vector<pair<int,int> > reb;
-        float shade;
-        float R;
-        float U;
+        double shade;
+        long double R;
+        long double U;
         Circle_element();
-        Circle_element(float x, float y);
-        Circle_element(Figure f_, float R_, float U_);
+        Circle_element(double x, double y);
+        Circle_element(Figure f_, long double R_, long double U_);
         void draw();
     };
 
@@ -78,7 +78,7 @@
     public:
         Figure f;
         vector<bool*> change;
-        float shade=0;
+        double shade=0;
         bool used=0;
         Button();
         Button(Figure f_, vector<bool*> change);
@@ -93,7 +93,7 @@
     public:
         Figure f;
         int (*to_do)();
-        float shade=0;
+        double shade=0;
 
         Button_do();
         Button_do(Figure f_, int (*to_do_)());
@@ -150,12 +150,12 @@
     extern Figure input_feel;
     extern Button_do input_ok;
     extern Button_do input_bad;
-    extern float taken_R;
+    extern double taken_R;
     extern vector<vector<Event> > events;
     extern long double power[30][30][30][30];
     extern Figure text_back_ground;
     extern GLuint info_background;
     extern GLuint text_line;
-    extern float real_WinWid,real_WinHei;
+    extern double real_WinWid,real_WinHei;
 
 #endif // BASIK_CLASSES_H_INCLUDED

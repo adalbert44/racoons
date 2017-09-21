@@ -121,7 +121,7 @@ bool can_delete(int i, int j)
     return(1);
 }
 
-void delete_mode_mouse_pressed_motion(float x1, float y1, float x2, float y2)
+void delete_mode_mouse_pressed_motion(double x1, double y1, double x2, double y2)
 {
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
@@ -137,10 +137,10 @@ void delete_mode_mouse_pressed_motion(float x1, float y1, float x2, float y2)
         for (int j=1;j<feel_size;j++)
             for (auto l:object[i][j].reb)
             {
-                float xx1=((object[i][j].f.x1-startx)*scrol+(object[i][j].f.x2-startx)*scrol)/2.0;
-                float yy1=((object[i][j].f.y1-starty)*scrol+(object[i][j].f.y2-starty)*scrol)/2.0;
-                float xx2=((object[l.fir][l.sec].f.x1-startx)*scrol+(object[l.fir][l.sec].f.x2-startx)*scrol)/2.0;
-                float yy2=((object[l.fir][l.sec].f.y1-starty)*scrol+(object[l.fir][l.sec].f.y2-starty)*scrol)/2.0;
+                double xx1=((object[i][j].f.x1-startx)*scrol+(object[i][j].f.x2-startx)*scrol)/2.0;
+                double yy1=((object[i][j].f.y1-starty)*scrol+(object[i][j].f.y2-starty)*scrol)/2.0;
+                double xx2=((object[l.fir][l.sec].f.x1-startx)*scrol+(object[l.fir][l.sec].f.x2-startx)*scrol)/2.0;
+                double yy2=((object[l.fir][l.sec].f.y1-starty)*scrol+(object[l.fir][l.sec].f.y2-starty)*scrol)/2.0;
                 if (intersect({xx1,yy1},{xx2,yy2},{x1,y1},{x2,y2}) &&
                     (object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex) &&
                     (object[l.fir][l.sec].f.tex==connection_point || object[l.fir][l.sec].f.tex==choosen_point_tex))

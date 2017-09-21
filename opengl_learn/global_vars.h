@@ -7,8 +7,8 @@
 
     using namespace std;
 
-    extern float WinWid;
-    extern float WinHei;
+    extern double WinWid;
+    extern double WinHei;
 
 
 
@@ -19,25 +19,25 @@
 
 
 
-    extern float ky;
-    extern float kx;
+    extern double ky;
+    extern double kx;
 
-    extern float speed_scrol;
-    extern float speed_move;
-    extern float startx;
-    extern float starty;
-    extern float feel_seg_size;
+    extern double speed_scrol;
+    extern double speed_move;
+    extern double startx;
+    extern double starty;
+    extern double feel_seg_size;
     extern int feel_size;
-    extern float scrol;
-    extern float mousex;
-    extern float mousey;
+    extern double scrol;
+    extern double mousex;
+    extern double mousey;
     extern GLuint ok_tex;
     extern GLuint bad_tex;
 
     extern int last_event;
     extern GLuint feel_background_texture[2];
     extern GLuint empty_;
-    extern float left_menu_size;
+    extern double left_menu_size;
     extern bool in_feel;
     extern bool something_taken;
     extern GLuint put;

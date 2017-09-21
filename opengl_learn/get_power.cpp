@@ -252,8 +252,6 @@ void solve(vector<pair<int,int> > vec)
                         }
                     }
             }
-
-
     } else
     for (auto u:vec)
     {

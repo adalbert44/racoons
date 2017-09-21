@@ -52,15 +52,15 @@ void keyboard(unsigned char c, int x, int y)
             exit(0);
             break;
         case '+':
-            if ((-startx)*min(float(2.0),scrol*speed_scrol)>left_menu_size)
+            if ((-startx)*min(double(2.0),scrol*speed_scrol)>left_menu_size)
             {
-                startx=-left_menu_size/min(float(2.0),scrol*speed_scrol);
+                startx=-left_menu_size/min(double(2.0),scrol*speed_scrol);
                 startx=min(startx,feel_seg_size*feel_size-WinWid/scrol);
             }
             if ((-startx)*scrol<left_menu_size)
             {
                 scrol*=speed_scrol;
-                scrol=min(scrol,float(2.0));
+                scrol=min(scrol,double(2.0));
             }
             break;
         case '-':
@@ -72,13 +72,13 @@ void keyboard(unsigned char c, int x, int y)
                 if ((feel_size*feel_seg_size-startx)*scrol/speed_scrol<=WinWid)
                 {
                     startx=feel_size*feel_seg_size-(WinWid/(scrol/speed_scrol))-0.0001;
-                    startx=max(float(-left_menu_size)/scrol,startx);
+                    startx=max(double(-left_menu_size)/scrol,startx);
                 }
 
                 if ((feel_size*feel_seg_size-starty)*scrol/speed_scrol<=WinHei)
                 {
                     starty=feel_size*feel_seg_size-(WinHei/(scrol/speed_scrol))-0.0001;
-                    starty=max(float(0.0),starty);
+                    starty=max(double(0.0),starty);
                 }
 
                 if ((feel_size*feel_seg_size-startx)*scrol/speed_scrol>=WinWid && (feel_size*feel_seg_size-starty)*scrol/speed_scrol>=WinHei)
@@ -110,7 +110,7 @@ void skeyboard(int c, int x, int y)
 
         case GLUT_KEY_LEFT:
             startx-=speed_move;
-            startx=max(float(-left_menu_size)/scrol,startx);
+            startx=max(double(-left_menu_size)/scrol,startx);
             break;
         case GLUT_KEY_DOWN:
             starty+=speed_move;
@@ -118,7 +118,7 @@ void skeyboard(int c, int x, int y)
             break;
         case GLUT_KEY_UP:
             starty-=speed_move;
-            starty=max(float(0.0),starty);
+            starty=max(double(0.0),starty);
             break;
         default:
             break;
@@ -158,11 +158,11 @@ void creat_feel()
     shade_button1.tex=shade_button_tex1;
     shade_button2.tex=shade_button_tex2;
 
-    float w1=WinWid/2.3;
-    float h1=WinHei/2.3;
-    float w2=WinWid/2.5+100;
-    float h2=WinHei/2.5+100;
-    float l=(WinWid-w1*2)/2.0;
+    double w1=WinWid/2.3;
+    double h1=WinHei/2.3;
+    double w2=WinWid/2.5+100;
+    double h2=WinHei/2.5+100;
+    double l=(WinWid-w1*2)/2.0;
 
     input_info_background=Figure(w1,WinWid-w1,h1,WinHei-h1,info_background,1.0);
     input_feel=Figure(w2,WinWid-w2,h2,h2+25,text_line,1.0);

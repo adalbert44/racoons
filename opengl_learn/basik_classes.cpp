@@ -1,16 +1,16 @@
 #include "basik_classes.h"
 #include "object_menu_reaction.h"
 
-float WinWid=0.0;
-float WinHei=0.0;
+double WinWid=0.0;
+double WinHei=0.0;
 void *currentfont;
 
-float speed_scrol=1.05;
-float speed_move=20.0;
-float taken_R;
+double speed_scrol=1.05;
+double speed_move=20.0;
+double taken_R;
 
-float ky;
-float kx;
+double ky;
+double kx;
 
 
 
@@ -42,18 +42,18 @@ GLuint delete_mode_tex;
 Figure shade_button1,shade_button2;
 Figure text_back_ground;
 GLuint shade_button_tex1,shade_button_tex2;
-float feel_seg_size=100;
+double feel_seg_size=100;
 int feel_size=30;
-float real_WinWid,real_WinHei;
-float scrol=1.0;
-float mousex=0.0, mousey=0.0;
+double real_WinWid,real_WinHei;
+double scrol=1.0;
+double mousex=0.0, mousey=0.0;
 bool in_feel=1;
 bool something_taken=0;
 bool direction=0;
 GLuint taken;
 GLuint put;
-float left_menu_size=350;
-float startx=-left_menu_size,starty=0;
+double left_menu_size=350;
+double startx=-left_menu_size,starty=0;
 GLuint feel_background_texture[2];
 GLuint empty_;
 GLuint connection_point;
@@ -91,7 +91,7 @@ Button* pressed=NULL;
 pair<int,int> choosen_object={-1,-1};
 bool object_menu_used=0;
 
-string parse_to_string(float u)
+string parse_to_string(double u)
 {
     u+=0.0001;
     string res="";
@@ -114,18 +114,18 @@ string parse_to_string(float u)
     return(res);
 }
 
-float sqr(float a)
+double sqr(double a)
 {
     return(a*a);
 }
 
 
-float dist_(float x1, float y1, float x2, float y2)
+double dist_(double x1, double y1, double x2, double y2)
 {
     return(sqrt(sqr(x1-x2)+sqr(y1-y2)));
 }
 
-float dist_(pair<float,float> p1, pair<float,float> p2)
+double dist_(pair<double,double> p1, pair<double,double> p2)
 {
     return(sqrt(sqr(p1.fir-p2.fir)+sqr(p1.sec-p2.sec)));
 }
@@ -135,7 +135,7 @@ void setFont(void *font)
     currentfont=font;                      // Set the currentfont to the font
 }
 
-void drawstring(float x,float y,float z,string s)
+void drawstring(double x,double y,double z,string s)
 {
 
 
@@ -158,7 +158,7 @@ Figure :: Figure()
 
 }
 
-Figure :: Figure(float x1_, float x2_, float y1_, float y2_, GLuint tex_, float alpha_)
+Figure :: Figure(double x1_, double x2_, double y1_, double y2_, GLuint tex_, double alpha_)
 {
     x1=x1_;
     x2=x2_;
@@ -216,14 +216,14 @@ void Figure :: draw_state()
     glDisable(GL_TEXTURE_2D);
 }
 
-float Figure :: dist()
+double Figure :: dist()
 {
-    float x1_=(x1-startx)*scrol;
-    float x2_=(x2-startx)*scrol;
-    float y1_=(y1-starty)*scrol;
-    float y2_=(y2-starty)*scrol;
+    double x1_=(x1-startx)*scrol;
+    double x2_=(x2-startx)*scrol;
+    double y1_=(y1-starty)*scrol;
+    double y2_=(y2-starty)*scrol;
 
-    float res=100000;
+    double res=100000;
 
     res=min(res,dist_(x1_,y1_,mousex,mousey));
     res=min(res,dist_(x1_,y2_,mousex,mousey));
@@ -232,15 +232,15 @@ float Figure :: dist()
     return(res);
 }
 
-float Figure :: centre_dist()
+double Figure :: centre_dist()
 {
-    float x1_=(x1-startx)*scrol;
-    float x2_=(x2-startx)*scrol;
-    float y1_=(y1-starty)*scrol;
-    float y2_=(y2-starty)*scrol;
+    double x1_=(x1-startx)*scrol;
+    double x2_=(x2-startx)*scrol;
+    double y1_=(y1-starty)*scrol;
+    double y2_=(y2-starty)*scrol;
 
-    float x=(x1_+x2_)/2.0;
-    float y=(y1_+y2_)/2.0;
+    double x=(x1_+x2_)/2.0;
+    double y=(y1_+y2_)/2.0;
 
     return(dist_(x,y,mousex,mousey));
 }
@@ -260,18 +260,18 @@ bool Figure :: in_dinamic()
 
 bool Figure :: in_circle()
 {
-    float x1_=(x1-startx)*scrol;
-    float x2_=(x2-startx)*scrol;
-    float y1_=(y1-starty)*scrol;
-    float y2_=(y2-starty)*scrol;
+    double x1_=(x1-startx)*scrol;
+    double x2_=(x2-startx)*scrol;
+    double y1_=(y1-starty)*scrol;
+    double y2_=(y2-starty)*scrol;
 
-    return(dist_((x2_+x1_)/float(2.0),(y2_+y1_)/float(2.0),float(mousex),float(mousey))<=(x2_-x1_)/2.0+10.0);
+    return(dist_((x2_+x1_)/double(2.0),(y2_+y1_)/double(2.0),double(mousex),double(mousey))<=(x2_-x1_)/2.0+10.0);
 }
 
-void Figure :: resize_(float len)
+void Figure :: resize_(double len)
 {
-    float sx=(x1+x2)/2.0;
-    float sy=(y1+y2)/2.0;
+    double sx=(x1+x2)/2.0;
+    double sy=(y1+y2)/2.0;
 
     x1=sx-len/2.0;
     x2=sx+len/2.0;
@@ -286,7 +286,7 @@ Circle_element :: Circle_element()
     U=0;
 }
 
-Circle_element :: Circle_element(float x, float y)
+Circle_element :: Circle_element(double x, double y)
 {
     f=Figure(x-20.0,x+20.0,y-20.0, y+20.0, empty_, 0.3);
     R=0.0;
@@ -294,7 +294,7 @@ Circle_element :: Circle_element(float x, float y)
     shade=0.0;
 }
 
-Circle_element :: Circle_element(Figure f_, float R_, float U_)
+Circle_element :: Circle_element(Figure f_, long double R_, long double U_)
 {
     f=f_;
     R=R_;
@@ -311,13 +311,13 @@ void Circle_element :: draw()
 
         int pi=((f.x1+f.x2)/2.0)/feel_seg_size+0.00001;
         int pj=((f.y1+f.y2)/2.0)/feel_seg_size+0.00001;
-        float green=0.0;
+        double green=0.0;
         if (choosen_reb[pi][pj][reb[i].first][reb[i].second] || choosen_reb[reb[i].first][reb[i].second][pi][pj])
             green=1.0;
         glColor4f(0, green, 0, 1);
         Figure now=object[reb[i].first][reb[i].second].f;
-        float x=(now.x1+now.x2)/2.0;
-        float y=(now.y1+now.y2)/2.0;
+        double x=(now.x1+now.x2)/2.0;
+        double y=(now.y1+now.y2)/2.0;
         glBegin(GL_LINES);
             glVertex2f(((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0,((f.y2-starty)*scrol+(f.y1-starty)*scrol)/2.0);
             glVertex2f(((x-startx)*scrol+((f.x1-startx)*scrol+(f.x2-startx)*scrol)/2.0)/2.0,((y-starty)*scrol+((f.y2-starty)*scrol+(f.y1-starty)*scrol)/2.0)/2.0);
@@ -428,8 +428,8 @@ void Button_do :: draw_state()
     glColor4f(0, 0, 0, shade);
 
 
-    float ky=WinHei/real_WinHei;
-    float kx=WinWid/real_WinWid;
+    double ky=WinHei/real_WinHei;
+    double kx=WinWid/real_WinWid;
 
 
     glBegin(GL_QUADS);
