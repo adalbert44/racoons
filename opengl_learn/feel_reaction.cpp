@@ -390,7 +390,13 @@ void feel_mouse_pressed(int button, int state)
             if (rezistor(taken))
             {
                 input_info_mode=0;
-                taken_R=10000;
+                taken_R=1e15;
+                put_element(info_i,info_j);
+            } else
+            if (ampermetr(taken))
+            {
+                input_info_mode=0;
+                taken_R=0;
                 put_element(info_i,info_j);
             }
         }

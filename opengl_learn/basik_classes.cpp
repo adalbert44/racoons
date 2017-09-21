@@ -111,6 +111,7 @@ string parse_to_string(double u)
         res+=int(u)+'0';
         u-=int(u);
     }
+    if (res.back()=='.') res.pop_back();
     return(res);
 }
 

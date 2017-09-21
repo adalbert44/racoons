@@ -4,5 +4,6 @@
     #include "includes.h"
 
     bool rezistor(GLuint t);
+    bool ampermetr(GLuint t);
 
 #endif // ELEMENT_TYPE_H_INCLUDED

@@ -44,6 +44,7 @@ int input_ok_do()
 int input_bad_do()
 {
     input_info_mode=0;
+    info_zn="";
 }
 
 int get(string st)
@@ -78,8 +79,13 @@ void input_keyboard(unsigned char c)
         while (info_zn[l-1]=='0' && info_zn[l-2]=='0')
         {
             info_zn.pop_back();
+            l=info_zn.size();
             if (info_zn.size()<2) break;
         }
+
+        if (info_zn.size()>=2 && info_zn.back()=='0')
+            if (info_zn[info_zn.size()-2]<='9' && info_zn[info_zn.size()-2]>='0')
+            info_zn.pop_back();
     }
     reverse(info_zn.begin(),info_zn.end());
 
