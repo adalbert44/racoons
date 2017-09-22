@@ -283,7 +283,7 @@ void feel_mouse_pressed(int button, int state)
                     double x=(x1+x2)/2.0;
                     double y=(y1+y2)/2.0;
 
-                    x=min(x,WinWid-300);
+                    x=min(x,WinWid-350);
                     y=min(y,WinHei-75);
 
                     object_info=Figure(x,x+200,y,y+75,left_menu_background_tex,1.0);
@@ -294,7 +294,6 @@ void feel_mouse_pressed(int button, int state)
 
                     choosen_object={i,j};
                 }
-
             }
     }
 
@@ -347,7 +346,6 @@ void feel_mouse_pressed(int button, int state)
                     if (!vec.empty())
                         events.pb(vec);
                     last_event++;
-
                 }
             }
     }
@@ -397,6 +395,12 @@ void feel_mouse_pressed(int button, int state)
             {
                 input_info_mode=0;
                 taken_R=0;
+                put_element(info_i,info_j);
+            } else
+            if (open_key(taken))
+            {
+                input_info_mode=0;
+                taken_R=1e15;
                 put_element(info_i,info_j);
             }
         }

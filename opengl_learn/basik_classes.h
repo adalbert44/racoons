@@ -159,4 +159,7 @@
     extern double real_WinWid,real_WinHei;
     extern long double potential[30][30];
 
+    extern GLuint key_close_horizontal;
+    extern GLuint key_close_vertical;
+
 #endif // BASIK_CLASSES_H_INCLUDED

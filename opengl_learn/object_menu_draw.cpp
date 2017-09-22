@@ -56,6 +56,13 @@ void object_menu_draw()
         drawstring(object_info.x1+20,(object_info.y2+object_info.y1)/2.0+10,1.0,to_draw);
     }
 
+    if (energy(object[i][j].f.tex))
+    {
+        string to_draw="U=";
+        to_draw+=parse_to_string(object[i][j].R);
+        drawstring(object_info.x1+20,(object_info.y2+object_info.y1)/2.0+10,1.0,to_draw);
+    }
+
 
 }
 

@@ -61,5 +61,6 @@ void load_all()
     bad_tex=Load("textures/bad_button_tex.png");
     info_background=Load("textures/info_background.png");
     text_line=Load("textures/text_line.png");
-
+    key_close_horizontal=Load("textures/key_hor.png");
+    key_close_vertical=Load("textures/key_ver.png");
 }

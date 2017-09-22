@@ -17,6 +17,8 @@ double kx;
 GLuint rotate_tex;
 GLuint ok_tex;
 GLuint bad_tex;
+GLuint key_close_horizontal;
+GLuint key_close_vertical;
 GLuint info_background;
 int info_i,info_j;
 GLuint undo_tex;
