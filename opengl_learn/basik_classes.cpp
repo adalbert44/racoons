@@ -36,7 +36,7 @@ Button_do input_bad;
 pair<int,int> pred_pos={-1,-1};
 vector<Reb> to_del_reb;
 vector<pair<int,int> > to_del_point;
-string info_zn="";
+string info_zn="0";
 ld power[30][30][30][30];
 ld potential[30][30];
 GLuint move_tex;

@@ -36,7 +36,7 @@ double parse_to_double(string st)
 int input_ok_do()
 {
     taken_R=parse_to_double(info_zn);
-    info_zn="";
+    info_zn="0";
     put_element(info_i,info_j);
     input_info_mode=0;
 }
@@ -44,7 +44,7 @@ int input_ok_do()
 int input_bad_do()
 {
     input_info_mode=0;
-    info_zn="";
+    info_zn="0";
 }
 
 int get(string st)

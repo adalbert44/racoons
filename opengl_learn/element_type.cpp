@@ -36,3 +36,8 @@ bool close_key(GLuint t)
 {
     return(t==key_close_horizontal || t==key_close_vertical);
 }
+
+bool con_point(GLuint t)
+{
+    return(t==connection_point);
+}

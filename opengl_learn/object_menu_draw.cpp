@@ -22,7 +22,7 @@ void object_menu_draw()
         drawstring(object_info.x1+20,(object_info.y2+object_info.y1)/2.0+10,1.0,to_draw);
     }
 
-    if (ampermetr(object[i][j].f.tex))
+    if (ampermetr(object[i][j].f.tex) || con_point(object[i][j].f.tex))
     {
         ld I=0;
         for (auto to: object[i][j].reb)
