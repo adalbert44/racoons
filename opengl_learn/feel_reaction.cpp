@@ -286,10 +286,10 @@ void feel_mouse_pressed(int button, int state)
                     x=min(x,WinWid-300);
                     y=min(y,WinHei-75);
 
-                    object_info=Figure(x,x+150,y,y+75,left_menu_background_tex,1.0);
+                    object_info=Figure(x,x+200,y,y+75,left_menu_background_tex,1.0);
 
-                    object_delete=Button_do(Figure(x+150,x+225,y,y+75,delete_mode_tex,1.0),&object_delete_func);
-                    object_rotate=Button_do(Figure(x+225,x+300,y,y+75,rotate_tex,1.0),&object_rotate_func);
+                    object_delete=Button_do(Figure(x+200,x+275,y,y+75,delete_mode_tex,1.0),&object_delete_func);
+                    object_rotate=Button_do(Figure(x+275,x+350,y,y+75,rotate_tex,1.0),&object_rotate_func);
 
 
                     choosen_object={i,j};
@@ -387,7 +387,7 @@ void feel_mouse_pressed(int button, int state)
 
         if (input_info_mode)
         {
-            if (rezistor(taken))
+            if (voltmetr(taken))
             {
                 input_info_mode=0;
                 taken_R=1e15;

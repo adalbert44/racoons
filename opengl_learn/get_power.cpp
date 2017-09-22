@@ -11,7 +11,10 @@ bool to_start[30][30];
 
 pair<int,int> pred[30][30];
 
-
+bool bad_R(double u)
+{
+    return(u>1e8);
+}
 
 int gauss (vector < vector<ld> > a, vector<ld> & ans) {
 	int n = (int) a.size();
@@ -23,7 +26,7 @@ int gauss (vector < vector<ld> > a, vector<ld> & ans) {
 		for (int i=row; i<n; ++i)
 			if (abs (a[i][col]) > abs (a[sel][col]))
 				sel = i;
-		if (abs (a[sel][col]) < 1e-9)
+		if (abs (a[sel][col]) < 1e-15)
 			continue;
 		for (int i=col; i<=m; ++i)
 			swap (a[sel][i], a[row][i]);
@@ -46,13 +49,13 @@ int gauss (vector < vector<ld> > a, vector<ld> & ans) {
 		double sum = 0;
 		for (int j=0; j<m; ++j)
 			sum += ans[j] * a[i][j];
-		if (abs (sum - a[i][m]) > 1e-9)
+		if (abs (sum - a[i][m]) > 1e-15)
 			return 0;
 	}
 
 	for (int i=0; i<m; ++i)
 		if (where[i] == -1)
-			return int(1e9);
+			return int(inf);
 	return 1;
 }
 
@@ -147,8 +150,8 @@ void get_inf(int i, int j, int pi, int pj)
         {
             to_start[i][j]=1;
             to_start[to.fir][to.sec]=1;
-            power[i][j][to.fir][to.sec]=1e9;
-            power[to.fir][to.sec][i][j]=1e9;
+            power[i][j][to.fir][to.sec]=inf;
+            power[to.fir][to.sec][i][j]=inf;
         }
 
         if (!use[to.fir][to.sec])
@@ -161,14 +164,17 @@ void get_inf(int i, int j, int pi, int pj)
 
 void solve(vector<pair<int,int> > vec)
 {
-    if (vec.size()==1) return;
+    if (vec.size()<=1) return;
+
     int cnt=0;
     vector<vector<ld> > all;
     for (auto u:vec)
     {
+        if (bad_R(object[u.fir][u.sec].R)) continue;
+        potential[u.fir][u.sec]=0.0;
         for (auto v:object[u.fir][u.sec].reb)
         {
-
+            if (bad_R(object[v.fir][v.sec].R)) continue;
             nomb[u.fir][u.sec][v.fir][v.sec]=cnt;
 
             cnt++;
@@ -181,9 +187,13 @@ void solve(vector<pair<int,int> > vec)
 
     for (auto u:vec)
     {
+
+        if (bad_R(object[u.fir][u.sec].R)) continue;
         vector<ld> now=emp;
         for (auto v:object[u.fir][u.sec].reb)
         {
+
+            if (bad_R(object[v.fir][v.sec].R)) continue;
             now[nomb[u.fir][u.sec][v.fir][v.sec]]=1.0;
         }
         all.pb(now);
@@ -196,9 +206,13 @@ void solve(vector<pair<int,int> > vec)
 
     for (auto u:vec)
     {
+
+        if (bad_R(object[u.fir][u.sec].R)) continue;
         for (auto v:object[u.fir][u.sec].reb)
             if (u<v)
             {
+
+                if (bad_R(object[v.fir][v.sec].R)) continue;
                 vector<ld> now=emp;
                 now[nomb[u.fir][u.sec][v.fir][v.sec]]=1.0;
                 now[nomb[v.fir][v.sec][u.fir][u.sec]]=1.0;
@@ -208,9 +222,13 @@ void solve(vector<pair<int,int> > vec)
 
     for (auto u:vec)
     {
+
+        if (bad_R(object[u.fir][u.sec].R)) continue;
         for (auto v:object[u.fir][u.sec].reb)
             if (u<v)
             {
+
+                if (bad_R(object[v.fir][v.sec].R)) continue;
                 if (pred[u.fir][u.sec]!=v && pred[v.fir][v.sec]!=u)
                 {
                     vector<ld> toadd=get(u,v,cnt);
@@ -227,43 +245,32 @@ void solve(vector<pair<int,int> > vec)
 
     if (r==0)
     {
-
         for (auto i:vec)
-            if (check(object[i.fir][i.sec].f.tex) && object[i.fir][i.sec].R>1e-7)
             {
+                potential[i.fir][i.sec]=inf;
                 for (auto j:vec)
                 {
-                    use[j.fir][j.sec]=0;
-                    good[j.fir][j.sec]=0;
-                    to_start[j.fir][j.sec]=0;
-                    pred_[j.fir][j.sec]={0,0};
+                    power[i.fir][i.sec][j.fir][j.sec]=inf;
                 }
-                get_inf(i.fir,i.sec,0,0);
-                for (auto j:vec)
-                    if (to_start[j.fir][j.sec])
-                    {
-                        pair<int,int> now=j;
-                        while (now!=mp(0,0))
-                        {
-                            pair<int,int> p=pred_[now.fir][now.sec];
-                            power[now.fir][now.sec][p.fir][p.sec]=1e9;
-                            power[p.fir][p.sec][now.fir][now.sec]=1e9;
-                            now=p;
-                        }
-                    }
             }
     } else
     for (auto u:vec)
     {
+
+        if (bad_R(object[u.fir][u.sec].R)) continue;
         for (auto v:object[u.fir][u.sec].reb)
         {
+
+            if (bad_R(object[v.fir][v.sec].R)) continue;
             power[u.fir][u.sec][v.fir][v.sec]=res[nomb[u.fir][u.sec][v.fir][v.sec]];
+            potential[v.fir][v.sec]=potential[u.fir][u.sec]+power[u.fir][u.sec][v.fir][v.sec]*(object[u.fir][u.sec].R+object[v.fir][v.sec].R)/2.0;
         }
     }
 }
 
 void dfs(int i, int j)
 {
+    if (bad_R(object[i][j].R)) return;
     used[i][j]=1;
     visited.pb({i,j});
 

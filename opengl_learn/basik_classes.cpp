@@ -36,7 +36,7 @@ vector<Reb> to_del_reb;
 vector<pair<int,int> > to_del_point;
 string info_zn="";
 ld power[30][30][30][30];
-
+ld potential[30][30];
 GLuint move_tex;
 GLuint delete_mode_tex;
 Figure shade_button1,shade_button2;
@@ -93,6 +93,7 @@ bool object_menu_used=0;
 
 string parse_to_string(double u)
 {
+    u=abs(u);
     u+=0.0001;
     string res="";
     int uu=int(u);
@@ -105,7 +106,7 @@ string parse_to_string(double u)
     if (res.empty()) res+='0';
     reverse(res.begin(),res.end());
     res+='.';
-    while (res.size()<5)
+    for (int i=1;i<=3;i++)
     {
         u*=10;
         res+=int(u)+'0';

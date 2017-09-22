@@ -3,6 +3,7 @@
 
     #include "includes.h"
     #include "delete_mode_reaction.h"
+    #include "element_type.h"
 
     void object_menu_draw();
 

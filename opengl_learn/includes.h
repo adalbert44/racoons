@@ -18,7 +18,7 @@
 
     using namespace std;
 
-
+    const ld inf=1e9;
 
 
 

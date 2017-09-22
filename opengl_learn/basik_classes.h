@@ -157,5 +157,6 @@
     extern GLuint info_background;
     extern GLuint text_line;
     extern double real_WinWid,real_WinHei;
+    extern long double potential[30][30];
 
 #endif // BASIK_CLASSES_H_INCLUDED

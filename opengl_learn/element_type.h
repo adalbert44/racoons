@@ -3,7 +3,8 @@
 
     #include "includes.h"
 
-    bool rezistor(GLuint t);
+    bool voltmetr(GLuint t);
     bool ampermetr(GLuint t);
+    bool rezistor(GLuint t);
 
 #endif // ELEMENT_TYPE_H_INCLUDED
