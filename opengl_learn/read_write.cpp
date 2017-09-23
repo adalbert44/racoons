@@ -1,18 +1,42 @@
 #include "read_write.h"
+#include <fstream>
 
 void read(string way)
 {
-    way+=".txt";
-    ifstream fin(way);
-
-    fin.close();
+    way+=".ec";
+    ifstream in(way);
+    int reb_size, first_i2, second_i2;
+    for(int i = 1; i <= 30; i++)
+        for(int j = 1; j <= 30; j++)
+        {
+            in >> object[i][j].f.alpha >> object[i][j].f.tex >> object[i][j].f.x1 >> object[i][j].f.x2 >> object[i][j].f.y1 >> object[i][j].f.y2;
+            in >> object[i][j].R >> object[i][j].shade >> object[i][j].U;
+            in >> reb_size;
+            object[i][j].reb.resize(reb_size);
+            for(int i2 = 0; i2 < reb_size; i2++)
+            {
+                in >> first_i2 >> second_i2;
+                object[i][j].reb[i2].first = first_i2;
+                object[i][j].reb[i2].second = second_i2;
+            }
+        }
+    in.close();
 }
-
 
 void write(string way)
 {
-    way+=".txt";
-    ifstream fin(way);
-
-    fin.close();
+    way+=".ec";
+    ofstream out(way);
+    for(int i = 1; i <= 30; i++)
+        for(int j = 1; j <= 30; j++)
+        {
+            out << object[i][j].f.alpha << ' ' << object[i][j].f.tex << ' '<< object[i][j].f.x1 << ' ' << object[i][j].f.x2 << ' ' << object[i][j].f.y1 << ' ' << object[i][j].f.y2 << endl;
+            out << object[i][j].R << ' ' << object[i][j].shade << ' ' << object[i][j].U << endl;
+            out << object[i][j].reb.size() << endl;
+            int reb_size = object[i][j].reb.size();
+            for(int i2 = 0; i2 < reb_size; i2++)
+                out << object[i][j].reb[i2].first << ' ' << object[i][j].reb[i2].second << ' ';
+            out << endl;
+        }
+    out.close();
 }
