@@ -1,5 +1,6 @@
 #include "input_info.h"
 
+
 void input_info_draw()
 {
     window_shade.alpha=0.1;

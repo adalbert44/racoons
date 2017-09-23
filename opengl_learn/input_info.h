@@ -12,4 +12,5 @@
     void input_skeyboard(unsigned char c);
 
 
+
 #endif // INPUT_INFO_H_INCLUDED

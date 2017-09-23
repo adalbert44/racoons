@@ -35,6 +35,7 @@ void load_all()
     left_menu_background_tex=Load("textures/left_menu_background.png");
     delete_mode_tex=Load("textures/delete_mode.png");
 
+
     left_menu_vertical[0].tex=Load("textures/left_menu_vertical_0.png");
     left_menu_vertical[1].tex=Load("textures/left_menu_vertical_1.png");
     left_menu_vertical[2].tex=Load("textures/left_menu_vertical_2.png");
@@ -60,7 +61,9 @@ void load_all()
     ok_tex=Load("textures/ok_button_tex.png");
     bad_tex=Load("textures/bad_button_tex.png");
     info_background=Load("textures/info_background.png");
+
     text_line=Load("textures/text_line.png");
-    key_close_horizontal=Load("textures/key_hor.png");
-    key_close_vertical=Load("textures/key_ver.png");
+    close_hor=Load("textures/key_hor.png");
+    close_ver=Load("textures/key_ver.png");
+
 }

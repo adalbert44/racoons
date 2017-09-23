@@ -130,7 +130,6 @@ void skeyboard(int c, int x, int y)
 
 void creat_feel()
 {
-
     //cout<<WinWid<<'!'<<' '<<WinHei<<'\n';
     for (int i=0;i<feel_size;i++)
         for (int j=0;j<feel_size;j++)
@@ -264,6 +263,7 @@ void mouse_motion(int x, int y)
     mousex=x;
     mousey=y;
 }
+
 
 
 

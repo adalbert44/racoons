@@ -1,6 +1,7 @@
 #include "basik_classes.h"
 #include "object_menu_reaction.h"
 
+
 double WinWid=0.0;
 double WinHei=0.0;
 void *currentfont;
@@ -12,17 +13,22 @@ double taken_R;
 double ky;
 double kx;
 
+//GLuint key_close_horizontal=Load("textures/key_hor.png");
+//GLuint key_close_vertical=Load("textures/key_ver.png");
+
 
 
 GLuint rotate_tex;
 GLuint ok_tex;
 GLuint bad_tex;
-GLuint key_close_horizontal;
-GLuint key_close_vertical;
+
+
 GLuint info_background;
 int info_i,info_j;
 GLuint undo_tex;
 GLuint text_line;
+GLuint close_hor;
+GLuint close_ver;
 GLuint redo_tex;
 Figure window_shade;
 Figure object_info;
@@ -92,6 +98,7 @@ Button_do redo_button;
 Button* pressed=NULL;
 pair<int,int> choosen_object={-1,-1};
 bool object_menu_used=0;
+Button_do object_change_state;
 
 string parse_to_string(double u)
 {
@@ -425,27 +432,16 @@ Button_do :: Button_do(Figure f_, int (*to_do_)())
 void Button_do :: draw_state()
 {
     f.draw_state();
-        glPushMatrix();
 
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glColor4f(0, 0, 0, shade);
-
-
-    double ky=WinHei/real_WinHei;
-    double kx=WinWid/real_WinWid;
-
-
-    glBegin(GL_QUADS);
-        glVertex2f(f.x1, f.y1);
-        glVertex2f(f.x2, f.y1);
-        glVertex2f(f.x2, f.y2);
-        glVertex2f(f.x1, f.y2);
-    glEnd();
-
-    glDisable(GL_BLEND);
-
-    glPopMatrix();
+    if (f.tex!=ok_tex && f.tex!=bad_tex)
+    {
+        Figure fig=Figure(f.x1,f.x2,f.y1,f.y2,window_shade.tex,shade);
+        fig.draw_state();
+    } else
+    {
+        Figure fig=Figure(f.x1,f.x2,f.y1,f.y2,connection_point,shade);
+        fig.draw_state();
+    }
 }
 
 

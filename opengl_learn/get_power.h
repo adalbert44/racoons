@@ -5,4 +5,5 @@
 
     void solve();
 
+
 #endif // GET_POWER_H_INCLUDED

@@ -8,6 +8,7 @@ void read(string way)
     fin.close();
 }
 
+
 void write(string way)
 {
     way+=".txt";

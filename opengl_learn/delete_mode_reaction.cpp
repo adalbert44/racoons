@@ -1,6 +1,7 @@
 #include "delete_mode_reaction.h"
 
 
+
 void delete_mode_mouse_pressed(int button, int state)
 {
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)

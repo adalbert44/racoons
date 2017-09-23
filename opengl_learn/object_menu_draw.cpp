@@ -7,6 +7,7 @@ void object_menu_draw()
     window_shade.alpha=0.1;
     window_shade.draw_state();
 
+
     object_info.draw_state();
 
     if (!(object[i][j].f.tex==choosen_point_tex || object[i][j].f.tex==connection_point && !can_delete(i,j)))
@@ -14,6 +15,16 @@ void object_menu_draw()
 
     if (object[i][j].f.tex!=choosen_point_tex && object[i][j].f.tex!=connection_point)
         object_rotate.draw_state();
+
+    if (key(object[i][j].f.tex))
+    {
+        string to_draw="state: ";
+        if (open_key(object[i][j].f.tex))
+            to_draw+="unconnected"; else
+            to_draw+="connected";
+        drawstring(object_info.x1+15,(object_info.y2+object_info.y1)/2.0+10,1.0,to_draw);
+        object_change_state.draw_state();
+    }
 
     if (rezistor(object[i][j].f.tex))
     {

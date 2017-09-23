@@ -97,6 +97,7 @@ void draw_feel()
         now.draw_state();
     }
 
+
     if (taken_point)
     {
             Figure now=Figure(mousex-10*scrol,mousex+10*scrol,

@@ -19,6 +19,7 @@
 
 
 
+
     extern double ky;
     extern double kx;
 
@@ -61,5 +62,8 @@
     extern string info_zn;
     extern GLuint delete_mode_tex;
     extern GLuint rotate_tex;
+
+
+
 
 #endif // GLOBAL_VARS_H_INCLUDED

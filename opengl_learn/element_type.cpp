@@ -24,7 +24,7 @@ bool energy(GLuint t)
 bool key(GLuint t)
 {
     return(t==left_menu_horizontal[2].tex || t==left_menu_vertical[2].tex
-           || t==key_close_horizontal || t==key_close_vertical);
+           || t==close_hor || t==close_ver);
 }
 
 bool open_key(GLuint t)
@@ -34,7 +34,7 @@ bool open_key(GLuint t)
 
 bool close_key(GLuint t)
 {
-    return(t==key_close_horizontal || t==key_close_vertical);
+    return(t==close_hor || t==close_ver);
 }
 
 bool con_point(GLuint t)

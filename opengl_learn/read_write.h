@@ -7,3 +7,4 @@
     void write(string way);
 
 #endif // READ_WRITE_H_INCLUDED
+

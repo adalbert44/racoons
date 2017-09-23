@@ -10,6 +10,7 @@ void try_del(int i, int j, pair<int,int> p, vector<Event> &vec)
         new_.pb(l);
 
 
+
     if (new_.empty())
     {
 
@@ -24,6 +25,45 @@ void try_del(int i, int j, pair<int,int> p, vector<Event> &vec)
     {
         object[i][j].reb=new_;
     }
+}
+
+int object_change_state_func()
+{
+    int i=choosen_object.fir;
+    int j=choosen_object.sec;
+
+    Circle_element fir=object[i][j];
+
+    if (object[i][j].f.tex==left_menu_horizontal[2].tex)
+    {
+        object[i][j].f.tex=close_hor;
+        object[i][j].R=0.0;
+    }else
+    if (object[i][j].f.tex==left_menu_vertical[2].tex)
+    {
+        object[i][j].f.tex=close_ver;
+        object[i][j].R=0.0;
+    } else
+    if (object[i][j].f.tex==close_hor)
+    {
+        object[i][j].f.tex=left_menu_horizontal[2].tex;
+        object[i][j].R=1e15;
+    } else
+    {
+        object[i][j].f.tex=left_menu_vertical[2].tex;
+        object[i][j].R=1e15;
+    }
+
+
+    Circle_element sec=object[i][j];
+
+    del_events();
+
+    vector<Event> vec;
+    vec.pb(Event(fir,sec,mp(i,j)));
+
+    events.pb(vec);
+
 }
 
 int object_delete_func()
@@ -66,6 +106,9 @@ GLuint get_next(GLuint tex)
 
     for (int i=0;i<7;i++)
         if (tex==left_menu_vertical[i].tex) return(left_menu_horizontal[i].tex);
+
+    if (tex==close_hor) return(close_ver);
+    if (tex==close_ver) return(close_hor);
 }
 
 bool get_dir(GLuint tex)
@@ -73,8 +116,12 @@ bool get_dir(GLuint tex)
     for (int i=0;i<7;i++)
         if (tex==left_menu_horizontal[i].tex) return(1);
 
+    if (tex==close_hor) return(1);
+
     for (int i=0;i<7;i++)
         if (tex==left_menu_vertical[i].tex) return(0);
+
+    if (tex==close_ver) return(0);
 }
 
 int object_rotate_func()
@@ -101,8 +148,6 @@ int object_rotate_func()
 
     Circle_element sec=object[i][j];
 
-    choosen_object={-1,-1};
-    object_menu_used=0;
 
     ///delete
 
@@ -213,7 +258,6 @@ void object_menu_mouse_pressed(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
-
         if (object_delete.f.in() &&
         (!(object[i][j].f.tex==choosen_point_tex || object[i][j].f.tex==connection_point && !can_delete(i,j))))
         {
@@ -224,6 +268,11 @@ void object_menu_mouse_pressed(int button, int state)
         {
             object_rotate.press_down();
             pressed_do=&object_rotate;
+        } else
+        if (object_change_state.f.in() && key(object[i][j].f.tex))
+        {
+            object_change_state.press_down();
+            pressed_do=&object_change_state;
         } else
         if (!object_info.in())
         {

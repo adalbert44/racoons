@@ -9,5 +9,6 @@
     bool can_delete(int i, int j);
 
 
+
 #endif // DELETE_MODE_REACTION_H_INCLUDED
 

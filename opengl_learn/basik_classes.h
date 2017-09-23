@@ -3,6 +3,7 @@
 
 
     #include "includes.h"
+
     using namespace std;
 
     void setFont(void* font);
@@ -154,12 +155,17 @@
     extern vector<vector<Event> > events;
     extern long double power[30][30][30][30];
     extern Figure text_back_ground;
-    extern GLuint info_background;
-    extern GLuint text_line;
-    extern double real_WinWid,real_WinHei;
-    extern long double potential[30][30];
 
     extern GLuint key_close_horizontal;
     extern GLuint key_close_vertical;
+    extern GLuint info_background;
+    extern GLuint text_line;
+    extern GLuint close_hor;
+    extern GLuint close_ver;
+    extern double real_WinWid,real_WinHei;
+    extern long double potential[30][30];
+    extern Button_do object_change_state;
+
+
 
 #endif // BASIK_CLASSES_H_INCLUDED
