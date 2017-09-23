@@ -31,6 +31,10 @@ void Draw()
 
 void keyboard(unsigned char c, int x, int y)
 {
+    if (object_menu_used)
+    {
+        object_menu_keyboard(c,x,y);
+    }
     if (c=='q') exit(0);
     if (input_info_mode)
     {
@@ -166,6 +170,7 @@ void creat_feel()
     input_info_background=Figure(w1,WinWid-w1,h1,WinHei-h1,info_background,1.0);
     input_feel=Figure(w2,WinWid-w2,h2,h2+25,text_line,1.0);
     input_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,ok_tex,1.0),&input_ok_do);
+    input_R_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,ok_tex,1.0),&change_R);
     input_bad=Button_do(Figure(w1+l,w1+2*l,WinHei-h1,WinHei-h1+100,bad_tex,1.0),&input_bad_do);
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);

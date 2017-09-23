@@ -290,6 +290,9 @@ void feel_mouse_pressed(int button, int state)
                     if (key(object[i][j].f.tex))
                         x=min(x,WinWid-425);
 
+                    if (reostat(object[i][j].f.tex))
+                        x=min(x,WinWid-425);
+
                     object_info=Figure(x,x+200,y,y+75,left_menu_background_tex,1.0);
 
                     object_delete=Button_do(Figure(x+200,x+275,y,y+75,delete_mode_tex,1.0),&object_delete_func);
@@ -298,6 +301,9 @@ void feel_mouse_pressed(int button, int state)
                     if (key(object[i][j].f.tex))
                         object_change_state=Button_do(Figure(x+350,x+425,y,y+75,rotate_tex,1.0),
                                                       &object_change_state_func);
+                    if (reostat(object[i][j].f.tex))
+                        object_change_R=Button_do(Figure(x+350,x+425,y,y+75,rotate_tex,1.0),
+                                                      &object_change_R_func);
 
                     choosen_object={i,j};
                 }

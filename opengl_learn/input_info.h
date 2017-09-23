@@ -8,9 +8,11 @@
     void input_info_mouse_pressed(int button, int state);
     int input_ok_do();
     int input_bad_do();
+    int change_R();
     void input_keyboard(unsigned char c);
     void input_skeyboard(unsigned char c);
-
+    void input_R_mouse_pressed(int button, int state);
+    void input_info_R_draw();
 
 
 #endif // INPUT_INFO_H_INCLUDED

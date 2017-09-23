@@ -11,7 +11,7 @@
     void add_element();
     void put_element(int i, int j);
     void change_state_func();
-
+    int object_change_R_func();
 
 
 

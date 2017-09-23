@@ -27,6 +27,11 @@ bool key(GLuint t)
            || t==close_hor || t==close_ver);
 }
 
+bool reostat(GLuint t)
+{
+    return(t==left_menu_horizontal[4].tex || t==left_menu_vertical[4].tex);
+}
+
 bool open_key(GLuint t)
 {
     return(t==left_menu_horizontal[2].tex || t==left_menu_vertical[2].tex);

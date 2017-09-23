@@ -1,6 +1,12 @@
 #include "object_menu_reaction.h"
 #include "feel_reaction.h"
 
+void object_menu_keyboard(unsigned char c, int x, int y)
+{
+    if (input_R_used)
+        input_keyboard(c);
+}
+
 void try_del(int i, int j, pair<int,int> p, vector<Event> &vec)
 {
     vector<pair<int,int> > new_;
@@ -25,6 +31,13 @@ void try_del(int i, int j, pair<int,int> p, vector<Event> &vec)
     {
         object[i][j].reb=new_;
     }
+}
+
+int object_change_R_func()
+{
+    input_R_used=1;
+    info_i=choosen_object.fir;
+    info_j=choosen_object.sec;
 }
 
 int object_change_state_func()
@@ -63,7 +76,7 @@ int object_change_state_func()
     vec.pb(Event(fir,sec,mp(i,j)));
 
     events.pb(vec);
-
+    last_event++;
 }
 
 int object_delete_func()
@@ -253,6 +266,13 @@ int object_rotate_func()
 
 void object_menu_mouse_pressed(int button, int state)
 {
+    if (input_R_used)
+    {
+        input_R_mouse_pressed(button,state);
+        return;
+    }
+
+
     int i=choosen_object.fir;
     int j=choosen_object.sec;
 
@@ -273,6 +293,11 @@ void object_menu_mouse_pressed(int button, int state)
         {
             object_change_state.press_down();
             pressed_do=&object_change_state;
+        } else
+        if (object_change_R.f.in() && reostat(object[i][j].f.tex))
+        {
+            object_change_R.press_down();
+            pressed_do=&object_change_R;
         } else
         if (!object_info.in())
         {

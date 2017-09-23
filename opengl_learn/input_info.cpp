@@ -1,6 +1,5 @@
 #include "input_info.h"
 
-
 void input_info_draw()
 {
     window_shade.alpha=0.1;
@@ -8,6 +7,18 @@ void input_info_draw()
     input_info_background.draw_state();
     input_feel.draw_state();
     input_ok.draw_state();
+    input_bad.draw_state();
+
+    drawstring(input_feel.x1,input_feel.y2,1.0,info_zn);
+}
+
+void input_info_R_draw()
+{
+    window_shade.alpha=0.1;
+    window_shade.draw_state();
+    input_info_background.draw_state();
+    input_feel.draw_state();
+    input_R_ok.draw_state();
     input_bad.draw_state();
 
     drawstring(input_feel.x1,input_feel.y2,1.0,info_zn);
@@ -32,6 +43,23 @@ double parse_to_double(string st)
             }
         }
     return(u);
+}
+
+int change_R()
+{
+    vector<Event> vec;
+    Circle_element fir=object[info_i][info_j];
+
+    object[info_i][info_j].R=parse_to_double(info_zn);
+    info_zn="0";
+
+    Circle_element sec=object[info_i][info_j];
+
+    vec.pb(Event(fir,sec,mp(info_i,info_j)));
+    del_events();
+    events.pb(vec);
+    last_event++;
+    input_R_used=0;
 }
 
 int input_ok_do()
@@ -125,6 +153,32 @@ void input_info_mouse_pressed(int button, int state)
             pressed_do=NULL;
         }
     }
+}
 
+void input_R_mouse_pressed(int button, int state)
+{
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
+    {
+        if (input_R_ok.f.in())
+        {
+            input_R_ok.press_down();
+            pressed_do=&input_R_ok;
+        }
 
+        if (input_bad.f.in())
+        {
+            input_bad.press_down();
+            pressed_do=&input_bad;
+        }
+    }
+
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_UP)
+    {
+
+        if (pressed_do!=NULL)
+        {
+            (*pressed_do).press_up();
+            pressed_do=NULL;
+        }
+    }
 }

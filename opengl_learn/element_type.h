@@ -11,5 +11,6 @@
     bool open_key(GLuint t);
     bool close_key(GLuint t);
     bool con_point(GLuint t);
+    bool reostat(GLuint t);
 
 #endif // ELEMENT_TYPE_H_INCLUDED

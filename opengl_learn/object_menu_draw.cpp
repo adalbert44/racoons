@@ -7,14 +7,22 @@ void object_menu_draw()
     window_shade.alpha=0.1;
     window_shade.draw_state();
 
-
     object_info.draw_state();
+
 
     if (!(object[i][j].f.tex==choosen_point_tex || object[i][j].f.tex==connection_point && !can_delete(i,j)))
         object_delete.draw_state();
 
     if (object[i][j].f.tex!=choosen_point_tex && object[i][j].f.tex!=connection_point)
         object_rotate.draw_state();
+
+    if (reostat(object[i][j].f.tex))
+    {
+        string to_draw="R=";
+        to_draw+=parse_to_string(object[i][j].R);
+        drawstring(object_info.x1+20,(object_info.y2+object_info.y1)/2.0+10,1.0,to_draw);
+        object_change_R.draw_state();
+    }
 
     if (key(object[i][j].f.tex))
     {
@@ -74,7 +82,8 @@ void object_menu_draw()
         drawstring(object_info.x1+20,(object_info.y2+object_info.y1)/2.0+10,1.0,to_draw);
     }
 
-
+    if(input_R_used)
+        input_info_R_draw();
 }
 
 

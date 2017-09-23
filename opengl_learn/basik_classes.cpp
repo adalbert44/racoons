@@ -37,7 +37,9 @@ Figure input_feel;
 Button_do object_delete;
 Button_do object_rotate;
 Button_do input_ok;
+Button_do input_R_ok;
 Button_do input_bad;
+bool input_R_used;
 
 pair<int,int> pred_pos={-1,-1};
 vector<Reb> to_del_reb;
@@ -99,6 +101,7 @@ Button* pressed=NULL;
 pair<int,int> choosen_object={-1,-1};
 bool object_menu_used=0;
 Button_do object_change_state;
+Button_do object_change_R;
 
 string parse_to_string(double u)
 {

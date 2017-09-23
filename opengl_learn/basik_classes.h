@@ -165,7 +165,10 @@
     extern double real_WinWid,real_WinHei;
     extern long double potential[30][30];
     extern Button_do object_change_state;
+    extern Button_do object_change_R;
+    extern Button_do input_R_ok;
 
+    extern bool input_R_used;
 
 
 #endif // BASIK_CLASSES_H_INCLUDED
