@@ -454,14 +454,14 @@
 1505854290 source:c:\users\ivan_\onedrive\Документи\github\racoons\opengl_learn\read_write.cpp
 	"read_write.h"
 
-1506006979 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.cpp
+1506279024 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.cpp
 	"basik_classes.h"
 	"object_menu_reaction.h"
 
-1506006979 c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
+1506279024 c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
-1506005115 c:\users\user\documents\github\racoons\opengl_learn\includes.h
+1506279028 c:\users\user\documents\github\racoons\opengl_learn\includes.h
 	<bits/stdc++.h>
 	<time.h>
 	<cstdlib>
@@ -470,57 +470,59 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1506006979 c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
+1506279027 c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
-1506005124 c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.h
+1506279030 c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.h
 	"includes.h"
 	"delete_mode_reaction.h"
+	"element_type.h"
+	"input_info.h"
 
-1506007098 c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.h
+1506279025 c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.h
 	"includes.h"
 	"feel_reaction.h"
 
-1506005110 c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
+1506279026 c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
 	"includes.h"
 
-1506006979 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
+1506279024 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
-1506006980 source:c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.cpp
+1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.cpp
 	"delete_mode_reaction.h"
 
-1506006980 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.cpp
+1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.cpp
 	"feel_draw.h"
 	"basik_classes.h"
 
-1506005109 c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
+1506279025 c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1506005109 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
+1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1506006979 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.cpp
+1506279026 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.cpp
 	"feel_reaction.h"
 	"object_menu_reaction.h"
 	"get_power.h"
 	"element_type.h"
 
-1506005110 c:\users\user\documents\github\racoons\opengl_learn\get_power.h
+1506279027 c:\users\user\documents\github\racoons\opengl_learn\get_power.h
 	"includes.h"
 
-1506005110 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
+1506279026 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
 	"includes.h"
 
-1506005460 source:c:\users\user\documents\github\racoons\opengl_learn\get_power.cpp
+1506279027 source:c:\users\user\documents\github\racoons\opengl_learn\get_power.cpp
 	"get_power.h"
 
-1506006979 source:c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
+1506279027 source:c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
-1506005115 source:c:\users\user\documents\github\racoons\opengl_learn\includes.h
+1506279028 source:c:\users\user\documents\github\racoons\opengl_learn\includes.h
 	<bits/stdc++.h>
 	<time.h>
 	<cstdlib>
@@ -529,23 +531,23 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1506006980 source:c:\users\user\documents\github\racoons\opengl_learn\input_info.cpp
+1506279028 source:c:\users\user\documents\github\racoons\opengl_learn\input_info.cpp
 	"input_info.h"
 
-1506005119 c:\users\user\documents\github\racoons\opengl_learn\input_info.h
+1506279029 c:\users\user\documents\github\racoons\opengl_learn\input_info.h
 	"includes.h"
 	"feel_reaction.h"
 
-1506005119 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.cpp
+1506279029 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.cpp
 	"load_textures.h"
 
-1506005119 c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
+1506279029 c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506005119 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
+1506279029 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506006979 source:c:\users\user\documents\github\racoons\opengl_learn\main.cpp
+1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\main.cpp
 	"includes.h"
 	"load_textures.h"
 	"basik_classes.h"
@@ -558,34 +560,37 @@
 	"input_info.h"
 	"read_write.h"
 
-1506005548 c:\users\user\documents\github\racoons\opengl_learn\undo_redo.h
+1506279030 c:\users\user\documents\github\racoons\opengl_learn\undo_redo.h
 	"includes.h"
 	"get_power.h"
 
-1506005124 c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.h
+1506279030 c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.h
 	"includes.h"
 	"delete_mode_reaction.h"
+	"element_type.h"
+	"input_info.h"
 
-1506005124 c:\users\user\documents\github\racoons\opengl_learn\read_write.h
+1506279030 c:\users\user\documents\github\racoons\opengl_learn\read_write.h
 	"includes.h"
 
-1506005124 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.cpp
+1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.cpp
 	"object_menu_draw.h"
 
-1506005124 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.cpp
+1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.cpp
 	"object_menu_reaction.h"
 	"feel_reaction.h"
 
-1506005124 source:c:\users\user\documents\github\racoons\opengl_learn\read_write.cpp
+1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\read_write.cpp
 	"read_write.h"
+	<fstream>
 
-1506005428 source:c:\users\user\documents\github\racoons\opengl_learn\undo_redo.cpp
+1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\undo_redo.cpp
 	"undo_redo.h"
 
-1506006088 c:\users\user\documents\github\racoons\opengl_learn\element_type.h
+1506279025 c:\users\user\documents\github\racoons\opengl_learn\element_type.h
 	"includes.h"
 
-1506006341 source:c:\users\user\documents\github\racoons\opengl_learn\element_type.cpp
+1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\element_type.cpp
 	"element_type.h"
 
 1506085535 source:c:\users\admin\desktop\racoons\opengl_learn\element_type - Копія.cpp
