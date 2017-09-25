@@ -156,6 +156,10 @@
     extern long double power[30][30][30][30];
     extern Figure text_back_ground;
 
+    extern long double start[30][30][30][30];
+    extern long double len[30][30][30][30];
+
+
     extern GLuint key_close_horizontal;
     extern GLuint key_close_vertical;
     extern GLuint info_background;

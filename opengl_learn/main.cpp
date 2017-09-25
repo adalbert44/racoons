@@ -174,6 +174,10 @@ void creat_feel()
     input_bad=Button_do(Figure(w1+l,w1+2*l,WinHei-h1,WinHei-h1+100,bad_tex,1.0),&input_bad_do);
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
+
+    ld mx_power=0.001;
+
+
 }
 
 void Initialize(int w, int h)
@@ -236,7 +240,6 @@ void mouse_pressed(int button, int state, int x, int y)
         if (mousex<=left_menu_size)
             left_menu_mouse_pressed(button,state); else
             feel_mouse_pressed(button,state);
-
     }
 }
 

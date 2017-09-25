@@ -28,6 +28,78 @@ double dist_to_seg(double x1, double y1, int i1, int j1, int i2, int j2)
     return(abs(a*x1+b*y1+c)/sqrt(sqr(a)+sqr(b)));
 }
 
+void draw_electron()
+{
+ld speed=5;
+
+    ld mx_power=0.001;
+
+    for (int i=1;i<feel_size;i++)
+        for (int j=1;j<feel_size;j++)
+            for (int i1=1;i1<feel_size;i1++)
+                for (int j1=1;j1<feel_size;j1++)
+                    if (power[i][j][i1][j1]>0.001)
+                    {
+                        if (power[i][j][i1][j1]!=0 && power[i][j][i1][j1]<1e9)
+                            mx_power=max(mx_power,power[i][j][i1][j1]);
+                    }
+
+    for (int i=1;i<feel_size;i++)
+        for (int j=1;j<feel_size;j++)
+            for (int i1=1;i1<feel_size;i1++)
+                for (int j1=1;j1<feel_size;j1++)
+                    if (power[i][j][i1][j1]>0.001)
+                    {
+                        len[i][j][i1][j1]=100-(100-20)*(power[i][j][i1][j1]/mx_power);
+                    }
+
+
+    for (int i=1;i<feel_size;i++)
+        for (int j=1;j<feel_size;j++)
+            for (int i1=1;i1<feel_size;i1++)
+                for (int j1=1;j1<feel_size;j1++)
+                    if (power[i][j][i1][j1]>0.001)
+                    {
+                        start[i][j][i1][j1]+=5;
+
+
+                        if (start[i][j][i1][j1]>len[i][j][i1][j1])
+                            start[i][j][i1][j1]-=len[i][j][i1][j1];
+                    }
+    for (int i=1;i<feel_size;i++)
+
+        for (int j=1;j<feel_size;j++)
+        {
+            for (auto r:object[i][j].reb)
+            {
+                int i1=r.fir;
+                int j1=r.sec;
+                if (power[i][j][i1][j1]>0.001 )
+                {
+                    ld now=start[i][j][i1][j1];
+
+                    ld x1=(object[i][j].f.x1+object[i][j].f.x2)/2.0;
+                    ld x2=(object[i1][j1].f.x1+object[i1][j1].f.x2)/2.0 ;
+                    ld y1=(object[i][j].f.y1+object[i][j].f.y2)/2.0;
+                    ld y2=(object[i1][j1].f.y1+object[i1][j1].f.y2)/2.0 ;
+
+                    ld d=dist_(x1,y1,x2,y2);
+
+                    while (now<=d)
+                    {
+                        ld X=x1+(x2-x1)*now/d;
+                        ld Y=y1+(y2-y1)*now/d;
+
+                        Figure electron=Figure(X-8,X+8,Y-8,Y+8,choosen_point_tex,1.0);
+                        electron.draw();
+                        now+=len[i][j][i1][j1];
+                    }
+                }
+            }
+
+        }
+}
+
 bool can_put(int i, int j)
 {
     if ((object[i][j].f.x2-startx)*scrol<=left_menu_size) return(0);
@@ -46,6 +118,8 @@ bool can_put(int i, int j)
 
 void draw_feel()
 {
+
+
 
     for (int i=0;i<int(feel_background.size());i++)
         feel_background[i].draw();
@@ -69,15 +143,16 @@ void draw_feel()
     if (can_put(imn,jmn) && mousex>left_menu_size)
         object[imn][jmn].f.alpha=0.5;
 
-    for (int i=1;i<feel_size;i++)
+    draw_electron();
 
+    for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
         {
             if ((object[i][j].f.tex==empty_ && (!can_put(i,j) || !(something_taken || point_mode_used || taken_point))) || object[i][j].f.tex==connection_point || object[i][j].f.tex==choosen_point_tex)
                 continue;
             object[i][j].draw();
-
         }
+
 
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)

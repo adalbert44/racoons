@@ -22,6 +22,8 @@ GLuint rotate_tex;
 GLuint ok_tex;
 GLuint bad_tex;
 
+ld start[30][30][30][30];
+ld len[30][30][30][30];
 
 GLuint info_background;
 int info_i,info_j;
