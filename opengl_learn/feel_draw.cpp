@@ -40,9 +40,12 @@ ld speed=5;
                 for (int j1=1;j1<feel_size;j1++)
                     if (power[i][j][i1][j1]>0.001)
                     {
-                        if (power[i][j][i1][j1]!=0 && power[i][j][i1][j1]<1e9)
+                        if (power[i][j][i1][j1]>0.001 && power[i][j][i1][j1]<1e9)
                             mx_power=max(mx_power,power[i][j][i1][j1]);
                     }
+
+
+
 
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
@@ -53,12 +56,11 @@ ld speed=5;
                         len[i][j][i1][j1]=100-(100-20)*(power[i][j][i1][j1]/mx_power);
                     }
 
-
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
             for (int i1=1;i1<feel_size;i1++)
                 for (int j1=1;j1<feel_size;j1++)
-                    if (power[i][j][i1][j1]>0.001)
+                    if (power[i][j][i1][j1]>0.001 && power[i][j][i1][j1]<1e9)
                     {
                         start[i][j][i1][j1]+=5;
 
@@ -74,7 +76,7 @@ ld speed=5;
             {
                 int i1=r.fir;
                 int j1=r.sec;
-                if (power[i][j][i1][j1]>0.001 )
+                if (power[i][j][i1][j1]>0.001 && power[i][j][i1][j1]<1e9)
                 {
                     ld now=start[i][j][i1][j1];
 
