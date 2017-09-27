@@ -21,6 +21,8 @@ double kx;
 GLuint rotate_tex;
 GLuint ok_tex;
 GLuint bad_tex;
+bool window_message;
+string window_message_write;
 
 ld start[30][30][30][30];
 ld len[30][30][30][30];
@@ -41,6 +43,8 @@ Button_do object_rotate;
 Button_do input_ok;
 Button_do input_R_ok;
 Button_do input_bad;
+Button U_ask_mode;
+bool U_ask_mode_used;
 bool input_R_used;
 
 pair<int,int> pred_pos={-1,-1};

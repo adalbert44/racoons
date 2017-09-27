@@ -519,35 +519,40 @@ void left_menu_mouse_pressed(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
-        if (line_mode.f.in() && !point_mode_used && !move_mode_used)
+        if (line_mode.f.in() && !point_mode_used && !move_mode_used && !U_ask_mode_used)
         {
             line_mode.press_down();
             pressed=&line_mode;
         }
-        if (point_mode.f.in() && !line_mode_used && !move_mode_used)
+        if (point_mode.f.in() && !line_mode_used && !move_mode_used && !U_ask_mode_used)
         {
             point_mode.press_down();
             pressed=&point_mode;
         }
-        if (move_mode.f.in() && !line_mode_used && !point_mode_used)
+        if (move_mode.f.in() && !line_mode_used && !point_mode_used && !U_ask_mode_used)
         {
             move_mode.press_down();
             pressed=&move_mode;
         }
+        if (U_ask_mode.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
+        {
+            U_ask_mode.press_down();
+            pressed=&U_ask_mode;
+        }
 
-        if (delete_mode.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
+        if (delete_mode.f.in() && !line_mode_used && !point_mode_used && !move_mode_used && !U_ask_mode_used)
         {
             delete_mode.press_down();
             pressed=&delete_mode;
         }
 
-        if (undo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
+        if (undo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used && !U_ask_mode_used)
         {
             undo_button.press_down();
             pressed_do=&undo_button;
         }
 
-        if (redo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
+        if (redo_button.f.in() && !line_mode_used && !point_mode_used && !move_mode_used && !U_ask_mode_used)
         {
             redo_button.press_down();
             pressed_do=&redo_button;

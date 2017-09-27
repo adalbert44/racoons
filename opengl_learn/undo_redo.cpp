@@ -2,7 +2,7 @@
 
 void change_back(Event u)
 {
-    //cout<<u.type<<'\n';
+
     if (u.type==2)
     {
         vector<pair<int,int> > reb=object[u.p1.fir][u.p1.sec].reb;

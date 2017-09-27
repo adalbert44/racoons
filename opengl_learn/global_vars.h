@@ -63,6 +63,8 @@
     extern GLuint delete_mode_tex;
     extern GLuint rotate_tex;
 
+    extern bool window_message;
+    extern string window_message_write;
 
 
 

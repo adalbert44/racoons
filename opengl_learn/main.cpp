@@ -9,6 +9,8 @@
 #include "delete_mode_reaction.h"
 #include "input_info.h"
 #include "read_write.h"
+#include "U_ask_mode.h"
+#include "window_message.h"
 
 void Draw()
 {
@@ -23,6 +25,8 @@ void Draw()
             object_menu_draw();
         if (input_info_mode)
             input_info_draw();
+        if (window_message)
+            window_message_draw();
     }
 
     glutSwapBuffers();
@@ -156,6 +160,8 @@ void creat_feel()
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
     move_mode=Button(Figure(100,150,0,50,move_tex,1.0),{&move_mode_used});
     delete_mode=Button(Figure(150,200,0,50,delete_mode_tex,1.0),{&delete_mode_used});
+    U_ask_mode=Button(Figure(200,250,0,50,delete_mode_tex,1.0),{&U_ask_mode_used});
+
     undo_button=Button_do(Figure(0,50,0,50,undo_tex,1.0),&undo);
     redo_button=Button_do(Figure(50,100,0,50,redo_tex,1.0),&redo);
     shade_button1.tex=shade_button_tex1;
@@ -208,14 +214,29 @@ void mouse_pressed(int button, int state, int x, int y)
 {
     x/=kx;
     y/=ky;
+
+    if (in_feel && U_ask_mode_used)
+    {
+        U_ask_mouse_pressed_motion(mousex,mousey,x,y);
+    }
+
     if (in_feel && delete_mode_used)
     {
         delete_mode_mouse_pressed_motion(mousex,mousey,x,y);
     }
+
+
+
+
     mousex=x;
     mousey=y;
     if (in_feel)
     {
+        if (window_message)
+        {
+            window_message_reaction(button,state);
+            return;
+        }
         if (input_info_mode)
         {
             input_info_mouse_pressed(button,state);
@@ -234,6 +255,12 @@ void mouse_pressed(int button, int state, int x, int y)
             return;
         }
 
+        if (U_ask_mode_used)
+        {
+            U_ask_mouse_pressed(button,state);
+            return;
+        }
+
         if (line_mode_used && mousex>left_menu_size)
             add_point_to_choosen();
 
@@ -248,9 +275,15 @@ void mouse_pressed_motion(int x, int y)
 
     x/=kx;
     y/=ky;
+    if (in_feel && U_ask_mode_used)
+    {
+        U_ask_mouse_pressed_motion(mousex,mousey,x,y);
+        return;
+    }
     if (in_feel && delete_mode_used)
     {
         delete_mode_mouse_pressed_motion(mousex,mousey,x,y);
+        return;
     }
 
     mousex=x;

@@ -5,7 +5,7 @@
 
     void draw_feel();
     void draw_left_menu();
-
+    double angle (pair<double,double> p1, pair<double,double> p2, pair<double,double> p3);
 
 
 

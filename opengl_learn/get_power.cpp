@@ -133,7 +133,7 @@ vector<ld> get(pair<int,int> left, pair<int,int> right, int cnt)
 
     return(vec);
 }
-
+/*
 void get_inf(int i, int j, int pi, int pj)
 {
     pred_[i][j]={pi,pj};
@@ -159,6 +159,12 @@ void get_inf(int i, int j, int pi, int pj)
     }
 
     good[i][j]=0;
+
+}
+*/
+
+void solve_pot(pair<int,int> u, double p)
+{
 
 }
 
@@ -254,18 +260,22 @@ void solve(vector<pair<int,int> > vec)
                 }
             }
     } else
-    for (auto u:vec)
     {
+        for (auto u:vec)
+            {
 
-        if (bad_R(object[u.fir][u.sec].R)) continue;
-        for (auto v:object[u.fir][u.sec].reb)
-        {
+                if (bad_R(object[u.fir][u.sec].R)) continue;
+                for (auto v:object[u.fir][u.sec].reb)
+                {
 
-            if (bad_R(object[v.fir][v.sec].R)) continue;
-            power[u.fir][u.sec][v.fir][v.sec]=res[nomb[u.fir][u.sec][v.fir][v.sec]];
-            potential[v.fir][v.sec]=potential[u.fir][u.sec]+power[u.fir][u.sec][v.fir][v.sec]*(object[u.fir][u.sec].R+object[v.fir][v.sec].R)/2.0;
-        }
+                    if (bad_R(object[v.fir][v.sec].R)) continue;
+                    power[u.fir][u.sec][v.fir][v.sec]=res[nomb[u.fir][u.sec][v.fir][v.sec]];
+                    potential[v.fir][v.sec]=potential[u.fir][u.sec]+power[u.fir][u.sec][v.fir][v.sec]*(object[u.fir][u.sec].R+object[v.fir][v.sec].R)/2.0;
+                }
+            }
+
     }
+
 }
 
 void dfs(int i, int j)

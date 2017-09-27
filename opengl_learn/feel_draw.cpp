@@ -180,11 +180,10 @@ void draw_feel()
             Figure now=Figure(mousex-10*scrol,mousex+10*scrol,
                           mousey-10*scrol,mousey+10*scrol,connection_point,0.2);
         now.draw_state();
-
     }
 
     if (mousex>left_menu_size && !something_taken && !taken_point && !line_mode_used && !delete_mode_used &&
-        !point_mode_used && !object_menu_used && !input_info_mode)
+        !point_mode_used && !object_menu_used && !input_info_mode && !U_ask_mode_used && !window_message)
         {
             pair<pair<int,int>,pair<int,int> > r={mp(0,0),mp(0,0)};
             for (int i=1;i<feel_size;i++)
@@ -227,4 +226,5 @@ void draw_left_menu()
     delete_mode.draw_state();
     undo_button.draw_state();
     redo_button.draw_state();
+    U_ask_mode.draw_state();
 }

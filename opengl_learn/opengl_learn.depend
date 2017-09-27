@@ -148,11 +148,11 @@
 1505488054 source:c:\users\Виктория\desktop\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506170207 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.cpp
+1506522588 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.cpp
 	"basik_classes.h"
 	"object_menu_reaction.h"
 
-1506170219 c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
+1506518754 c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
 1506154670 c:\users\admin\desktop\racoons\opengl_learn\includes.h
@@ -164,24 +164,24 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1506156063 c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
+1506522647 c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
-1506170219 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
+1506518754 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
-1506151942 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.cpp
+1506524005 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.cpp
 	"feel_draw.h"
 	"basik_classes.h"
 
-1506151942 c:\users\admin\desktop\racoons\opengl_learn\feel_draw.h
+1506522139 c:\users\admin\desktop\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1506151942 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.h
+1506522139 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1506169585 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.cpp
+1506518754 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.cpp
 	"feel_reaction.h"
 	"object_menu_reaction.h"
 	"get_power.h"
@@ -193,7 +193,7 @@
 1506169137 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.h
 	"includes.h"
 
-1506156063 source:c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
+1506522647 source:c:\users\admin\desktop\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
@@ -215,7 +215,7 @@
 1506151942 source:c:\users\admin\desktop\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506152447 source:c:\users\admin\desktop\racoons\opengl_learn\main.cpp
+1506523381 source:c:\users\admin\desktop\racoons\opengl_learn\main.cpp
 	"includes.h"
 	"load_textures.h"
 	"basik_classes.h"
@@ -227,6 +227,8 @@
 	"delete_mode_reaction.h"
 	"input_info.h"
 	"read_write.h"
+	"U_ask_mode.h"
+	"window_message.h"
 
 1506170732 c:\users\admin\desktop\racoons\opengl_learn\object_menu_reaction.h
 	"includes.h"
@@ -238,7 +240,7 @@
 	"includes.h"
 	"feel_reaction.h"
 
-1506151942 source:c:\users\admin\desktop\racoons\opengl_learn\delete_mode_reaction.cpp
+1506519518 source:c:\users\admin\desktop\racoons\opengl_learn\delete_mode_reaction.cpp
 	"delete_mode_reaction.h"
 
 1506151942 c:\users\admin\desktop\racoons\opengl_learn\get_power.h
@@ -271,7 +273,7 @@
 	"object_menu_reaction.h"
 	"feel_reaction.h"
 
-1506171380 source:c:\users\admin\desktop\racoons\opengl_learn\undo_redo.cpp
+1506521171 source:c:\users\admin\desktop\racoons\opengl_learn\undo_redo.cpp
 	"undo_redo.h"
 
 1506151942 c:\users\admin\desktop\racoons\opengl_learn\read_write.h
@@ -632,4 +634,17 @@
 1506151942 source:c:\users\admin\desktop\racoons\opengl_learn\undo_redo.h
 	"includes.h"
 	"get_power.h"
+
+1506523909 source:c:\users\admin\desktop\racoons\opengl_learn\u_ask_mode.cpp
+	"U_ask_mode.h"
+	"feel_draw.h"
+
+1506519304 c:\users\admin\desktop\racoons\opengl_learn\u_ask_mode.h
+	"includes.h"
+
+1506523118 c:\users\admin\desktop\racoons\opengl_learn\window_message.h
+	"includes.h"
+
+1506523851 source:c:\users\admin\desktop\racoons\opengl_learn\window_message.cpp
+	"window_message.h"
 

@@ -112,6 +112,7 @@ bool intersect(pair<int,int> p1, pair<int,int> p2, pair<int,int> p3, pair<int,in
     if ((area(p3,p1,p2)>0)==(area(p4,p1,p2)>0)) return(0);
     return(1);
 }
+
 bool can_delete(int i, int j)
 {
     if (object[i][j].f.tex!=connection_point) return(0);
