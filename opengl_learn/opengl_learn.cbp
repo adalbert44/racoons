@@ -83,6 +83,10 @@
 			<Option compile="1" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="main_menu.cpp" />
+		<Unit filename="main_menu.h">
+			<Option compile="1" />
+		</Unit>
 		<Unit filename="object_menu_draw.cpp" />
 		<Unit filename="object_menu_draw.h">
 			<Option compile="1" />
