@@ -11,7 +11,7 @@ bool to_start[30][30];
 
 pair<int,int> pred[30][30];
 
-bool bad_R(double u)
+bool bad_R(long double u)
 {
     return(u>1e8);
 }
@@ -263,13 +263,30 @@ void solve(vector<pair<int,int> > vec)
     {
         for (auto u:vec)
             {
-
                 if (bad_R(object[u.fir][u.sec].R)) continue;
                 for (auto v:object[u.fir][u.sec].reb)
                 {
 
                     if (bad_R(object[v.fir][v.sec].R)) continue;
+
                     power[u.fir][u.sec][v.fir][v.sec]=res[nomb[u.fir][u.sec][v.fir][v.sec]];
+                    if (check(object[u.fir][u.sec].f.tex) || check(object[v.fir][v.sec].f.tex))
+                    {
+                        ld pl=(object[u.fir][u.sec].R+object[v.fir][v.sec].R)/2.0;
+                        if (object[u.fir][u.sec].f.tex)
+                        {
+                            if (get_U(u,v)>0.0)
+                                pl=-pl;
+                        }
+
+                        if (object[v.fir][v.sec].f.tex)
+                        {
+                            if (get_U(v,u)<0.0)
+                                pl=-pl;
+                        }
+
+                        potential[v.fir][v.sec]=potential[u.fir][u.sec]+pl;
+                    } else
                     potential[v.fir][v.sec]=potential[u.fir][u.sec]+power[u.fir][u.sec][v.fir][v.sec]*(object[u.fir][u.sec].R+object[v.fir][v.sec].R)/2.0;
                 }
             }

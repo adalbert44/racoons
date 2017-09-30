@@ -1,14 +1,18 @@
 #include "U_ask_mode.h"
 #include "feel_draw.h"
+#include "get_power.h"
 
 bool use_[30][30];
 
 void dfs_(int a, int b)
 {
+
     if (use_[a][b]) return;
     use_[a][b]=1;
+    if (object[a][b].R>1e7) return;
     for (auto i:object[a][b].reb)
-        dfs_(i.fir,i.sec);
+        if (!(bad_R(power[a][b][i.fir][i.sec])) && !(object[i.fir][i.sec].R>1e7))
+            dfs_(i.fir,i.sec);
 }
 
 void write_res()
@@ -27,7 +31,6 @@ void write_res()
         window_message_write="U=";
         window_message_write+=parse_to_string(abs(vec[0]-vec[1]));
     }
-
 }
 
 void try_add(int x, int y)
@@ -38,13 +41,17 @@ void try_add(int x, int y)
     int cnt=0;
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
-        if (object[i][j].f.tex==choosen_point_tex)
         {
             use_[i][j]=0;
+            if (object[i][j].f.tex==choosen_point_tex)
+        {
+
             ii=i;
             jj=j;
             cnt++;
         }
+        }
+
 
     if (ii==-1)
     {
@@ -75,7 +82,6 @@ double dist_to_seg(double x1, double y1, double x2, double y2, double x3, double
 
 void U_ask_mouse_pressed_motion(double x1, double y1, double x2, double y2)
 {
-    //cout<<x1<<' '<<y1<<' '<<x2<<' '<<y2<<'\n';
     for (int i=1;i<feel_size;i++)
         for (int j=1;j<feel_size;j++)
         {

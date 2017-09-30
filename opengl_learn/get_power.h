@@ -4,6 +4,7 @@
     #include "includes.h"
 
     void solve();
+    bool bad_R(ld u);
 
 
 #endif // GET_POWER_H_INCLUDED

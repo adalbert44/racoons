@@ -96,6 +96,8 @@ Button line_mode;
 Button delete_mode;
 Button move_mode;
 Button point_mode;
+Button potential_mode;
+bool potential_mode_used=0;
 bool line_mode_used=0;
 bool point_mode_used=0;
 bool move_mode_used=0;

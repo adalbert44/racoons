@@ -172,6 +172,9 @@
     extern Button_do object_change_R;
     extern Button_do input_R_ok;
 
+    extern Button potential_mode;
+    extern bool potential_mode_used;
+
     extern Button U_ask_mode;
     extern bool U_ask_mode_used;
 

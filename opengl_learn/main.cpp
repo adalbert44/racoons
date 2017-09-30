@@ -11,6 +11,7 @@
 #include "read_write.h"
 #include "U_ask_mode.h"
 #include "window_message.h"
+#include "potential_mode.h"
 
 void Draw()
 {
@@ -161,6 +162,7 @@ void creat_feel()
     move_mode=Button(Figure(100,150,0,50,move_tex,1.0),{&move_mode_used});
     delete_mode=Button(Figure(150,200,0,50,delete_mode_tex,1.0),{&delete_mode_used});
     U_ask_mode=Button(Figure(200,250,0,50,delete_mode_tex,1.0),{&U_ask_mode_used});
+    potential_mode=Button(Figure(250,300,0,50,delete_mode_tex,1.0),{&potential_mode_used});
 
     undo_button=Button_do(Figure(0,50,0,50,undo_tex,1.0),&undo);
     redo_button=Button_do(Figure(50,100,0,50,redo_tex,1.0),&redo);
@@ -237,6 +239,13 @@ void mouse_pressed(int button, int state, int x, int y)
             window_message_reaction(button,state);
             return;
         }
+
+        if (potential_mode_used)
+        {
+            potential_mode_reaction(button,state);
+            return;
+        }
+
         if (input_info_mode)
         {
             input_info_mouse_pressed(button,state);
