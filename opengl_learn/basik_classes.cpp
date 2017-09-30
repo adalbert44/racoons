@@ -22,7 +22,21 @@ GLuint rotate_tex;
 GLuint ok_tex;
 GLuint bad_tex;
 bool window_message;
+bool in_main_menu=1;
 string window_message_write;
+Figure main_menu_background;
+Button_do lab;
+Button_do exit_h;
+Button_do photo;
+Button_do new_file;
+Button_do old_file;
+
+GLuint lab_tex;
+GLuint exit_tex;
+GLuint photo_tex;
+GLuint new_file_tex;
+GLuint old_file_tex;
+
 
 ld start[30][30][30][30];
 ld len[30][30][30][30];
@@ -38,6 +52,7 @@ Figure window_shade;
 Figure object_info;
 Figure input_info_background;
 Figure input_feel;
+Button_do exit_b;
 Button_do object_delete;
 Button_do object_rotate;
 Button_do input_ok;
@@ -63,7 +78,7 @@ int feel_size=30;
 double real_WinWid,real_WinHei;
 double scrol=1.0;
 double mousex=0.0, mousey=0.0;
-bool in_feel=1;
+bool in_feel=0;
 bool something_taken=0;
 bool direction=0;
 GLuint taken;

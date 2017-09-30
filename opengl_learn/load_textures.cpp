@@ -66,4 +66,11 @@ void load_all()
     close_hor=Load("textures/key_hor.png");
     close_ver=Load("textures/key_ver.png");
 
+    lab_tex=Load("textures/new.png");
+    exit_tex=Load("textures/exit.png");
+    photo_tex=Load("textures/new.png");
+    new_file_tex=Load("textures/new.png");
+    old_file_tex=Load("textures/new.png");
+
+
 }

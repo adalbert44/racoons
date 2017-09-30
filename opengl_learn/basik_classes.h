@@ -180,5 +180,20 @@
 
     extern bool input_R_used;
 
+    extern bool in_main_menu;
+
+    extern Figure main_menu_background;
+    extern Button_do lab;
+    extern Button_do exit_b;
+    extern Button_do photo;
+    extern Button_do new_file;
+    extern Button_do old_file;
+
+    extern GLuint lab_tex;
+    extern GLuint exit_tex;
+    extern GLuint photo_tex;
+    extern GLuint new_file_tex;
+    extern GLuint old_file_tex;
+
 
 #endif // BASIK_CLASSES_H_INCLUDED

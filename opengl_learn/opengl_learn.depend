@@ -148,11 +148,11 @@
 1505488054 source:c:\users\Виктория\desktop\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506756662 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.cpp
+1506782491 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.cpp
 	"basik_classes.h"
 	"object_menu_reaction.h"
 
-1506756676 c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
+1506781060 c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
 1506154670 c:\users\admin\desktop\racoons\opengl_learn\includes.h
@@ -168,7 +168,7 @@
 	"includes.h"
 	"basik_classes.h"
 
-1506756676 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
+1506781060 source:c:\users\admin\desktop\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
 1506778994 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.cpp
@@ -207,7 +207,7 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1506156098 source:c:\users\admin\desktop\racoons\opengl_learn\load_textures.cpp
+1506781011 source:c:\users\admin\desktop\racoons\opengl_learn\load_textures.cpp
 	"load_textures.h"
 
 1506151942 c:\users\admin\desktop\racoons\opengl_learn\load_textures.h
@@ -216,7 +216,7 @@
 1506151942 source:c:\users\admin\desktop\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506757396 source:c:\users\admin\desktop\racoons\opengl_learn\main.cpp
+1506782579 source:c:\users\admin\desktop\racoons\opengl_learn\main.cpp
 	"includes.h"
 	"load_textures.h"
 	"basik_classes.h"
@@ -231,6 +231,7 @@
 	"U_ask_mode.h"
 	"window_message.h"
 	"potential_mode.h"
+	"main_menu.h"
 
 1506170732 c:\users\admin\desktop\racoons\opengl_learn\object_menu_reaction.h
 	"includes.h"
@@ -665,9 +666,19 @@
 	"includes.h"
 	"element_type.h"
 
-1506779077 source:c:\users\admin\desktop\racoons\opengl_learn\potential_mode.cpp
+1506779155 source:c:\users\admin\desktop\racoons\opengl_learn\potential_mode.cpp
 	"potential_mode.h"
 
-1506778962 source:c:\users\admin\desktop\racoons\opengl_learn\potential_mode.h
+1506779175 source:c:\users\admin\desktop\racoons\opengl_learn\potential_mode.h
+	"includes.h"
+	"element_type.h"
+
+1506782855 source:c:\users\admin\desktop\racoons\opengl_learn\main_menu.cpp
+	"main_menu.h"
+
+1506782558 c:\users\admin\desktop\racoons\opengl_learn\main_menu.h
+	"includes.h"
+
+1506782558 source:c:\users\admin\desktop\racoons\opengl_learn\main_menu.h
 	"includes.h"
 

@@ -12,6 +12,7 @@
 #include "U_ask_mode.h"
 #include "window_message.h"
 #include "potential_mode.h"
+#include "main_menu.h"
 
 void Draw()
 {
@@ -28,6 +29,10 @@ void Draw()
             input_info_draw();
         if (window_message)
             window_message_draw();
+    } else
+    if (in_main_menu)
+    {
+        main_menu_draw();
     }
 
     glutSwapBuffers();
@@ -135,6 +140,18 @@ void skeyboard(int c, int x, int y)
 
 }
 
+void main_menu_create()
+{
+    main_menu_background=Figure(0,WinWid,0,WinHei,left_menu_background_tex,1.0);
+    ld midle=WinWid/2.0;
+
+    new_file=Button_do(Figure(midle-350,midle-100,200,400,new_file_tex,1.0),&create_new_file);
+    old_file=Button_do(Figure(midle+50,midle+300,200,400,new_file_tex,1.0),&create_new_file);
+    lab=Button_do(Figure(midle-350,midle-100,450,650,new_file_tex,1.0),&create_new_file);
+    photo=Button_do(Figure(midle+50,midle+300,450,650,new_file_tex,1.0),&create_new_file);
+    exit_b=Button_do(Figure(midle-350,midle+300,700,900,exit_tex,1.0),&exit_);
+}
+
 
 
 void creat_feel()
@@ -184,12 +201,15 @@ void creat_feel()
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 
     ld mx_power=0.001;
-
+    main_menu_create();
 
 }
 
+
+
 void Initialize(int w, int h)
 {
+    cout<<w<<' '<<h<<'\n';
     glViewport(0,0,w,h);
     real_WinWid=w;
     real_WinHei=h;
@@ -216,6 +236,11 @@ void mouse_pressed(int button, int state, int x, int y)
 {
     x/=kx;
     y/=ky;
+
+    if (in_main_menu)
+    {
+        main_menu_reaction(button,state);
+    }
 
     if (in_feel && U_ask_mode_used)
     {
@@ -354,9 +379,10 @@ int main(int argc, char** argv)
     glutMotionFunc(mouse_pressed_motion);
     glutPassiveMotionFunc(mouse_motion);
     glutFullScreen();
+
     creat_feel();
 
-	glutMainLoop();
+    glutMainLoop();
 
 	return 0;
 }
