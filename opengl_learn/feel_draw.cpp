@@ -216,13 +216,11 @@ void draw_feel()
 
 void draw_left_menu()
 {
-    //cout<<left_menu_background.y1<<' '<<left_menu_background.y2<<'\n';
     left_menu_background.draw_state();
     for (int i=0;i<7;i++)
     {
         left_menu_horizontal[i].draw_state();
         left_menu_vertical[i].draw_state();
-        //cout<<left_menu_vertical[i].tex<<'\n';
     }
     point_mode.draw_state();
     line_mode.draw_state();
@@ -232,4 +230,5 @@ void draw_left_menu()
     redo_button.draw_state();
     U_ask_mode.draw_state();
     potential_mode.draw_state();
+    save.draw_state();
 }

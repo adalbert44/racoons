@@ -293,8 +293,8 @@ void feel_mouse_pressed(int button, int state)
                     if (reostat(object[i][j].f.tex))
                         x=min(x,WinWid-425);
 
-                    object_info=Figure(x,x+200,y,y+75,left_menu_background_tex,1.0);
-
+                    object_info=Figure(x,x+200,y,y+75,main_menu_background.tex,1.0);
+                    //cout<<'@'<<left_menu_background_tex<<'\n';
                     object_delete=Button_do(Figure(x+200,x+275,y,y+75,delete_mode_tex,1.0),&object_delete_func);
                     object_rotate=Button_do(Figure(x+275,x+350,y,y+75,rotate_tex,1.0),&object_rotate_func);
 
@@ -382,6 +382,9 @@ void feel_mouse_pressed(int button, int state)
         }
 
         input_info_mode=1;
+        input_ok.to_do=&input_ok_do;
+        input_bad.to_do=&input_bad_do;
+
         something_taken=0;
 
         info_i=-1;
@@ -568,6 +571,12 @@ void left_menu_mouse_pressed(int button, int state)
         {
             redo_button.press_down();
             pressed_do=&redo_button;
+        }
+
+        if (save.f.in() && !line_mode_used && !point_mode_used && !move_mode_used)
+        {
+            save.press_down();
+            pressed_do=&save;
         }
 
 

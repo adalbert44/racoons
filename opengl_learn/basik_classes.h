@@ -194,6 +194,11 @@
     extern GLuint photo_tex;
     extern GLuint new_file_tex;
     extern GLuint old_file_tex;
+    extern string info_name;
+    extern string now_file_name;
+
+    extern bool input_text_mode;
+    extern Button_do save;
 
 
 #endif // BASIK_CLASSES_H_INCLUDED

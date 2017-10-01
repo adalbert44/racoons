@@ -1,6 +1,46 @@
 #include "read_write.h"
 #include <fstream>
 
+int save_do()
+{
+    write(now_file_name);
+}
+
+bool in_all_files(string st)
+{
+    ifstream in("all_files.txt");
+    bool ch=0;
+    while (in)
+    {
+        string s;
+        in>>s;
+        if (s==st) ch=1;
+    }
+    in.close();
+    return(ch);
+}
+
+void add_all_files(string st)
+{
+    ifstream in("all_files.txt");
+    bool ch=0;
+    vector<string> vec;
+    while (in)
+    {
+        string s;
+        in>>s;
+        vec.pb(s);
+    }
+    in.close();
+    vec.pb(st);
+
+
+    ofstream out("all_files.txt");
+    for (int i=0;i<vec.size();i++)
+        out<<vec[i]<<'\n';
+    out.close();
+}
+
 void read(string way)
 {
     way+=".ec";

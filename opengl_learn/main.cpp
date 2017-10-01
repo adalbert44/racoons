@@ -13,6 +13,7 @@
 #include "window_message.h"
 #include "potential_mode.h"
 #include "main_menu.h"
+#include "input_text.h"
 
 void Draw()
 {
@@ -41,6 +42,11 @@ void Draw()
 
 void keyboard(unsigned char c, int x, int y)
 {
+    if (input_text_mode)
+    {
+        input_text_keyboard(c);
+        return;
+    }
     if (object_menu_used)
     {
         object_menu_keyboard(c,x,y);
@@ -146,7 +152,7 @@ void main_menu_create()
     ld midle=WinWid/2.0;
 
     new_file=Button_do(Figure(midle-350,midle-100,200,400,new_file_tex,1.0),&create_new_file);
-    old_file=Button_do(Figure(midle+50,midle+300,200,400,new_file_tex,1.0),&create_new_file);
+    old_file=Button_do(Figure(midle+50,midle+300,200,400,new_file_tex,1.0),&load_old_file);
     lab=Button_do(Figure(midle-350,midle-100,450,650,new_file_tex,1.0),&create_new_file);
     photo=Button_do(Figure(midle+50,midle+300,450,650,new_file_tex,1.0),&create_new_file);
     exit_b=Button_do(Figure(midle-350,midle+300,700,900,exit_tex,1.0),&exit_);
@@ -173,8 +179,9 @@ void creat_feel()
         left_menu_vertical[i]=Figure(0,left_menu_size/2.0,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_vertical[i].tex,1.0);
 
     for (int i=0;i<7;i++)
-        left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
-    line_mode=Button(Figure(50,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
+    left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
+    line_mode=Button(Figure(100,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
+    save=Button_do(Figure(50,100,50,100,point_mode_tex,1.0),&save_do);
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
     move_mode=Button(Figure(100,150,0,50,move_tex,1.0),{&move_mode_used});
     delete_mode=Button(Figure(150,200,0,50,delete_mode_tex,1.0),{&delete_mode_used});
@@ -344,7 +351,7 @@ void mouse_motion(int x, int y)
 
 void redraw(int)
 {
-
+    //cout<<left_menu_background_tex<<' '<<in_main_menu<<'\n';
     //cout<<WinWid<<' '<<WinHei<<' '<<real_WinWid<<' '<<real_WinHei<<' '<<left_menu_horizontal[6].y2*ky<<'\n';
     glutPostRedisplay();
     glutTimerFunc(30,redraw,0);

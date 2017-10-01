@@ -1,9 +1,55 @@
 #include "main_menu.h"
 
-int create_new_file()
+int not_create()
 {
+    input_text_mode=0;
+    info_name="";
+}
+
+int create()
+{
+    if (in_all_files(info_name) || info_name=="")
+    {
+        ///message
+        return(0);
+    }
     in_feel=1;
     in_main_menu=0;
+    now_file_name=info_name;
+    add_all_files(info_name);
+    write(info_name);
+    info_name="";
+    input_text_mode=0;
+}
+
+int create_new_file()
+{
+    input_text_mode=1;
+    input_ok.to_do=&create;
+    input_bad.to_do=&not_create;
+}
+
+int load()
+{
+    if (!in_all_files(info_name) || info_name=="")
+    {
+        ///message
+        return(0);
+    }
+    in_feel=1;
+    in_main_menu=0;
+    now_file_name=info_name;
+    read(info_name);
+    info_name="";
+    input_text_mode=0;
+    solve();
+}
+
+int load_old_file()
+{
+    input_text_mode=1;
+    input_ok.to_do=&load;
+    input_bad.to_do=&not_create;
 }
 
 int exit_()
@@ -20,11 +66,20 @@ void main_menu_draw()
     lab.draw_state();
     photo.draw_state();
     exit_b.draw_state();
+
+    if (input_text_mode)
+        input_text_draw();
 }
 
 
 void main_menu_reaction(int button, int state)
 {
+    if (input_text_mode)
+    {
+        input_text_reaction(button,state);
+        return;
+    }
+
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
         if (new_file.f.in())
@@ -53,7 +108,6 @@ void main_menu_reaction(int button, int state)
             pressed_do=&exit_b;
         }
     }
-    //cout<<new_file.shade<<'\n';
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP)
     {
         if (pressed_do!=NULL)

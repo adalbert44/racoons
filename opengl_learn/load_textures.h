@@ -6,17 +6,5 @@
     void load_all();
     GLuint Load(std::string b);
 
-
-
-
-
-
-
-
-
-
-
-
-
 #endif // LOAD_TEXTURES_H_INCLUDED
 
