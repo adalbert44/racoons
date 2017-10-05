@@ -22,6 +22,34 @@ int create()
     input_text_mode=0;
 }
 
+void clear_feel()
+{
+    for (int i=1;i<feel_size;i++)
+        for (int j=1;j<feel_size;j++)
+        {
+            object[i][j].f.tex=empty_;
+            object[i][j].f.resize_(40);
+            object[i][j].reb.clear();
+            object[i][j].R=0;
+            object[i][j].U=0;
+            object[i][j].shade=0;
+        }
+}
+
+int create_lab()
+{
+    in_feel=1;
+    lab_mode_used=1;
+    in_main_menu=0;
+    info_name="lab_work";
+    now_file_name=info_name;
+    read(info_name);
+    info_name="";
+    clear_feel();
+    input_text_mode=0;
+    solve();
+}
+
 int create_new_file()
 {
     input_text_mode=1;

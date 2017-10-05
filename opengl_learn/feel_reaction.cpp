@@ -2,7 +2,7 @@
 #include "object_menu_reaction.h"
 #include "get_power.h"
 #include "element_type.h"
-
+#include "lab_mode.h"
 
 void del_events()
 {
@@ -260,6 +260,7 @@ void put_point(int i, int j)
 
 void feel_mouse_pressed(int button, int state)
 {
+    lab_mode_reaction(button,state);
     ///------------------------------------DOWN----------------------------------///
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && point_mode_used)
@@ -479,6 +480,8 @@ void feel_mouse_pressed(int button, int state)
 
 void left_menu_mouse_pressed(int button, int state)
 {
+    if (lab_mode_used)
+        lab_mode_reaction(button,state);
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
     {
         add_reb();

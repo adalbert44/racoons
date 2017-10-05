@@ -1,6 +1,7 @@
 #include "feel_draw.h"
 #include "basik_classes.h"
 #include "potential_mode.h"
+#include "lab_mode.h"
 
 const double pi=acos(-1);
 
@@ -212,6 +213,9 @@ void draw_feel()
 
     if (potential_mode_used)
         potential_mode_draw();
+
+    if (lab_mode_used)
+        lab_mode_draw();
 }
 
 void draw_left_menu()

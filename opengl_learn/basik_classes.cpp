@@ -122,6 +122,7 @@ bool move_mode_used=0;
 bool delete_mode_used=0;
 bool input_info_mode=0;
 bool input_text_mode=0;
+bool lab_mode_used=0;
 Button_do undo_button;
 Button_do redo_button;
 Button* pressed=NULL;
@@ -129,7 +130,7 @@ pair<int,int> choosen_object={-1,-1};
 bool object_menu_used=0;
 Button_do object_change_state;
 Button_do object_change_R;
-
+Button_do statement_show;
 string parse_to_string(double u)
 {
     u=abs(u);

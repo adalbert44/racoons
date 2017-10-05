@@ -188,6 +188,8 @@
     extern Button_do photo;
     extern Button_do new_file;
     extern Button_do old_file;
+    extern Button_do statement_show;
+    extern bool lab_mode_used;
 
     extern GLuint lab_tex;
     extern GLuint exit_tex;

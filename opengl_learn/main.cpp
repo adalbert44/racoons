@@ -14,6 +14,7 @@
 #include "potential_mode.h"
 #include "main_menu.h"
 #include "input_text.h"
+#include "lab_mode.h"
 
 void Draw()
 {
@@ -114,7 +115,11 @@ void keyboard(unsigned char c, int x, int y)
 
 void skeyboard(int c, int x, int y)
 {
-
+    if (input_text_mode)
+    {
+        input_text_skeyboard(c);
+        return;
+    }
     if (input_info_mode)
     {
         input_skeyboard(c);
@@ -153,7 +158,7 @@ void main_menu_create()
 
     new_file=Button_do(Figure(midle-350,midle-100,200,400,new_file_tex,1.0),&create_new_file);
     old_file=Button_do(Figure(midle+50,midle+300,200,400,new_file_tex,1.0),&load_old_file);
-    lab=Button_do(Figure(midle-350,midle-100,450,650,new_file_tex,1.0),&create_new_file);
+    lab=Button_do(Figure(midle-350,midle-100,450,650,new_file_tex,1.0),&create_lab);
     photo=Button_do(Figure(midle+50,midle+300,450,650,new_file_tex,1.0),&create_new_file);
     exit_b=Button_do(Figure(midle-350,midle+300,700,900,exit_tex,1.0),&exit_);
 }
@@ -204,6 +209,9 @@ void creat_feel()
     input_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,ok_tex,1.0),&input_ok_do);
     input_R_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,ok_tex,1.0),&change_R);
     input_bad=Button_do(Figure(w1+l,w1+2*l,WinHei-h1,WinHei-h1+100,bad_tex,1.0),&input_bad_do);
+
+    statement_show=Button_do(Figure(WinWid-100,WinWid-50,0,50,redo_tex,1.0),&show_statement);
+    cout<<statement_show.f.x1<<' '<<statement_show.f.x2<<'\n';
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 
@@ -387,7 +395,6 @@ int main(int argc, char** argv)
     glutPassiveMotionFunc(mouse_motion);
     glutFullScreen();
 
-    creat_feel();
 
     glutMainLoop();
 

@@ -78,6 +78,10 @@
 		<Unit filename="input_info.h">
 			<Option compile="1" />
 		</Unit>
+		<Unit filename="input_text.cpp" />
+		<Unit filename="input_text.h">
+			<Option compile="1" />
+		</Unit>
 		<Unit filename="load_textures.cpp" />
 		<Unit filename="load_textures.h">
 			<Option compile="1" />

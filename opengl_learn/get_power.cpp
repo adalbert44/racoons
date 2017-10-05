@@ -209,7 +209,6 @@ void solve(vector<pair<int,int> > vec)
 
     all.pop_back();
 
-
     for (auto u:vec)
     {
 

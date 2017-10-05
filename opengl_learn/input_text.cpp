@@ -60,3 +60,10 @@ void input_text_keyboard(char c)
     if (info_name.size()>15)
         info_name.pop_back();
 }
+
+void input_text_skeyboard(char c)
+{
+    if (c==GLUT_KEY_LEFT)
+        if (!info_name.empty())
+        info_name.pop_back();
+}

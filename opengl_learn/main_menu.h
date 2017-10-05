@@ -11,5 +11,6 @@
     int create_new_file();
     int load_old_file();
     int exit_();
+    int create_lab();
 
 #endif // MAIN_MENU_H_INCLUDED
