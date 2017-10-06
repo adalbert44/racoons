@@ -156,11 +156,11 @@ void main_menu_create()
     main_menu_background=Figure(0,WinWid,0,WinHei,left_menu_background_tex,1.0);
     ld midle=WinWid/2.0;
 
-    new_file=Button_do(Figure(midle-350,midle-100,200,400,new_file_tex,1.0),&create_new_file);
-    old_file=Button_do(Figure(midle+50,midle+300,200,400,new_file_tex,1.0),&load_old_file);
-    lab=Button_do(Figure(midle-350,midle-100,450,650,new_file_tex,1.0),&create_lab);
-    photo=Button_do(Figure(midle+50,midle+300,450,650,new_file_tex,1.0),&create_new_file);
-    exit_b=Button_do(Figure(midle-350,midle+300,700,900,exit_tex,1.0),&exit_);
+    new_file=Button_do(Figure(midle-200,midle,300,500,new_file_tex,1.0),&create_new_file);
+    old_file=Button_do(Figure(midle,midle+200,300,500,new_file_tex,1.0),&load_old_file);
+    lab=Button_do(Figure(midle-200,midle,500,700,new_file_tex,1.0),&create_lab);
+    photo=Button_do(Figure(midle,midle+200,500,700,new_file_tex,1.0),&create_new_file);
+    exit_b=Button_do(Figure(midle-200,midle+200,700,900,exit_tex,1.0),&exit_);
 }
 
 

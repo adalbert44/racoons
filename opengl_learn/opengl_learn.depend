@@ -463,14 +463,14 @@
 1505854290 source:c:\users\ivan_\onedrive\Документи\github\racoons\opengl_learn\read_write.cpp
 	"read_write.h"
 
-1506279024 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.cpp
+1507219222 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.cpp
 	"basik_classes.h"
 	"object_menu_reaction.h"
 
-1506279024 c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
+1507219222 c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
-1506279028 c:\users\user\documents\github\racoons\opengl_learn\includes.h
+1506166053 c:\users\user\documents\github\racoons\opengl_learn\includes.h
 	<bits/stdc++.h>
 	<time.h>
 	<cstdlib>
@@ -479,59 +479,62 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1506279027 c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
+1507136805 c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
-1506279030 c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.h
+1507136809 c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.h
 	"includes.h"
 	"delete_mode_reaction.h"
 	"element_type.h"
 	"input_info.h"
 
-1506279025 c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.h
+1506166037 c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.h
 	"includes.h"
 	"feel_reaction.h"
 
-1506279026 c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
+1507136804 c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
 	"includes.h"
 
-1506279024 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
+1507219222 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
-1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.cpp
+1507136803 source:c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.cpp
 	"delete_mode_reaction.h"
 
-1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.cpp
+1507219223 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.cpp
 	"feel_draw.h"
 	"basik_classes.h"
+	"potential_mode.h"
+	"lab_mode.h"
 
-1506279025 c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
+1507136803 c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
+1507136803 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1506279026 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.cpp
+1507219224 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.cpp
 	"feel_reaction.h"
 	"object_menu_reaction.h"
 	"get_power.h"
 	"element_type.h"
+	"lab_mode.h"
 
-1506279027 c:\users\user\documents\github\racoons\opengl_learn\get_power.h
+1507136805 c:\users\user\documents\github\racoons\opengl_learn\get_power.h
 	"includes.h"
 
-1506279026 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
+1507136804 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
 	"includes.h"
 
-1506279027 source:c:\users\user\documents\github\racoons\opengl_learn\get_power.cpp
+1507219225 source:c:\users\user\documents\github\racoons\opengl_learn\get_power.cpp
 	"get_power.h"
 
-1506279027 source:c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
+1507136805 source:c:\users\user\documents\github\racoons\opengl_learn\global_vars.h
 	"includes.h"
 	"basik_classes.h"
 
-1506279028 source:c:\users\user\documents\github\racoons\opengl_learn\includes.h
+1506166053 source:c:\users\user\documents\github\racoons\opengl_learn\includes.h
 	<bits/stdc++.h>
 	<time.h>
 	<cstdlib>
@@ -540,23 +543,23 @@
 	"global_vars.h"
 	"basik_classes.h"
 
-1506279028 source:c:\users\user\documents\github\racoons\opengl_learn\input_info.cpp
+1507136807 source:c:\users\user\documents\github\racoons\opengl_learn\input_info.cpp
 	"input_info.h"
 
-1506279029 c:\users\user\documents\github\racoons\opengl_learn\input_info.h
+1507136807 c:\users\user\documents\github\racoons\opengl_learn\input_info.h
 	"includes.h"
 	"feel_reaction.h"
 
-1506279029 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.cpp
+1507136807 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.cpp
 	"load_textures.h"
 
-1506279029 c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
+1507136807 c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506279029 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
+1507136807 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\main.cpp
+1507306527 source:c:\users\user\documents\github\racoons\opengl_learn\main.cpp
 	"includes.h"
 	"load_textures.h"
 	"basik_classes.h"
@@ -568,38 +571,44 @@
 	"delete_mode_reaction.h"
 	"input_info.h"
 	"read_write.h"
+	"U_ask_mode.h"
+	"window_message.h"
+	"potential_mode.h"
+	"main_menu.h"
+	"input_text.h"
+	"lab_mode.h"
 
-1506279030 c:\users\user\documents\github\racoons\opengl_learn\undo_redo.h
+1506166067 c:\users\user\documents\github\racoons\opengl_learn\undo_redo.h
 	"includes.h"
 	"get_power.h"
 
-1506279030 c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.h
+1507136809 c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.h
 	"includes.h"
 	"delete_mode_reaction.h"
 	"element_type.h"
 	"input_info.h"
 
-1506279030 c:\users\user\documents\github\racoons\opengl_learn\read_write.h
+1507136809 c:\users\user\documents\github\racoons\opengl_learn\read_write.h
 	"includes.h"
 
-1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.cpp
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.cpp
 	"object_menu_draw.h"
 
-1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.cpp
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.cpp
 	"object_menu_reaction.h"
 	"feel_reaction.h"
 
-1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\read_write.cpp
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\read_write.cpp
 	"read_write.h"
 	<fstream>
 
-1506279030 source:c:\users\user\documents\github\racoons\opengl_learn\undo_redo.cpp
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\undo_redo.cpp
 	"undo_redo.h"
 
-1506279025 c:\users\user\documents\github\racoons\opengl_learn\element_type.h
+1507136803 c:\users\user\documents\github\racoons\opengl_learn\element_type.h
 	"includes.h"
 
-1506279025 source:c:\users\user\documents\github\racoons\opengl_learn\element_type.cpp
+1507136803 source:c:\users\user\documents\github\racoons\opengl_learn\element_type.cpp
 	"element_type.h"
 
 1506085535 source:c:\users\admin\desktop\racoons\opengl_learn\element_type - Копія.cpp
@@ -708,5 +717,101 @@
 	"includes.h"
 
 1507212973 source:c:\users\admin\desktop\racoons\opengl_learn\lab_mode.h
+	"includes.h"
+
+1506166037 source:c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.h
+	"includes.h"
+	"feel_reaction.h"
+
+1507136803 source:c:\users\user\documents\github\racoons\opengl_learn\element_type.h
+	"includes.h"
+
+1507136809 c:\users\user\documents\github\racoons\opengl_learn\potential_mode.h
+	"includes.h"
+	"element_type.h"
+
+1507219227 c:\users\user\documents\github\racoons\opengl_learn\lab_mode.h
+	"includes.h"
+
+1507136805 source:c:\users\user\documents\github\racoons\opengl_learn\get_power.h
+	"includes.h"
+
+1507136807 source:c:\users\user\documents\github\racoons\opengl_learn\input_info.h
+	"includes.h"
+	"feel_reaction.h"
+
+1507219227 source:c:\users\user\documents\github\racoons\opengl_learn\input_text.cpp
+	"input_text.h"
+
+1507219227 c:\users\user\documents\github\racoons\opengl_learn\input_text.h
+	"includes.h"
+
+1507219227 source:c:\users\user\documents\github\racoons\opengl_learn\input_text.h
+	"includes.h"
+
+1507219227 source:c:\users\user\documents\github\racoons\opengl_learn\lab_mode.cpp
+	"lab_mode.h"
+
+1507136801 c:\users\user\documents\github\racoons\opengl_learn\u_ask_mode.h
+	"includes.h"
+	"get_power.h"
+
+1507136809 c:\users\user\documents\github\racoons\opengl_learn\window_message.h
+	"includes.h"
+
+1507219229 c:\users\user\documents\github\racoons\opengl_learn\main_menu.h
+	"includes.h"
+	"input_text.h"
+	"read_write.h"
+	"get_power.h"
+
+1507219229 source:c:\users\user\documents\github\racoons\opengl_learn\main_menu.cpp
+	"main_menu.h"
+
+1507219229 source:c:\users\user\documents\github\racoons\opengl_learn\main_menu.h
+	"includes.h"
+	"input_text.h"
+	"read_write.h"
+	"get_power.h"
+
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_draw.h
+	"includes.h"
+	"delete_mode_reaction.h"
+	"element_type.h"
+	"input_info.h"
+
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\object_menu_reaction.h
+	"includes.h"
+	"delete_mode_reaction.h"
+	"element_type.h"
+	"input_info.h"
+
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\potential_mode.cpp
+	"potential_mode.h"
+
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\potential_mode.h
+	"includes.h"
+	"element_type.h"
+
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\read_write.h
+	"includes.h"
+
+1507136801 source:c:\users\user\documents\github\racoons\opengl_learn\u_ask_mode.cpp
+	"U_ask_mode.h"
+	"feel_draw.h"
+	"get_power.h"
+
+1507136801 source:c:\users\user\documents\github\racoons\opengl_learn\u_ask_mode.h
+	"includes.h"
+	"get_power.h"
+
+1506166067 source:c:\users\user\documents\github\racoons\opengl_learn\undo_redo.h
+	"includes.h"
+	"get_power.h"
+
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\window_message.cpp
+	"window_message.h"
+
+1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\window_message.h
 	"includes.h"
 
