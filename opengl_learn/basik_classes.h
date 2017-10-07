@@ -19,9 +19,6 @@
         double x1,x2,y1,y2,alpha;
         GLuint tex;
 
-
- //       Figure a=Figure();
-
         Figure();
         Figure(double x1_, double x2_, double y1_, double y2_, GLuint tex_, double alpha);
         Figure(double x1_, double x2_, double y1_, double y2_, double alpha);
@@ -157,7 +154,7 @@
     extern Figure text_back_ground;
     extern bool choose_lab_mode;
     extern bool window_picture_used;
-    extern GLuint window_picture;
+    extern vector<Figure> window_picture;
     extern GLuint choose_lab_mode_tex[16];
 
     extern long double start[30][30][30][30];
@@ -182,8 +179,9 @@
     extern Button U_ask_mode;
     extern bool U_ask_mode_used;
     extern GLuint choose_lab_tex[16];
+    extern GLuint choose_labs_tex[16];
     extern Button_do choose_lab[16];
-
+    extern vector<long double> lab_ans[16];
     extern bool input_R_used;
 
     extern bool in_main_menu;

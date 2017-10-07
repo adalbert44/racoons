@@ -17,7 +17,7 @@ double kx;
 //GLuint key_close_vertical=Load("textures/key_ver.png");
 
 
-
+vector<ld> lab_ans[16];
 GLuint rotate_tex;
 GLuint ok_tex;
 GLuint bad_tex;
@@ -26,7 +26,7 @@ bool in_main_menu=1;
 bool window_picture_used;
 bool choose_lab_mode;
 int choosen_lab;
-GLuint window_picture;
+vector<Figure> window_picture;
 string window_message_write;
 Figure main_menu_background;
 Button_do lab;
@@ -43,6 +43,7 @@ GLuint photo_tex;
 GLuint new_file_tex;
 GLuint old_file_tex;
 GLuint choose_lab_tex[16];
+GLuint choose_labs_tex[16];
 
 
 ld start[30][30][30][30];

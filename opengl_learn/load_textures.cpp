@@ -87,8 +87,12 @@ void load_all()
         string way="textures/labs/lab";
         way+=parse(i+1);
         way+=".png";
-        //cout<<way<<'\n';
         choose_lab_tex[i]=Load(way);
+
+        way="textures/labs/labs";
+        way+=parse(i+1);
+        way+=".png";
+        choose_labs_tex[i]=Load(way);
     }
 
 }

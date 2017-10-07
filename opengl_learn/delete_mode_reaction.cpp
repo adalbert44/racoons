@@ -4,7 +4,7 @@
 
 void delete_mode_mouse_pressed(int button, int state)
 {
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
+        if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
         if (delete_mode.f.in())
         {
