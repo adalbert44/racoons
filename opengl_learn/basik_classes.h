@@ -155,6 +155,10 @@
     extern vector<vector<Event> > events;
     extern long double power[30][30][30][30];
     extern Figure text_back_ground;
+    extern bool choose_lab_mode;
+    extern bool window_picture_used;
+    extern GLuint window_picture;
+    extern GLuint choose_lab_mode_tex[16];
 
     extern long double start[30][30][30][30];
     extern long double len[30][30][30][30];
@@ -177,6 +181,8 @@
 
     extern Button U_ask_mode;
     extern bool U_ask_mode_used;
+    extern GLuint choose_lab_tex[16];
+    extern Button_do choose_lab[16];
 
     extern bool input_R_used;
 
@@ -190,7 +196,8 @@
     extern Button_do old_file;
     extern Button_do statement_show;
     extern bool lab_mode_used;
-
+    extern int choosen_lab;
+    extern Button_do back_to_main;
     extern GLuint lab_tex;
     extern GLuint exit_tex;
     extern GLuint photo_tex;

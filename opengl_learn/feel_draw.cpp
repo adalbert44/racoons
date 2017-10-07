@@ -216,6 +216,7 @@ void draw_feel()
 
     if (lab_mode_used)
         lab_mode_draw();
+    back_to_main.draw_state();
 }
 
 void draw_left_menu()

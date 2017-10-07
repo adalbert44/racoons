@@ -19,7 +19,17 @@ GLuint Load(std::string b)
 
 
 
-
+string parse(int u)
+{
+    string res="";
+    while (u!=0)
+    {
+        res+=u%10+'0';
+        u/=10;
+    }
+    reverse(res.begin(),res.end());
+    return(res);
+}
 
 
 
@@ -72,5 +82,13 @@ void load_all()
     new_file_tex=Load("textures/new.png");
     old_file_tex=Load("textures/new.png");
 
+    for (int i=0;i<16;i++)
+    {
+        string way="textures/labs/lab";
+        way+=parse(i+1);
+        way+=".png";
+        //cout<<way<<'\n';
+        choose_lab_tex[i]=Load(way);
+    }
 
 }

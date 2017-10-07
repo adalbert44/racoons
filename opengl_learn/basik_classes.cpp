@@ -23,6 +23,10 @@ GLuint ok_tex;
 GLuint bad_tex;
 bool window_message;
 bool in_main_menu=1;
+bool window_picture_used;
+bool choose_lab_mode;
+int choosen_lab;
+GLuint window_picture;
 string window_message_write;
 Figure main_menu_background;
 Button_do lab;
@@ -31,12 +35,14 @@ Button_do photo;
 Button_do new_file;
 Button_do old_file;
 Button_do save;
+Button_do back_to_main;
 
 GLuint lab_tex;
 GLuint exit_tex;
 GLuint photo_tex;
 GLuint new_file_tex;
 GLuint old_file_tex;
+GLuint choose_lab_tex[16];
 
 
 ld start[30][30][30][30];
@@ -59,6 +65,7 @@ Button_do object_rotate;
 Button_do input_ok;
 Button_do input_R_ok;
 Button_do input_bad;
+Button_do choose_lab[16];
 Button U_ask_mode;
 bool U_ask_mode_used;
 bool input_R_used;

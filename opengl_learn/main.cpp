@@ -158,7 +158,7 @@ void main_menu_create()
 
     new_file=Button_do(Figure(midle-200,midle,300,500,new_file_tex,1.0),&create_new_file);
     old_file=Button_do(Figure(midle,midle+200,300,500,new_file_tex,1.0),&load_old_file);
-    lab=Button_do(Figure(midle-200,midle,500,700,new_file_tex,1.0),&create_lab);
+    lab=Button_do(Figure(midle-200,midle,500,700,new_file_tex,1.0),&choose_lab_select);
     photo=Button_do(Figure(midle,midle+200,500,700,new_file_tex,1.0),&create_new_file);
     exit_b=Button_do(Figure(midle-200,midle+200,700,900,exit_tex,1.0),&exit_);
 }
@@ -185,6 +185,17 @@ void creat_feel()
 
     for (int i=0;i<7;i++)
     left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
+
+    ld www=WinWid/4.0;
+    ld hhh=WinHei/4.0;
+    for (int i=0;i<16;i++)
+    {
+        int x=i%4;
+        int y=i/4;
+        choose_lab[i]=Button_do(Figure(x*www+50,(x+1)*www-50,y*hhh+30,(y+1)*hhh-30,choose_lab_tex[i],1.0),&create_lab);
+    }
+
+
     line_mode=Button(Figure(100,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
     save=Button_do(Figure(50,100,50,100,point_mode_tex,1.0),&save_do);
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
@@ -210,14 +221,14 @@ void creat_feel()
     input_R_ok=Button_do(Figure(w1,w1+l,WinHei-h1,WinHei-h1+100,ok_tex,1.0),&change_R);
     input_bad=Button_do(Figure(w1+l,w1+2*l,WinHei-h1,WinHei-h1+100,bad_tex,1.0),&input_bad_do);
 
+    back_to_main=Button_do(Figure(WinWid-100,WinWid,WinHei-100,WinHei,empty_,1.0),&back_to_main_do);
+
     statement_show=Button_do(Figure(WinWid-100,WinWid-50,0,50,redo_tex,1.0),&show_statement);
-    cout<<statement_show.f.x1<<' '<<statement_show.f.x2<<'\n';
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 
     ld mx_power=0.001;
     main_menu_create();
-
 }
 
 
@@ -359,8 +370,6 @@ void mouse_motion(int x, int y)
 
 void redraw(int)
 {
-    //cout<<left_menu_background_tex<<' '<<in_main_menu<<'\n';
-    //cout<<WinWid<<' '<<WinHei<<' '<<real_WinWid<<' '<<real_WinHei<<' '<<left_menu_horizontal[6].y2*ky<<'\n';
     glutPostRedisplay();
     glutTimerFunc(30,redraw,0);
 }

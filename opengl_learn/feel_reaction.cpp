@@ -263,6 +263,7 @@ void feel_mouse_pressed(int button, int state)
     lab_mode_reaction(button,state);
     ///------------------------------------DOWN----------------------------------///
 
+
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && point_mode_used)
     {
         add_point();
@@ -271,6 +272,12 @@ void feel_mouse_pressed(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && !point_mode_used && !line_mode_used && !move_mode_used)
     {
+        if (back_to_main.f.in())
+        {
+            back_to_main.press_down();
+            pressed_do=&back_to_main;
+            return;
+        }
         for (int i=1;i<feel_size;i++)
             for (int j=1;j<feel_size;j++)
             {
@@ -480,6 +487,7 @@ void feel_mouse_pressed(int button, int state)
 
 void left_menu_mouse_pressed(int button, int state)
 {
+
     if (lab_mode_used)
         lab_mode_reaction(button,state);
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP && line_mode_used && pressed==NULL)
@@ -525,6 +533,12 @@ void left_menu_mouse_pressed(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
     {
+        if (back_to_main.f.in())
+        {
+            back_to_main.press_down();
+            pressed_do=&back_to_main;
+            return;
+        }
         if (line_mode.f.in() && !point_mode_used && !move_mode_used && !U_ask_mode_used)
         {
             line_mode.press_down();

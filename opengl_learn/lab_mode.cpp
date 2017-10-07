@@ -18,7 +18,6 @@ void lab_mode_reaction(int button, int state)
 
     if (button==GLUT_LEFT_BUTTON && state==GLUT_UP)
     {
-
         if (pressed_do!=NULL)
         {
             (*pressed_do).press_up();

@@ -1,4 +1,14 @@
 #include "main_menu.h"
+#include "choose_lab.h"
+
+int back_to_main_do()
+{
+    choose_lab_mode=0;
+    in_feel=0;
+    lab_mode_used=0;
+    in_main_menu=1;
+
+}
 
 int not_create()
 {
@@ -40,6 +50,7 @@ int create_lab()
 {
     in_feel=1;
     lab_mode_used=1;
+    choose_lab_mode=0;
     in_main_menu=0;
     info_name="lab_work";
     now_file_name=info_name;
@@ -48,6 +59,11 @@ int create_lab()
     clear_feel();
     input_text_mode=0;
     solve();
+}
+
+int choose_lab_select()
+{
+    choose_lab_mode=1;
 }
 
 int create_new_file()
@@ -88,6 +104,13 @@ int exit_()
 void main_menu_draw()
 {
     main_menu_background.draw_state();
+    if (choose_lab_mode)
+    {
+        choose_lab_draw();
+        return;
+    }
+
+
 
     new_file.draw_state();
     old_file.draw_state();
@@ -102,6 +125,12 @@ void main_menu_draw()
 
 void main_menu_reaction(int button, int state)
 {
+    if (choose_lab_mode)
+    {
+        choose_lab_reaction(button,state);
+        return;
+    }
+
     if (input_text_mode)
     {
         input_text_reaction(button,state);
