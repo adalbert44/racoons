@@ -183,7 +183,7 @@
 1506522139 source:c:\users\admin\desktop\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1507380095 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.cpp
+1507380520 source:c:\users\admin\desktop\racoons\opengl_learn\feel_reaction.cpp
 	"feel_reaction.h"
 	"object_menu_reaction.h"
 	"get_power.h"
@@ -686,7 +686,7 @@
 	"includes.h"
 	"element_type.h"
 
-1507380416 source:c:\users\admin\desktop\racoons\opengl_learn\main_menu.cpp
+1507380490 source:c:\users\admin\desktop\racoons\opengl_learn\main_menu.cpp
 	"main_menu.h"
 	"choose_lab.h"
 
