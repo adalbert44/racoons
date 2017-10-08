@@ -197,6 +197,7 @@
     extern int choosen_lab;
     extern Button_do back_to_main;
     extern GLuint lab_tex;
+    extern GLuint menu_background;
     extern GLuint exit_tex;
     extern GLuint photo_tex;
     extern GLuint new_file_tex;

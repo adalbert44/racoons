@@ -153,13 +153,13 @@ void skeyboard(int c, int x, int y)
 
 void main_menu_create()
 {
-    main_menu_background=Figure(0,WinWid,0,WinHei,left_menu_background_tex,1.0);
+    main_menu_background=Figure(0,WinWid,0,WinHei,menu_background,1.0);
     ld midle=WinWid/2.0;
 
     new_file=Button_do(Figure(midle-200,midle,300,500,new_file_tex,1.0),&create_new_file);
-    old_file=Button_do(Figure(midle,midle+200,300,500,new_file_tex,1.0),&load_old_file);
-    lab=Button_do(Figure(midle-200,midle,500,700,new_file_tex,1.0),&choose_lab_select);
-    photo=Button_do(Figure(midle,midle+200,500,700,new_file_tex,1.0),&create_new_file);
+    old_file=Button_do(Figure(midle,midle+200,300,500,old_file_tex,1.0),&load_old_file);
+    lab=Button_do(Figure(midle-200,midle,500,700,lab_tex,1.0),&choose_lab_select);
+    photo=Button_do(Figure(midle,midle+200,500,700,photo_tex,1.0),&create_new_file);
     exit_b=Button_do(Figure(midle-200,midle+200,700,900,exit_tex,1.0),&exit_);
 }
 
@@ -178,13 +178,13 @@ void creat_feel()
         for (int j=1;j<feel_size;j++)
             object[i][j]=Circle_element(i*feel_seg_size,j*feel_seg_size);
 
-    left_menu_background=Figure(0,left_menu_size,0,WinHei,left_menu_background_tex,1.0);
+    left_menu_background=Figure(0,left_menu_size+20,0,WinHei,left_menu_background_tex,1.0);
 
     for (int i=0;i<7;i++)
         left_menu_vertical[i]=Figure(0,left_menu_size/2.0,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_vertical[i].tex,1.0);
 
     for (int i=0;i<7;i++)
-    left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
+    left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size+20,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
 
     ld www=WinWid/4.0;
     ld hhh=WinHei/4.0;
@@ -192,11 +192,11 @@ void creat_feel()
     {
         int x=i%4;
         int y=i/4;
-        choose_lab[i]=Button_do(Figure(x*www+50,(x+1)*www-50,y*hhh+30,(y+1)*hhh-30,choose_lab_tex[i],1.0),&create_lab);
+        choose_lab[i]=Button_do(Figure(x*www,(x+1)*www,y*hhh,(y+1)*hhh,choose_lab_tex[i],1.0),&create_lab);
     }
 
 
-    line_mode=Button(Figure(100,left_menu_size,50,100,line_mode_tex,1.0),{&line_mode_used});
+    line_mode=Button(Figure(100,left_menu_size+20,50,100,line_mode_tex,1.0),{&line_mode_used});
     save=Button_do(Figure(50,100,50,100,point_mode_tex,1.0),&save_do);
     point_mode=Button(Figure(0,50,50,100,point_mode_tex,1.0),{&point_mode_used});
     move_mode=Button(Figure(100,150,0,50,move_tex,1.0),{&move_mode_used});

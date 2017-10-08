@@ -36,9 +36,9 @@
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="glut32" />
-			<Add library="libs\DevIL.lib" />
-			<Add library="libs\ILU.lib" />
-			<Add library="libs\ILUT.lib" />
+			<Add library="libs/DevIL.lib" />
+			<Add library="libs/ILU.lib" />
+			<Add library="libs/ILUT.lib" />
 		</Linker>
 		<Unit filename="U_ask_mode.cpp" />
 		<Unit filename="U_ask_mode.h">
@@ -48,6 +48,8 @@
 		<Unit filename="basik_classes.h">
 			<Option compile="1" />
 		</Unit>
+		<Unit filename="choose_lab.cpp" />
+		<Unit filename="choose_lab.h" />
 		<Unit filename="delete_mode_reaction.cpp" />
 		<Unit filename="delete_mode_reaction.h">
 			<Option compile="1" />
@@ -82,6 +84,8 @@
 		<Unit filename="input_text.h">
 			<Option compile="1" />
 		</Unit>
+		<Unit filename="lab_mode.cpp" />
+		<Unit filename="lab_mode.h" />
 		<Unit filename="load_textures.cpp" />
 		<Unit filename="load_textures.h">
 			<Option compile="1" />

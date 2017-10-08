@@ -2,11 +2,6 @@
 
 GLuint Load(std::string b)
 {
-
-
-
-
-
     GLuint temp = ilLoadImage(b.data());
     glGenTextures(1, &temp);
     glBindTexture (GL_TEXTURE_2D, temp);
@@ -16,8 +11,6 @@ GLuint Load(std::string b)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     return temp;
 }
-
-
 
 string parse(int u)
 {
@@ -30,8 +23,6 @@ string parse(int u)
     reverse(res.begin(),res.end());
     return(res);
 }
-
-
 
 void load_all()
 {
@@ -71,21 +62,23 @@ void load_all()
     ok_tex=Load("textures/ok_button_tex.png");
     bad_tex=Load("textures/bad_button_tex.png");
     info_background=Load("textures/info_background.png");
+    menu_background=Load("textures/menu_background.png");
 
     text_line=Load("textures/text_line.png");
     close_hor=Load("textures/key_hor.png");
     close_ver=Load("textures/key_ver.png");
 
-    lab_tex=Load("textures/new.png");
-    exit_tex=Load("textures/exit.png");
-    photo_tex=Load("textures/new.png");
-    new_file_tex=Load("textures/new.png");
-    old_file_tex=Load("textures/new.png");
+    lab_tex=Load("textures/lab_tex.png");
+    exit_tex=Load("textures/exit_tex.png");
+    photo_tex=Load("textures/photo_tex.png");
+    new_file_tex=Load("textures/new_file_tex.png");
+    old_file_tex=Load("textures/old_file_tex.png");
 
     for (int i=0;i<16;i++)
     {
         string way="textures/labs/lab";
-        way+=parse(i+1);
+        if (i<13) way+=parse(i+1); else
+            way +=parse(1);
         way+=".png";
         choose_lab_tex[i]=Load(way);
 

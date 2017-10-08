@@ -37,6 +37,7 @@ Button_do old_file;
 Button_do save;
 Button_do back_to_main;
 
+GLuint menu_background;
 GLuint lab_tex;
 GLuint exit_tex;
 GLuint photo_tex;

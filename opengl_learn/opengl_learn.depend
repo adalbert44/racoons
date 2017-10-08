@@ -463,11 +463,11 @@
 1505854290 source:c:\users\ivan_\onedrive\Документи\github\racoons\opengl_learn\read_write.cpp
 	"read_write.h"
 
-1507219222 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.cpp
+1507449830 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.cpp
 	"basik_classes.h"
 	"object_menu_reaction.h"
 
-1507219222 c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
+1507449830 c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
 1506166053 c:\users\user\documents\github\racoons\opengl_learn\includes.h
@@ -496,13 +496,13 @@
 1507136804 c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.h
 	"includes.h"
 
-1507219222 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
+1507449830 source:c:\users\user\documents\github\racoons\opengl_learn\basik_classes.h
 	"includes.h"
 
-1507136803 source:c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.cpp
+1507448909 source:c:\users\user\documents\github\racoons\opengl_learn\delete_mode_reaction.cpp
 	"delete_mode_reaction.h"
 
-1507219223 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.cpp
+1507448909 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.cpp
 	"feel_draw.h"
 	"basik_classes.h"
 	"potential_mode.h"
@@ -514,7 +514,7 @@
 1507136803 source:c:\users\user\documents\github\racoons\opengl_learn\feel_draw.h
 	"includes.h"
 
-1507219224 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.cpp
+1507448912 source:c:\users\user\documents\github\racoons\opengl_learn\feel_reaction.cpp
 	"feel_reaction.h"
 	"object_menu_reaction.h"
 	"get_power.h"
@@ -550,7 +550,7 @@
 	"includes.h"
 	"feel_reaction.h"
 
-1507136807 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.cpp
+1507463475 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.cpp
 	"load_textures.h"
 
 1507136807 c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
@@ -559,7 +559,7 @@
 1507136807 source:c:\users\user\documents\github\racoons\opengl_learn\load_textures.h
 	"includes.h"
 
-1507306527 source:c:\users\user\documents\github\racoons\opengl_learn\main.cpp
+1507455130 source:c:\users\user\documents\github\racoons\opengl_learn\main.cpp
 	"includes.h"
 	"load_textures.h"
 	"basik_classes.h"
@@ -750,7 +750,7 @@
 1507219227 source:c:\users\user\documents\github\racoons\opengl_learn\input_text.h
 	"includes.h"
 
-1507219227 source:c:\users\user\documents\github\racoons\opengl_learn\lab_mode.cpp
+1507448921 source:c:\users\user\documents\github\racoons\opengl_learn\lab_mode.cpp
 	"lab_mode.h"
 
 1507136801 c:\users\user\documents\github\racoons\opengl_learn\u_ask_mode.h
@@ -760,16 +760,17 @@
 1507136809 c:\users\user\documents\github\racoons\opengl_learn\window_message.h
 	"includes.h"
 
-1507219229 c:\users\user\documents\github\racoons\opengl_learn\main_menu.h
+1507448924 c:\users\user\documents\github\racoons\opengl_learn\main_menu.h
 	"includes.h"
 	"input_text.h"
 	"read_write.h"
 	"get_power.h"
 
-1507219229 source:c:\users\user\documents\github\racoons\opengl_learn\main_menu.cpp
+1507448924 source:c:\users\user\documents\github\racoons\opengl_learn\main_menu.cpp
 	"main_menu.h"
+	"choose_lab.h"
 
-1507219229 source:c:\users\user\documents\github\racoons\opengl_learn\main_menu.h
+1507448924 source:c:\users\user\documents\github\racoons\opengl_learn\main_menu.h
 	"includes.h"
 	"input_text.h"
 	"read_write.h"
@@ -810,7 +811,7 @@
 	"includes.h"
 	"get_power.h"
 
-1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\window_message.cpp
+1507448925 source:c:\users\user\documents\github\racoons\opengl_learn\window_message.cpp
 	"window_message.h"
 
 1507136809 source:c:\users\user\documents\github\racoons\opengl_learn\window_message.h
@@ -824,4 +825,10 @@
 
 1507377740 source:c:\users\admin\desktop\racoons\opengl_learn\choose_lab.h
 	"includes.h"
+
+1507448909 c:\users\user\documents\github\racoons\opengl_learn\choose_lab.h
+	"includes.h"
+
+1507448909 source:c:\users\user\documents\github\racoons\opengl_learn\choose_lab.cpp
+	"choose_lab.h"
 
