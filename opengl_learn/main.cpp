@@ -184,7 +184,7 @@ void creat_feel()
         left_menu_vertical[i]=Figure(0,left_menu_size/2.0,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_vertical[i].tex,1.0);
 
     for (int i=0;i<7;i++)
-    left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size+20,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
+        left_menu_horizontal[i]=Figure(left_menu_size/2.0,left_menu_size+20,100+i*(WinHei-100)/7.0,100+(i+1)*(WinHei-100)/7.0,left_menu_horizontal[i].tex,1.0);
 
     ld www=WinWid/4.0;
     ld hhh=WinHei/4.0;
@@ -223,19 +223,23 @@ void creat_feel()
 
     back_to_main=Button_do(Figure(WinWid-100,WinWid,WinHei-100,WinHei,empty_,1.0),&back_to_main_do);
 
-    statement_show=Button_do(Figure(WinWid-100,WinWid-50,0,50,redo_tex,1.0),&show_statement);
+    statement_show=Button_do(Figure(WinWid-100,WinWid-50,50,100,redo_tex,1.0),&show_statement);
+    answer_lab=Button_do(Figure(WinWid-100,WinWid-50,150,200,redo_tex,1.0),&read_anses);
 
     window_shade=Figure(0,WinWid,0,WinHei,window_shade.tex,0.0);
 
     ld mx_power=0.001;
     main_menu_create();
+
+    for (int i=0;i<16;i++)
+        lab_ans[i].pb(0);
 }
 
 
 
 void Initialize(int w, int h)
 {
-    cout<<w<<' '<<h<<'\n';
+    //cout<<w<<' '<<h<<'\n';
     glViewport(0,0,w,h);
     real_WinWid=w;
     real_WinHei=h;

@@ -204,6 +204,8 @@
     extern GLuint old_file_tex;
     extern string info_name;
     extern string now_file_name;
+    extern Button_do answer_lab;
+    extern int last_ans;
 
     extern bool input_text_mode;
     extern Button_do save;

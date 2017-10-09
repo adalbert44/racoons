@@ -52,6 +52,7 @@ int create_lab()
     lab_mode_used=1;
     choose_lab_mode=0;
     in_main_menu=0;
+    last_ans=0;
     info_name="lab_work";
     now_file_name=info_name;
     read(info_name);

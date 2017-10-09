@@ -26,6 +26,7 @@ bool in_main_menu=1;
 bool window_picture_used;
 bool choose_lab_mode;
 int choosen_lab;
+int last_ans;
 vector<Figure> window_picture;
 string window_message_write;
 Figure main_menu_background;
@@ -36,6 +37,7 @@ Button_do new_file;
 Button_do old_file;
 Button_do save;
 Button_do back_to_main;
+Button_do answer_lab;
 
 GLuint menu_background;
 GLuint lab_tex;

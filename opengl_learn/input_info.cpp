@@ -70,6 +70,24 @@ int input_ok_do()
     input_info_mode=0;
 }
 
+int check_anses()
+{
+    ld now=parse_to_double(info_zn);
+    if (abs(now-lab_ans[choosen_lab][last_ans])<1e-4)
+    {
+        last_ans++;
+        last_ans%=lab_ans[choosen_lab].size();
+        window_message_write="TRUE";
+        window_message=1;
+    } else
+    {
+        window_message_write="FALSE";
+        window_message=1;
+    }
+    info_zn="0";
+    input_info_mode=0;
+}
+
 int input_bad_do()
 {
     input_info_mode=0;
