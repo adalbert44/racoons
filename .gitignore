@@ -1,14 +1,2 @@
-
-*.gch
-*.gch
-*.o
-opengl_learn/obj/Debug/input_info.o
-opengl_learn/obj/Debug/input_info.o
-opengl_learn/obj/Debug/feel_reaction.o
-opengl_learn/obj/Debug/feel_draw.o
-opengl_learn/obj/Debug/basik_classes.o
-opengl_learn/load_textures.h.gch
-opengl_learn/includes.h.gch
-opengl_learn/global_vars.h.gch
-opengl_learn/feel_reaction.h.gch
-opengl_learn/feel_draw.h.gch
+opengl_learn/bin/
+opengl_learn/obj/
